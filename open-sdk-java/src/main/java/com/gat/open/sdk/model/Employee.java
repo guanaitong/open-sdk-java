@@ -1,9 +1,13 @@
 package com.gat.open.sdk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by xin.hua on 2017/7/19.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
+    private String dept_name;
     private String corp_code;
     private String name;
     private int gender;
@@ -113,10 +117,19 @@ public class Employee {
         this.time_active = time_active;
     }
 
+    public String getDept_name() {
+        return dept_name;
+    }
+
+    public void setDept_name(String dept_name) {
+        this.dept_name = dept_name;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
-                "corp_code='" + corp_code + '\'' +
+                "dept_name='" + dept_name + '\'' +
+                ", corp_code='" + corp_code + '\'' +
                 ", name='" + name + '\'' +
                 ", gender=" + gender +
                 ", card_type=" + card_type +

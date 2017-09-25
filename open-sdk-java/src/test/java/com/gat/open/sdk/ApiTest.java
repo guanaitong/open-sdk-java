@@ -17,7 +17,7 @@ public class ApiTest extends TestCase {
     private GATOpen gatOpen;
 
     protected void setUp(){
-        gatOpen = new GATOpen("20110634", "59d541d4255bfd9958431bd0dad45b59","http://openapi.guanaitong.dev");
+        gatOpen = new GATOpen("20110638", "6a90df207ba38c7085d34872e4ca96af","http://openapi.guanaitong.dev");
     }
 
     public void testToken(){
@@ -34,12 +34,12 @@ public class ApiTest extends TestCase {
     }
 
     public void testEmployee(){
-        ApiResponse<Employee> employee = gatOpen.getEmployee("OP020430");
+        ApiResponse<Employee> employee = gatOpen.getEmployee("SX011111");
         Assert.assertNotNull(employee);
-        System.out.println(gatOpen.batchEmployee(1,14));
-        System.out.println(gatOpen.accountEmployee("OP020430"));
-        System.out.println(gatOpen.resignEmployee("OP020430"));
-        System.out.println(gatOpen.restoreEmployee("OP020430"));
+//        System.out.println(gatOpen.batchEmployee(1,14));
+//        System.out.println(gatOpen.accountEmployee("OP020430"));
+//        System.out.println(gatOpen.resignEmployee("OP020430"));
+//        System.out.println(gatOpen.restoreEmployee("OP020430"));
         System.out.println(employee);
     }
 
