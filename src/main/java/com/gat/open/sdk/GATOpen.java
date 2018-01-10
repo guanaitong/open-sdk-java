@@ -11,6 +11,7 @@ import retrofit2.Call;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xin.hua
@@ -274,6 +275,7 @@ public class GATOpen {
         Call<ApiResponse<List<EmployeeAccount>>> call = employeeApi.accountEmployee(corpCode);
         return CallUtil.execute(call);
     }
+
     // ==== 信任登陆接口 ====
 
     /**
@@ -300,6 +302,41 @@ public class GATOpen {
         return CallUtil.execute(call);
     }
 
+    // ==== 部门相关接口 ====
+
+    /**
+     * @param deptCode
+     * @return
+     */
+    public ApiResponse<Map<String, Object>> getHierarchy(String deptCode) {
+        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        Call<ApiResponse<Map<String, Object>>> call = departmentApi.getHierarchy(deptCode);
+        return CallUtil.execute(call);
+    }
+
+    public ApiResponse<Department> getDepartment(String deptCode) {
+        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        Call<ApiResponse<Department>> call = departmentApi.getDepartment(deptCode);
+        return CallUtil.execute(call);
+    }
+
+    public ApiResponse<String> addDepartment(Department department) {
+        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        Call<ApiResponse<String>> call = departmentApi.addDepartment(department.getDept_Code(), department.getParent_code(), department.getName(), department.getStatus());
+        return CallUtil.execute(call);
+    }
+
+    public ApiResponse<String> updateDepartment(Department department) {
+        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        Call<ApiResponse<String>> call = departmentApi.updateDepartment(department.getDept_Code(), department.getParent_code(), department.getName(), department.getStatus(), department.getManager_code());
+        return CallUtil.execute(call);
+    }
+
+    public ApiResponse<String> deleteDepartment(String deptCode) {
+        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        Call<ApiResponse<String>> call = departmentApi.deleteDepartment(deptCode);
+        return CallUtil.execute(call);
+    }
 
     // ====  帮助接口 ====
 
