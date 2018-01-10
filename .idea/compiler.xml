@@ -10,7 +10,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="open-sdk" target="1.5" />
       <module name="open-sdk-java" target="1.8" />
     </bytecodeTargetLevel>
   </component>
