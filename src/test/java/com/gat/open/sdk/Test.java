@@ -34,7 +34,7 @@ public class Test {
 
         // 有则添加到url中无则不需要添加
         // url记得urlEncode
-        String redirectUrl = "";
+        String redirectUrl = "https://mobile.guanaitong.com/index.php?wxA=Enterprise.home";
 
         Map<String, Object> params = new HashMap<String, Object>(4);
         params.put("access_token", accessToken);

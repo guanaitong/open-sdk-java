@@ -11,7 +11,9 @@ import com.gat.open.sdk.util.RetrofitFactory;
 
 /**
  * 验证Token以及刷新token
- * Created by xin.hua on 2017/7/18.
+ *
+ * @author xin.hua
+ * @date 2017/7/18
  */
 public class GATTokenService {
 
@@ -34,8 +36,9 @@ public class GATTokenService {
     }
 
     public static String getGatToken() {
-        if (!isValid())
+        if (!isValid()) {
             refreshToken();
+        }
         return gatToken.accessToken;
     }
 

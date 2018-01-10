@@ -1,10 +1,8 @@
 package com.gat.open.sdk;
 
 
-import com.ciicgat.open.sdk.api.*;
 import com.gat.open.sdk.api.*;
 import com.gat.open.sdk.constant.GATOpenConstant;
-import com.ciicgat.open.sdk.model.*;
 import com.gat.open.sdk.model.*;
 import com.gat.open.sdk.model.bo.EmployeeBO;
 import com.gat.open.sdk.util.CallUtil;
