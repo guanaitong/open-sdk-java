@@ -8,7 +8,7 @@
 
     <groupId>com.ciicgat.open</groupId>
     <artifactId>open-sdk-java</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>open-sdk-java</name>
@@ -71,7 +71,7 @@
                 <version>2.3.2</version>
                 <configuration>
                     <source>1.8</source>
-                    <target>1.8</target>
+                    <target>1.7</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
