@@ -1,93 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf905dab-63b0-4e0a-9e11-1ac7fdac338f" name="Default" comment="修改代码">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/DepartmentApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/exception/OpenSdkException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/Department.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/Limit.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/bo/EmployeeBO.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/ciicgat/open/sdk/Test.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_logging_interceptor_3_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_logging_interceptor_3_8_1.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_8_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_13_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_13_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_converter_jackson_2_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_converter_jackson_2_3_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_retrofit_2_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_retrofit2_retrofit_2_3_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="cf905dab-63b0-4e0a-9e11-1ac7fdac338f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/open-sdk-java.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/GATOpen.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/GATOpen.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/annotation/Valid.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/annotation/Valid.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/annotation/ValidGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/annotation/ValidGroup.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/api/EmployeeApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/EmployeeApi.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/api/EnterpriseApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/EnterpriseApi.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/api/HelperApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/HelperApi.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/api/LoginApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/LoginApi.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/api/TokenApi.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/api/TokenApi.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/constant/GATOpenConstant.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/constant/GATOpenConstant.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/exception/GATException.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/exception/GATException.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/exception/GATIllegalArgumentException.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/exception/GATIllegalArgumentException.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/ApiResponse.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/ApiResponse.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/BatchModel.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/BatchModel.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/Employee.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/EmployeeAccount.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/EmployeeAccount.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/EnterpriseAccount.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/EnterpriseAccount.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/LimitStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/LimitStatus.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/PointStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/PointStatus.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/model/Token.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/model/Token.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/service/GATTokenService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/service/GATTokenService.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/CallUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/CallUtil.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/ParamValidator.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/ParamValidator.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/ProxyFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/ProxyFactory.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/RetrofitFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/RetrofitFactory.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/RetrofitIntercepter.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/RetrofitIntercepter.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/RetrofitInvocationHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/RetrofitInvocationHandler.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/main/java/com/gat/open/sdk/util/SignUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/ciicgat/open/sdk/util/SignUtil.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/src/test/java/com/gat/open/sdk/ApiTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/ciicgat/open/sdk/ApiTest.java" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/GATOpen.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/annotation/Valid.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/annotation/ValidGroup.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/api/EmployeeApi.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/api/EnterpriseApi.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/api/HelperApi.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/api/LoginApi.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/api/TokenApi.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/constant/GATOpenConstant.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/exception/GATException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/exception/GATIllegalArgumentException.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/ApiResponse.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/BatchModel.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/Employee.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/EmployeeAccount.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/EnterpriseAccount.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/LimitStatus.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/PointStatus.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/model/Token.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/service/GATTokenService$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/service/GATTokenService$GATToken.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/service/GATTokenService.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/CallUtil.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/ParamValidator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/ProxyFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/RetrofitFactory$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/RetrofitFactory$Instance.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/RetrofitFactory.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/RetrofitIntercepter.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/RetrofitInvocationHandler.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/classes/com/gat/open/sdk/util/SignUtil.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/open-sdk-java/target/test-classes/com/gat/open/sdk/ApiTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,41 +13,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ApiTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/ciicgat/open/sdk/ApiTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/ciicgat/open/sdk/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="develop" repo="$PROJECT_DIR$" source="develop" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -405,16 +292,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1515553083313</updated>
-      <workItem from="1515553084601" duration="118000" />
+      <workItem from="1515553084601" duration="218000" />
     </task>
+    <task id="LOCAL-00001" summary="提交代码">
+      <created>1515553232405</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1515553232405</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118000" />
+    <option name="totallyTimeSpent" value="218000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -429,7 +323,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -450,6 +344,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="提交代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
