@@ -1,5 +1,3 @@
-gat-logs
-logs
 # maven ignore
 target/
 *.jar
@@ -20,6 +18,8 @@ target/
 *.iws
 
 # temp ignore
+gat-logs
+logs
 *.log
 *.cache
 *.diff
