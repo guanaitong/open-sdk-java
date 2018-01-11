@@ -90,10 +90,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
-                        <phase>package</phase> <!-- append to the packaging phase. -->
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>attached</goal> <!-- goals == mojos -->
+                            <goal>attached</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -112,24 +112,11 @@
         </plugins>
     </build>
 
-    <!--<distributionManagement>-->
-    <!--<repository>-->
-    <!--<id>releases</id>-->
-    <!--<name>Nexus Release Repository</name>-->
-    <!--<url>http://maven.youjie.com/content/repositories/releases/</url>-->
-    <!--</repository>-->
-    <!--<snapshotRepository>-->
-    <!--<id>snapshots</id>-->
-    <!--<name>Nexus Snapshot Repository</name>-->
-    <!--<url>http://maven.youjie.com/content/repositories/snapshots/</url>-->
-    <!--</snapshotRepository>-->
-    <!--</distributionManagement>-->
-
-    <!-- 代码库 -->
+    <!-- 架包仓库地址 -->
     <repositories>
         <repository>
             <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
