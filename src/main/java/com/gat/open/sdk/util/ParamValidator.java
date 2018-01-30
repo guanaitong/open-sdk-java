@@ -51,7 +51,7 @@ public class ParamValidator {
         if (mobile.length() > 11) {
             return false;
         }
-        return mobile.matches("^1(3|4|5|7|8)[0-9]\\d{8}$");
+        return mobile.matches("^1\\d{10}$");
     }
 
 
