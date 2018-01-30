@@ -18,8 +18,8 @@ target/
 *.iws
 
 # temp ignore
-gat-logs
-logs
+gat-logs/
+logs/
 *.log
 *.cache
 *.diff
