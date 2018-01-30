@@ -128,4 +128,17 @@
         </repository>
     </repositories>
 
+    <!-- gat maven相关配置,第三方请删除 -->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>reg.wuxingdev.cn-releases</name>
+            <url>http://mvn.repo.wuxingdev.cn/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>reg.wuxingdev.cn-snapshots</name>
+            <url>http://mvn.repo.wuxingdev.cn/artifactory/libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
