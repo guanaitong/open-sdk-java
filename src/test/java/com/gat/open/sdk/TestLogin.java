@@ -1,9 +1,11 @@
 package com.gat.open.sdk;
 
 import com.gat.open.sdk.model.ApiResponse;
+import com.gat.open.sdk.model.bo.EmployeeBO;
 import com.gat.open.sdk.service.GATTokenService;
 import com.gat.open.sdk.util.SignUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -15,7 +17,7 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2017/12/25 10:11
  */
-public class Test {
+public class TestLogin {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         // 这个appid和appsecret是一个测试应用的示例,要根据实际情况切换
@@ -67,4 +69,25 @@ public class Test {
         return stringBuilder.toString();
     }
 
+    @Test
+    public void testAddEmployee() {
+        GATOpen gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
+        EmployeeBO employeeBO = new EmployeeBO();
+        employeeBO.setMobile("19995678512");
+        employeeBO.setName("陈成");
+        employeeBO.setCorp_code("201803131840");
+        ApiResponse<String> response = gatOpen.addEmployee(employeeBO);
+        System.out.println("response = " + response);
+    }
+
+    @Test
+    public void testUpdateEmployee() {
+        GATOpen gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
+        EmployeeBO employeeBO = new EmployeeBO();
+        employeeBO.setMobile("19988889512");
+        employeeBO.setName("陈成");
+        employeeBO.setCorp_code("201803131840");
+        ApiResponse<String> response = gatOpen.updateEmployee(employeeBO, null);
+        System.out.println("response = " + response);
+    }
 }
