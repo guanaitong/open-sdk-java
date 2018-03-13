@@ -11,7 +11,7 @@ import com.gat.open.sdk.util.ParamValidator;
  */
 public class GATOpenConstant {
 
-    public static final String MOBILE_REGEX = "^1(3|4|5|7|8)[0-9]\\d{8}$";
+    public static final String MOBILE_REGEX = "^1\\d{10}$";
     public static final String EMAIL_REGEX = "^([a-zA-Z0-9]+[_|\\.|\\-]*)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\.|\\-]?)*[a-zA-Z0-9]+((\\.[a-zA-Z]{2,5}){1,2})$";
 
     public static String appId = "";
