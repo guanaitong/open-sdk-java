@@ -190,23 +190,32 @@ public class GATOpen {
     /**
      * 添加员工
      *
-     * @param employeeBO
-     * @return
+     * @param employeeBO 员工对象
+     * @return result
      */
     public ApiResponse<String> addEmployee(EmployeeBO employeeBO) {
         EmployeeApi employeeApi = retrofitFactory.getApi(EmployeeApi.class);
         Call<ApiResponse<String>> call = employeeApi
-                .addEmployee(employeeBO.getCorp_code(), employeeBO.getName(), employeeBO.getGender(), employeeBO.getEmail(),
-                        employeeBO.getMobile(), employeeBO.getSend_invite(), employeeBO.getRemark(), employeeBO.getBirth_day(), employeeBO.getEntry_day(), employeeBO.getCard_type(), employeeBO.getCard_no());
+                .addEmployee(employeeBO.getCorp_code(),
+                        employeeBO.getName(),
+                        employeeBO.getGender(),
+                        employeeBO.getEmail(),
+                        employeeBO.getMobile(),
+                        employeeBO.getSend_invite(),
+                        employeeBO.getRemark(),
+                        employeeBO.getDept_code(),
+                        employeeBO.getBirth_day(),
+                        employeeBO.getEntry_day(),
+                        employeeBO.getCard_type(),
+                        employeeBO.getCard_no());
         return CallUtil.execute(call);
     }
-
 
     /**
      * 查询员工
      *
-     * @param corpCode
-     * @return
+     * @param corpCode 工号(20位以内字母数字,不区分大小写)
+     * @return result
      */
     public ApiResponse<Employee> getEmployee(String corpCode) {
         EmployeeApi employeeApi = retrofitFactory.getApi(EmployeeApi.class);
@@ -217,12 +226,12 @@ public class GATOpen {
     /**
      * 更新员工
      *
-     * @param employeeBO
-     * @param newCorpcode
-     * @return
+     * @param employeeBO  员工信息
+     * @param newCorpcode 新工号
+     * @return result
      */
     public ApiResponse<String> updateEmployee(EmployeeBO employeeBO, String newCorpcode) {
-        EmployeeApi employeeApi = (EmployeeApi) this.retrofitFactory.getApi(EmployeeApi.class);
+        EmployeeApi employeeApi = this.retrofitFactory.getApi(EmployeeApi.class);
         Call<ApiResponse<String>> call = employeeApi.updateEmployee(employeeBO.getCorp_code(), employeeBO.getName(), employeeBO.getGender(), employeeBO.getEmail(), employeeBO.getMobile(), employeeBO.getRemark(), employeeBO.getDept_code(), employeeBO.getLevel(), employeeBO.getBirth_day(), employeeBO.getEntry_day(), employeeBO.getCard_type(), employeeBO.getCard_no(), newCorpcode);
         return CallUtil.execute(call);
     }

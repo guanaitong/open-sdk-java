@@ -23,7 +23,11 @@ public class GATTokenService {
         if (!isValid()) {
             ApiResponse<Token> response = CallUtil.execute(RetrofitFactory.getInstance().getApi(TokenApi.class).createToken(GATOpenConstant.appId));
             if (response == null || response.getData() == null) {
-                throw new GATException("获取token失败！");
+                String msg = "";
+                if (response != null) {
+                    msg = response.getMsg();
+                }
+                throw new GATException("获取token失败！" + msg);
             }
             gatToken.setAccessToken(response.getData().getAccessToken());
             gatToken.setExpiresIn(response.getData().getExpiresIn());
