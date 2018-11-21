@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import org.junit.Assert;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xin.hua on 2017/7/20.
@@ -17,7 +18,7 @@ public class ApiTest extends TestCase {
     private GATOpen gatOpen;
 
     protected void setUp() {
-        gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
+        gatOpen = new GATOpen("20110700", "b358bf716f06924f485e219c00b196b4", "https://openapi.guanaitong.cc");
     }
 
     public void testToken() {
@@ -60,5 +61,9 @@ public class ApiTest extends TestCase {
         System.out.println(check);
     }
 
-
+    public void testGetHierarchy() {
+        ApiResponse<Map<String, Object>> check = gatOpen.getHierarchy(null);
+        Assert.assertNotNull(check);
+        System.out.println(check);
+    }
 }

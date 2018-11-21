@@ -24,7 +24,6 @@ public interface DepartmentApi {
     @ValidGroup({@Valid(
             index = 0,
             field = "dept_code",
-            required = true,
             minLen = 1,
             maxLen = 50
     )})
