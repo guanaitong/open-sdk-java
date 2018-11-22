@@ -10,23 +10,31 @@ import java.io.IOException;
 
 /**
  * 捕获Call 执行异常
- * Created by xin.hua on 2017/7/18.
+ *
+ * @author xin.hua
+ * @date 2017/7/18
  */
 public class CallUtil {
 
-    public static <T> ApiResponse<T> execute(Call<ApiResponse<T>> call){
-        Response<ApiResponse<T>> response = null;
+    private CallUtil() {
+        // hide constructor
+    }
+
+    public static <T> ApiResponse<T> execute(Call<ApiResponse<T>> call) {
+        Response<ApiResponse<T>> response;
         try {
             response = call.execute();
         } catch (IOException e) {
-            e.printStackTrace();
             throw new GATException(e);
         }
-        if (!response.isSuccessful())
-            throw new GATException("请求网络失败！"+response.toString());
+        if (!response.isSuccessful()) {
+            throw new GATException("请求网络失败！" + response.toString());
+        }
         ApiResponse<T> body = response.body();
-        if (body == null)
-            throw new GATException("response 转换失败"+response.toString());
+        if (body == null) {
+            throw new GATException("response 转换失败" + response.toString());
+        }
         return body;
     }
+
 }

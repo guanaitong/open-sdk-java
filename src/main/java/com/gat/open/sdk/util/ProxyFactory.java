@@ -10,17 +10,21 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyFactory {
 
+    private ProxyFactory() {
+        // hide constructor
+    }
 
     /**
      * 获取 retrofitApi 实现类的动态代理
      * 实现参数校验
+     *
      * @param <T> retrofitApi
-     * @return
+     * @return 代理类
      */
     @SuppressWarnings("unchecked")
-    public static  <T> T getProxy(T retrofitApi){
+    public static <T> T getProxy(T retrofitApi) {
         return (T) Proxy.newProxyInstance(retrofitApi.getClass().getClassLoader(),
-                retrofitApi.getClass().getInterfaces(),new RetrofitInvocationHandler(retrofitApi));
+                retrofitApi.getClass().getInterfaces(), new RetrofitInvocationHandler(retrofitApi));
     }
 
 

@@ -1,14 +1,13 @@
 package com.gat.open.sdk;
 
 import com.gat.open.sdk.model.ApiResponse;
-import com.gat.open.sdk.model.bo.EmployeeBO;
 import com.gat.open.sdk.service.GATTokenService;
+import com.gat.open.sdk.util.GatUrlUtil;
 import com.gat.open.sdk.util.SignUtil;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
+import junit.framework.TestCase;
+import org.junit.Assert;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,77 +16,36 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2017/12/25 10:11
  */
-public class TestLogin {
+public class TestLogin extends TestCase {
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        // 这个appid和appsecret是一个测试应用的示例,要根据实际情况切换
-        // gatOpen对象最好用单例,推荐用spring管理
-        // 如果第三方公司用分布式部署项目,请事先通知关爱通相关技术
-        GATOpen gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
+    private GATOpen gatOpen;
 
+    protected void setUp() {
+        gatOpen = new GATOpen("20110748", "2441c671a89a680bd6b548b59e82a1f4", "https://openapi.guanaitong.cc");
+    }
 
-        ApiResponse<String> response = gatOpen.loginByCorpCode("013602");
-        String authCode = response.getData();
-        System.out.println("authCode = " + authCode);
+    public void testLogin() throws UnsupportedEncodingException {
+        // 获取授权码
+        // 工号需要确实存在
+        ApiResponse<String> result = gatOpen.loginByCorpCode("aC66");
+        System.out.println(result);
+        Assert.assertNotNull(result);
 
-        String loginUrl = "https://openapi.guanaitong.com/sso/employee/login";
-        String accessToken = GATTokenService.getGatToken();
-        Long timestamp = System.currentTimeMillis() / 1000;
+        // 拼接URL跳转页面
+        // 重定向的关爱通URL,如果是PC端员工首页,该字段不用填写
+        String redirectUrl = "https://mobile.guanaitong.cc/index.php?wxA=Enterprise.home";
 
-        // 有则添加到url中无则不需要添加
-        // url记得urlEncode
-        String redirectUrl = "https://mobile.guanaitong.com/index.php?wxA=Enterprise.home";
-
-        Map<String, Object> params = new HashMap<String, Object>(4);
-        params.put("access_token", accessToken);
-        params.put("auth_code", authCode);
-        params.put("timestamp", timestamp);
+        Map<String, Object> params = new HashMap<>(5);
+        params.put("access_token", GATTokenService.getGatToken());
+        params.put("auth_code", result.getData());
+        params.put("timestamp", System.currentTimeMillis() / 1000);
         params.put("redirect_url", redirectUrl);
         params.put("sign", SignUtil.sign(params));
         params.remove("appsecret");
 
-        String url = build(loginUrl, params);
+        String url = GatUrlUtil.build(params);
         System.out.println(url);
+        Assert.assertNotNull(url);
     }
 
-    public static String build(String url, Map<String, Object> params) throws UnsupportedEncodingException {
-        if (params == null || params.isEmpty()) {
-            return url;
-        }
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(url);
-        stringBuilder.append("?");
-        for (Map.Entry<String, Object> entry : params.entrySet()) {
-            if (StringUtils.isNoneEmpty(entry.getValue().toString())) {
-                stringBuilder.append(entry.getKey());
-                stringBuilder.append("=");
-                stringBuilder.append(URLEncoder.encode(entry.getValue().toString(), "UTF-8")).append("");
-                stringBuilder.append("&");
-            }
-        }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        return stringBuilder.toString();
-    }
-
-    @Test
-    public void testAddEmployee() {
-        GATOpen gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
-        EmployeeBO employeeBO = new EmployeeBO();
-        employeeBO.setMobile("19995678512");
-        employeeBO.setName("陈成");
-        employeeBO.setCorp_code("201803131840");
-        ApiResponse<String> response = gatOpen.addEmployee(employeeBO);
-        System.out.println("response = " + response);
-    }
-
-    @Test
-    public void testUpdateEmployee() {
-        GATOpen gatOpen = new GATOpen("20091181", "f915972094db1d42581eb805ca228b23", "https://openapi.guanaitong.com");
-        EmployeeBO employeeBO = new EmployeeBO();
-        employeeBO.setMobile("19988889512");
-        employeeBO.setName("陈成");
-        employeeBO.setCorp_code("201803131840");
-        ApiResponse<String> response = gatOpen.updateEmployee(employeeBO, null);
-        System.out.println("response = " + response);
-    }
 }
