@@ -1,6 +1,7 @@
 package com.gat.open.sdk.util;
 
 
+import com.gat.open.sdk.constant.GATOpenConstant;
 import com.gat.open.sdk.exception.GATException;
 
 /**
@@ -10,6 +11,10 @@ import com.gat.open.sdk.exception.GATException;
  * @date 2017/7/18
  */
 public class ParamValidator {
+
+    private ParamValidator(){
+        // hide constructor
+    }
 
     public static <T> T requireNonNull(T obj, String message) {
         if (obj == null) {
@@ -32,11 +37,11 @@ public class ParamValidator {
         return mobile;
     }
 
-    public static boolean contains(int[] intVals, int val) {
-        if (intVals == null || intVals.length <= 0) {
+    public static boolean contains(int[] intValues, int val) {
+        if (intValues == null || intValues.length <= 0) {
             return false;
         }
-        for (int intVal : intVals) {
+        for (int intVal : intValues) {
             if (intVal == val) {
                 return true;
             }
@@ -51,8 +56,7 @@ public class ParamValidator {
         if (mobile.length() > 11) {
             return false;
         }
-        return mobile.matches("^1\\d{10}$");
+        return mobile.matches(GATOpenConstant.MOBILE_REGEX);
     }
-
 
 }

@@ -25,7 +25,9 @@ public interface TokenApi {
 
     @FormUrlEncoded
     @POST("token/getTokenInfo")
-    @ValidGroup({@Valid(index = 0, length = 32, required = true), @Valid(index = 1, required = true)})
+    @ValidGroup({
+            @Valid(index = 0, length = 32, required = true),
+            @Valid(index = 1, required = true)})
     Call<ApiResponse<Token>> getTokenInfo(@Field("access_token") String accessToken,
                                           @Field("appid") String appid);
 

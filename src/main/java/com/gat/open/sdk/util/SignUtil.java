@@ -14,14 +14,18 @@ import java.util.TreeMap;
  */
 public class SignUtil {
 
+    private SignUtil() {
+        // hide constructor
+    }
+
     public static String sign(Map<String, Object> paramMap) {
-        ParamValidator.requireNonEmpty(GATOpenConstant.appSecret, "appsecret 不可为空");
-        TreeMap<String, Object> params = new TreeMap<String, Object>(paramMap);
+        ParamValidator.requireNonEmpty(GATOpenConstant.getAppSecret(), "appsecret 不可为空");
+        TreeMap<String, Object> params = new TreeMap<>(paramMap);
         params.remove("sign");
-        params.put("appsecret", GATOpenConstant.appSecret);
+        params.put("appsecret", GATOpenConstant.getAppSecret());
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, Object> entry : params.entrySet()) {
-            if (StringUtils.isBlank(entry.getValue().toString())){
+            if (StringUtils.isBlank(entry.getValue().toString())) {
                 continue;
             }
             stringBuilder.append(entry.getKey().trim());

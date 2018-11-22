@@ -8,8 +8,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,13 +21,13 @@ import java.util.concurrent.TimeUnit;
 public class RetrofitFactory {
 
     public static RetrofitFactory getInstance() {
-        return Instance.retrofitFactory;
+        return Instance.RETROFIT_FACTORY;
     }
 
-    private OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder().addInterceptor(new RetrofitIntercepter());
+    private OkHttpClient.Builder okHttpBuilder = new OkHttpClient.Builder().addInterceptor(new RetrofitInterceptor());
     private Retrofit retrofit;
 
-    private Map<Class<?>, Object> apiMap = new HashMap<Class<?>, Object>();
+    private Map<Class<?>, Object> apiMap = new ConcurrentHashMap<>();
 
     private RetrofitFactory() {
         okHttpBuilder.connectTimeout(8, TimeUnit.SECONDS)
@@ -38,7 +38,7 @@ public class RetrofitFactory {
 
     private void init() {
         retrofit = new Retrofit.Builder()
-                .baseUrl(GATOpenConstant.base_url)
+                .baseUrl(GATOpenConstant.getBaseUrl())
                 .client(okHttpBuilder.build())
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
@@ -47,28 +47,23 @@ public class RetrofitFactory {
     /**
      * 获取api接口，TokenApi等
      *
-     * @param apiClazz
-     * @param <T>
-     * @return
+     * @param apiClazz apiClazz
+     * @param <T>      T
+     * @return 代理类, 封装了http请求
      */
     @SuppressWarnings("unchecked")
     public <T> T getApi(Class<T> apiClazz) {
         if (apiClazz == null) {
             throw new GATException("apiClass 不可为null");
         }
-        T api = (T) apiMap.get(apiClazz);
-        if (api == null) {
-            api = ProxyFactory.getProxy(retrofit.create(apiClazz));
-            apiMap.put(apiClazz, api);
-        }
-        return api;
+        return (T) apiMap.computeIfAbsent(apiClazz, k -> ProxyFactory.getProxy(retrofit.create(apiClazz)));
     }
 
     /**
-     * @param connectTimeOut :s
-     * @param readTimeOut    :s
-     * @param writeTimeOut   :s
-     * @return
+     * @param connectTimeOut s
+     * @param readTimeOut    s
+     * @param writeTimeOut   s
+     * @param debugHttpLog   是否打印debug级别日志
      */
     public void config(long connectTimeOut, long readTimeOut, long writeTimeOut, boolean debugHttpLog) {
         okHttpBuilder.connectTimeout(connectTimeOut, TimeUnit.SECONDS)
@@ -87,6 +82,6 @@ public class RetrofitFactory {
 
 
     private static class Instance {
-        private static final RetrofitFactory retrofitFactory = new RetrofitFactory();
+        private static final RetrofitFactory RETROFIT_FACTORY = new RetrofitFactory();
     }
 }

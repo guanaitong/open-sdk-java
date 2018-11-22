@@ -35,10 +35,10 @@ public class GATOpen {
     /**
      * 设置网络连接读取超时时间
      *
-     * @param connectTimeOut
-     * @param readTimeOut
-     * @param writeTimeOut
-     * @param debugHttpLog
+     * @param connectTimeOut s
+     * @param readTimeOut    s
+     * @param writeTimeOut   s
+     * @param debugHttpLog   日志级别
      */
     public void config(long connectTimeOut, long readTimeOut, long writeTimeOut, boolean debugHttpLog) {
         retrofitFactory.config(connectTimeOut, readTimeOut, writeTimeOut, debugHttpLog);
@@ -53,19 +53,19 @@ public class GATOpen {
      */
     public ApiResponse<Token> createToken() {
         TokenApi tokenApi = retrofitFactory.getApi(TokenApi.class);
-        Call<ApiResponse<Token>> call = tokenApi.createToken(GATOpenConstant.appId);
+        Call<ApiResponse<Token>> call = tokenApi.createToken(GATOpenConstant.getAppId());
         return CallUtil.execute(call);
     }
 
     /**
      * 查询token状态
      *
-     * @param access_token
+     * @param accessToken
      * @return
      */
-    public ApiResponse<Token> getTokenInfo(String access_token) {
+    public ApiResponse<Token> getTokenInfo(String accessToken) {
         TokenApi tokenApi = retrofitFactory.getApi(TokenApi.class);
-        Call<ApiResponse<Token>> call = tokenApi.getTokenInfo(access_token, GATOpenConstant.appId);
+        Call<ApiResponse<Token>> call = tokenApi.getTokenInfo(accessToken, GATOpenConstant.getAppId());
         return CallUtil.execute(call);
     }
 
@@ -231,7 +231,7 @@ public class GATOpen {
      * @return result
      */
     public ApiResponse<String> updateEmployee(EmployeeBO employeeBO, String newCorpcode) {
-        EmployeeApi employeeApi = this.retrofitFactory.getApi(EmployeeApi.class);
+        EmployeeApi employeeApi = retrofitFactory.getApi(EmployeeApi.class);
         Call<ApiResponse<String>> call = employeeApi.updateEmployee(employeeBO.getCorp_code(), employeeBO.getName(), employeeBO.getGender(), employeeBO.getEmail(), employeeBO.getMobile(), employeeBO.getRemark(), employeeBO.getDept_code(), employeeBO.getLevel(), employeeBO.getBirth_day(), employeeBO.getEntry_day(), employeeBO.getCard_type(), employeeBO.getCard_no(), newCorpcode);
         return CallUtil.execute(call);
     }
@@ -318,31 +318,31 @@ public class GATOpen {
      * @return
      */
     public ApiResponse<Map<String, Object>> getHierarchy(String deptCode) {
-        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        DepartmentApi departmentApi = retrofitFactory.getApi(DepartmentApi.class);
         Call<ApiResponse<Map<String, Object>>> call = departmentApi.getHierarchy(deptCode);
         return CallUtil.execute(call);
     }
 
     public ApiResponse<Department> getDepartment(String deptCode) {
-        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        DepartmentApi departmentApi = retrofitFactory.getApi(DepartmentApi.class);
         Call<ApiResponse<Department>> call = departmentApi.getDepartment(deptCode);
         return CallUtil.execute(call);
     }
 
     public ApiResponse<String> addDepartment(Department department) {
-        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        DepartmentApi departmentApi = retrofitFactory.getApi(DepartmentApi.class);
         Call<ApiResponse<String>> call = departmentApi.addDepartment(department.getDept_Code(), department.getParent_code(), department.getName(), department.getStatus());
         return CallUtil.execute(call);
     }
 
     public ApiResponse<String> updateDepartment(Department department) {
-        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        DepartmentApi departmentApi = retrofitFactory.getApi(DepartmentApi.class);
         Call<ApiResponse<String>> call = departmentApi.updateDepartment(department.getDept_Code(), department.getParent_code(), department.getName(), department.getStatus(), department.getManager_code());
         return CallUtil.execute(call);
     }
 
     public ApiResponse<String> deleteDepartment(String deptCode) {
-        DepartmentApi departmentApi = (DepartmentApi) this.retrofitFactory.getApi(DepartmentApi.class);
+        DepartmentApi departmentApi = retrofitFactory.getApi(DepartmentApi.class);
         Call<ApiResponse<String>> call = departmentApi.deleteDepartment(deptCode);
         return CallUtil.execute(call);
     }
