@@ -1,10 +1,13 @@
 package com.gat.open.sdk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 
 /**
  * Created by xin.hua on 2017/7/19.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmployeeAccount {
 
     private String account_openid;

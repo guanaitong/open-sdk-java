@@ -1,6 +1,8 @@
 package com.gat.open.sdk;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gat.open.sdk.model.ApiResponse;
 import com.gat.open.sdk.model.Employee;
 import com.gat.open.sdk.model.EnterpriseAccount;
@@ -18,6 +20,8 @@ public class TestApi extends TestCase {
 
     private GATOpen gatOpen;
 
+    private ObjectMapper mapper=new ObjectMapper();
+
     /**
      * 这个appid,appsecret和baseUrl是一个测试应用的示例,要根据实际情况切换
      * <br/>
@@ -27,7 +31,7 @@ public class TestApi extends TestCase {
      * token接口每小时有次数限制
      */
     protected void setUp() {
-        gatOpen = new GATOpen("20110748", "2441c671a89a680bd6b548b59e82a1f4", "https://openapi.guanaitong.cc");
+        gatOpen = new GATOpen("20110704", "827a7120c37f0191c392db9d8355cb19", "https://openapi.guanaitong.cc");
     }
 
     public void testToken() {
@@ -49,22 +53,18 @@ public class TestApi extends TestCase {
 
     public void testUpdateEmployee() {
         EmployeeBO employeeBO = new EmployeeBO();
-        employeeBO.setMobile("19988889512");
-        employeeBO.setName("陈成");
-        employeeBO.setCorp_code("201803131840");
+        employeeBO.setCorp_code("C002");
+        employeeBO.setLevel("1");
+        employeeBO.setCategory("1,2");
+        employeeBO.setName("陈晓");
         ApiResponse<String> response = gatOpen.updateEmployee(employeeBO, null);
         System.out.println("response = " + response);
     }
 
-    public void testEmployee() {
-        ApiResponse<Employee> employee = gatOpen.getEmployee("M020005");
+    public void testGetEmployee() throws JsonProcessingException {
+        ApiResponse<Employee> employee = gatOpen.getEmployee("C002");
         Assert.assertNotNull(employee);
-        System.out.println(employee);
-        System.out.println(gatOpen.batchEmployee(1, 14));
-        System.out.println(gatOpen.accountEmployee("OP020430"));
-        System.out.println(gatOpen.resignEmployee("OP020430"));
-        System.out.println(gatOpen.restoreEmployee("OP020430"));
-        System.out.println(gatOpen.getEmployee("OP020430"));
+        System.out.println(mapper.writeValueAsString(employee));
     }
 
     public void testEnterprise() {

@@ -1,5 +1,7 @@
 package com.gat.open.sdk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 
 /**
@@ -7,6 +9,7 @@ import java.math.BigDecimal;
  * @version 1.0.0
  * @date 2017/12/18 20:07
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Limit {
     private String limitOpenid;
     private String corpCode;

@@ -1,9 +1,16 @@
 package com.gat.open.sdk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.List;
+
 /**
- * Created by xin.hua on 2017/7/19.
+ * @author xin.hua
+ * @date 2017/7/19
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
+
     private String corp_code;
     private String name;
     private int gender;
@@ -14,6 +21,7 @@ public class Employee {
     private String dept_code;
     private String dept_name;
     private String level;
+    private List<String> category;
     private String remark;
     private Integer send_invite;
     private String birth_day;
@@ -85,13 +93,29 @@ public class Employee {
         this.dept_code = dept_code;
     }
 
-    public String getDept_name() {return dept_name;}
+    public String getDept_name() {
+        return dept_name;
+    }
 
-    public void setDept_name(String dept_name) {this.dept_name = dept_name;}
+    public void setDept_name(String dept_name) {
+        this.dept_name = dept_name;
+    }
 
-    public String getLevel() {return level;}
+    public String getLevel() {
+        return level;
+    }
 
-    public void setLevel(String level) {this.level = level;}
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public List<String> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<String> category) {
+        this.category = category;
+    }
 
     public String getRemark() {
         return remark;
@@ -101,9 +125,13 @@ public class Employee {
         this.remark = remark;
     }
 
-    public Integer getSend_invite() {return send_invite;}
+    public Integer getSend_invite() {
+        return send_invite;
+    }
 
-    public void setSend_invite(Integer send_invite) {this.send_invite = send_invite;}
+    public void setSend_invite(Integer send_invite) {
+        this.send_invite = send_invite;
+    }
 
     public String getBirth_day() {
         return birth_day;
@@ -135,27 +163,5 @@ public class Employee {
 
     public void setTime_active(String time_active) {
         this.time_active = time_active;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "corp_code='" + corp_code + '\'' +
-                ", name='" + name + '\'' +
-                ", gender=" + gender +
-                ", card_type=" + card_type +
-                ", card_no='" + card_no + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", dept_code='" + dept_code + '\'' +
-                ", dept_name='" + dept_name + '\'' +
-                ", level='" + level + '\'' +
-                ", remark='" + remark + '\'' +
-                ", send_invite='" + send_invite + '\'' +
-                ", birth_day='" + birth_day + '\'' +
-                ", entry_day='" + entry_day + '\'' +
-                ", time_created='" + time_created + '\'' +
-                ", time_active='" + time_active + '\'' +
-                '}';
     }
 }

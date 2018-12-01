@@ -3,7 +3,9 @@ package com.gat.open.sdk.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Created by xin.hua on 2017/7/18.
+ *
+ * @author xin.hua
+ * @date 2017/7/18
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LimitStatus {

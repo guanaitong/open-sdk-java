@@ -3,9 +3,12 @@ package com.gat.open.sdk.model;
 import java.util.List;
 
 /**
- * Created by xin.hua on 2017/7/19.
+ *
+ * @author xin.hua
+ * @date 2017/7/19
  */
 public class BatchModel<T> {
+
     private int totalCount;
 
     private List<T> dataList;

@@ -204,6 +204,8 @@ public class GATOpen {
                         employeeBO.getSend_invite(),
                         employeeBO.getRemark(),
                         employeeBO.getDept_code(),
+                        employeeBO.getLevel(),
+                        employeeBO.getCategory(),
                         employeeBO.getBirth_day(),
                         employeeBO.getEntry_day(),
                         employeeBO.getCard_type(),
@@ -232,7 +234,20 @@ public class GATOpen {
      */
     public ApiResponse<String> updateEmployee(EmployeeBO employeeBO, String newCorpcode) {
         EmployeeApi employeeApi = retrofitFactory.getApi(EmployeeApi.class);
-        Call<ApiResponse<String>> call = employeeApi.updateEmployee(employeeBO.getCorp_code(), employeeBO.getName(), employeeBO.getGender(), employeeBO.getEmail(), employeeBO.getMobile(), employeeBO.getRemark(), employeeBO.getDept_code(), employeeBO.getLevel(), employeeBO.getBirth_day(), employeeBO.getEntry_day(), employeeBO.getCard_type(), employeeBO.getCard_no(), newCorpcode);
+        Call<ApiResponse<String>> call = employeeApi.updateEmployee(employeeBO.getCorp_code(),
+                employeeBO.getName(),
+                employeeBO.getGender(),
+                employeeBO.getEmail(),
+                employeeBO.getMobile(),
+                employeeBO.getRemark(),
+                employeeBO.getDept_code(),
+                employeeBO.getLevel(),
+                employeeBO.getCategory(),
+                employeeBO.getBirth_day(),
+                employeeBO.getEntry_day(),
+                employeeBO.getCard_type(),
+                employeeBO.getCard_no(),
+                newCorpcode);
         return CallUtil.execute(call);
     }
 

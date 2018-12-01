@@ -1,9 +1,12 @@
 package com.gat.open.sdk.model.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author wenbin
  * @date 2017/12/8
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmployeeBO {
 
     private String corp_code;
@@ -17,14 +20,12 @@ public class EmployeeBO {
     private String remark;
     private String dept_code;
     private String level;
+    private String category;
     private String birth_day;
     private String entry_day;
 
-    public EmployeeBO() {
-    }
-
     public String getCorp_code() {
-        return this.corp_code;
+        return corp_code;
     }
 
     public void setCorp_code(String corp_code) {
@@ -32,7 +33,7 @@ public class EmployeeBO {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -40,7 +41,7 @@ public class EmployeeBO {
     }
 
     public Integer getGender() {
-        return this.gender;
+        return gender;
     }
 
     public void setGender(Integer gender) {
@@ -48,15 +49,23 @@ public class EmployeeBO {
     }
 
     public Integer getCard_type() {
-        return this.card_type;
+        return card_type;
     }
 
     public void setCard_type(Integer card_type) {
         this.card_type = card_type;
     }
 
+    public Integer getSend_invite() {
+        return send_invite;
+    }
+
+    public void setSend_invite(Integer send_invite) {
+        this.send_invite = send_invite;
+    }
+
     public String getCard_no() {
-        return this.card_no;
+        return card_no;
     }
 
     public void setCard_no(String card_no) {
@@ -64,7 +73,7 @@ public class EmployeeBO {
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -72,7 +81,7 @@ public class EmployeeBO {
     }
 
     public String getMobile() {
-        return this.mobile;
+        return mobile;
     }
 
     public void setMobile(String mobile) {
@@ -80,7 +89,7 @@ public class EmployeeBO {
     }
 
     public String getRemark() {
-        return this.remark;
+        return remark;
     }
 
     public void setRemark(String remark) {
@@ -88,7 +97,7 @@ public class EmployeeBO {
     }
 
     public String getDept_code() {
-        return this.dept_code;
+        return dept_code;
     }
 
     public void setDept_code(String dept_code) {
@@ -96,15 +105,23 @@ public class EmployeeBO {
     }
 
     public String getLevel() {
-        return this.level;
+        return level;
     }
 
     public void setLevel(String level) {
         this.level = level;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public String getBirth_day() {
-        return this.birth_day;
+        return birth_day;
     }
 
     public void setBirth_day(String birth_day) {
@@ -112,37 +129,10 @@ public class EmployeeBO {
     }
 
     public String getEntry_day() {
-        return this.entry_day;
+        return entry_day;
     }
 
     public void setEntry_day(String entry_day) {
         this.entry_day = entry_day;
-    }
-
-    public Integer getSend_invite() {
-        return this.send_invite;
-    }
-
-    public void setSend_invite(Integer send_invite) {
-        this.send_invite = send_invite;
-    }
-
-    @Override
-    public String toString() {
-        return "EmployeeBO{" +
-                "corp_code='" + corp_code + '\'' +
-                ", name='" + name + '\'' +
-                ", gender=" + gender +
-                ", card_type=" + card_type +
-                ", send_invite=" + send_invite +
-                ", card_no='" + card_no + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", remark='" + remark + '\'' +
-                ", dept_code='" + dept_code + '\'' +
-                ", level='" + level + '\'' +
-                ", birth_day='" + birth_day + '\'' +
-                ", entry_day='" + entry_day + '\'' +
-                '}';
     }
 }

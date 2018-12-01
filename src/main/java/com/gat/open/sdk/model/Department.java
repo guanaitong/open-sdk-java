@@ -1,10 +1,13 @@
 package com.gat.open.sdk.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * @author Stanley Shen
  * @version 1.0.0
  * @date 2017/12/18 19:34
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Department {
 
     private String name;
