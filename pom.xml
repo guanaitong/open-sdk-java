@@ -112,33 +112,4 @@
         </plugins>
     </build>
 
-    <!-- 架包仓库地址 -->
-    <repositories>
-        <repository>
-            <id>maven-ali</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <!-- gat maven相关配置,第三方请删除 -->
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>reg.wuxingdev.cn-releases</name>
-            <url>http://mvn.repo.wuxingdev.cn/artifactory/libs-release</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>reg.wuxingdev.cn-snapshots</name>
-            <url>http://mvn.repo.wuxingdev.cn/artifactory/libs-snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>

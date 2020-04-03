@@ -20,7 +20,7 @@ public class TestApi extends TestCase {
 
     private GATOpen gatOpen;
 
-    private ObjectMapper mapper=new ObjectMapper();
+    private ObjectMapper mapper = new ObjectMapper();
 
     /**
      * 这个appid,appsecret和baseUrl是一个测试应用的示例,要根据实际情况切换
@@ -48,7 +48,7 @@ public class TestApi extends TestCase {
         employeeBO.setCorp_code(corpCode);
         ApiResponse<String> response = gatOpen.addEmployee(employeeBO);
         System.out.println("response = " + response);
-        Assert.assertEquals(response.getData(),corpCode.toUpperCase());
+        Assert.assertEquals(response.getData(), corpCode.toUpperCase());
     }
 
     public void testUpdateEmployee() {

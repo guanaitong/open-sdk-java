@@ -1,6 +1,8 @@
 package com.gat.open.sdk.util;
 
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gat.open.sdk.constant.GATOpenConstant;
 import com.gat.open.sdk.exception.GATException;
 import okhttp3.OkHttpClient;
@@ -32,7 +34,9 @@ public class RetrofitFactory {
     private RetrofitFactory() {
         okHttpBuilder.connectTimeout(8, TimeUnit.SECONDS)
                 .readTimeout(20, TimeUnit.SECONDS)
-                .writeTimeout(20, TimeUnit.SECONDS);
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .sslSocketFactory(SSL.sslSocketFactory, SSL.x509TrustManager)
+                .hostnameVerifier(SSL.hostnameVerifier);
         init();
     }
 
@@ -40,7 +44,7 @@ public class RetrofitFactory {
         retrofit = new Retrofit.Builder()
                 .baseUrl(GATOpenConstant.getBaseUrl())
                 .client(okHttpBuilder.build())
-                .addConverterFactory(JacksonConverterFactory.create())
+                .addConverterFactory(JacksonConverterFactory.create(new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)))
                 .build();
     }
 
