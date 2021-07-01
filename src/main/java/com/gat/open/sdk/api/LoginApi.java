@@ -28,4 +28,15 @@ public interface LoginApi {
     @ValidGroup({@Valid(index = 0, required = true, minLen = 1, maxLen = 20)})
     Call<ApiResponse<String>> loginByCorpCode(@Field("corp_code") String corpCode);
 
+    @FormUrlEncoded
+    @POST("sso/employee/syncUserAndGetAuthCode")
+    @ValidGroup({@Valid(index = 0, required = true, minLen = 1, maxLen = 20),
+                 @Valid(index = 3, length = 11, regStr = GATOpenConstant.MOBILE_REGEX)})
+    Call<ApiResponse<String>> syncUserAndGetAuthCode(@Field("corp_code") String corpCode,
+                                                     @Field("enterprise_code") String enterpriseCode,
+                                                     @Field("mobile_area") String mobileArea,
+                                                     @Field("mobile") String mobile,
+                                                     @Field("name") String name,
+                                                     @Field("gender") Integer gender);
+
 }

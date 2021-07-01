@@ -8,6 +8,7 @@ import com.gat.open.sdk.model.bo.EmployeeBO;
 import com.gat.open.sdk.util.CallUtil;
 import com.gat.open.sdk.util.RetrofitFactory;
 import retrofit2.Call;
+import retrofit2.http.Field;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -323,6 +324,30 @@ public class GATOpen {
     public ApiResponse<String> loginByCorpCode(String corpCode) {
         LoginApi loginApi = retrofitFactory.getApi(LoginApi.class);
         Call<ApiResponse<String>> call = loginApi.loginByCorpCode(corpCode);
+        return CallUtil.execute(call);
+    }
+
+    /**
+     * 基于员工工号同步员工并获取登录授权码
+     *
+     * @param corpCode 工号
+     * @param enterpriseCode 非必填 单企业模式参数为 null
+     * @param mobileArea 不传默认为 86
+     * @param mobile 外部系统的手机号
+     * @param name 外部系统的员工姓名 如有
+     * @param gender 性别:1.男,2.女
+     * @return
+     */
+    public ApiResponse<String> syncUserAndGetAuthCode(String corpCode,
+                                                      String enterpriseCode,
+                                                      String mobileArea,
+                                                      String mobile,
+                                                      String name,
+                                                      Integer gender) {
+
+        LoginApi loginApi = retrofitFactory.getApi(LoginApi.class);
+        Call<ApiResponse<String>> call = loginApi.syncUserAndGetAuthCode(corpCode,enterpriseCode,mobileArea,mobile,name,gender);
+
         return CallUtil.execute(call);
     }
 

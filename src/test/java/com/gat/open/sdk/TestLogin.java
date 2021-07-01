@@ -21,7 +21,7 @@ public class TestLogin extends TestCase {
     private GATOpen gatOpen;
 
     protected void setUp() {
-        gatOpen = new GATOpen("20110748", "2441c671a89a680bd6b548b59e82a1f4", "https://openapi.guanaitong.cc");
+//        gatOpen = new GATOpen("您的APPID", "您的密钥", "https://openapi.guanaitong.tech");
     }
 
     public void testLogin() throws UnsupportedEncodingException {
@@ -33,7 +33,7 @@ public class TestLogin extends TestCase {
 
         // 拼接URL跳转页面
         // 重定向的关爱通URL,如果是PC端员工首页,该字段不用填写
-        String redirectUrl = "https://mobile.guanaitong.cc/index.php?wxA=Enterprise.home";
+        String redirectUrl = "https://mobile.guanaitong.tech/index.php?wxA=Enterprise.home";
 
         Map<String, Object> params = new HashMap<>(5);
         params.put("access_token", GATTokenService.getGatToken());
@@ -47,5 +47,41 @@ public class TestLogin extends TestCase {
         System.out.println(url);
         Assert.assertNotNull(url);
     }
+
+    public void testSyncUserAndGetAuthCode() {
+
+        ApiResponse<String> result = gatOpen.syncUserAndGetAuthCode("HB533",
+                null,
+                null,
+                "13818252513",
+                "孙长浩",
+                1);
+
+        System.out.println(result);
+        Assert.assertNotNull(result);
+
+//        // 拼接URL跳转页面
+//        // 重定向的关爱通URL,如果是PC端员工首页,该字段不用填写
+        String redirectUrl = "https://m.igeidao.com/home/index";
+        Map<String, Object> params = new HashMap<>(5);
+        params.put("access_token", GATTokenService.getGatToken());
+        params.put("auth_code", result.getData());
+        params.put("timestamp", System.currentTimeMillis() / 1000);
+        params.put("redirect_url", redirectUrl);
+        params.put("sign", SignUtil.sign(params));
+        params.remove("appsecret");
+
+        String url;
+        try {
+            url = GatUrlUtil.build(params);
+            System.out.println(url);
+            Assert.assertNotNull(url);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
 }
