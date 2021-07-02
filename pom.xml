@@ -48,7 +48,7 @@
         <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
-        <checkstyle.version>8.18</checkstyle.version>
+        <checkstyle.version>[8.29,)</checkstyle.version>
     </properties>
 
     <dependencies>
