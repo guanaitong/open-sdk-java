@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2021, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.exception;
 
 /**
@@ -6,8 +11,8 @@ package com.gat.open.sdk.exception;
  */
 public class GATIllegalArgumentException extends RuntimeException {
 
-    public GATIllegalArgumentException(int index,String methodName,String msg) {
-        super("方法： "+methodName+" 第"+index+" 个参数校验失败，错误信息："+msg);
+    public GATIllegalArgumentException(int index, String methodName, String msg) {
+        super("方法： " + methodName + " 第" + index + " 个参数校验失败，错误信息：" + msg);
     }
 
     public GATIllegalArgumentException(String message) {

@@ -1,14 +1,31 @@
+/*
+ * Copyright 2007-2021, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk;
 
 
-import com.gat.open.sdk.api.*;
+import com.gat.open.sdk.api.DepartmentApi;
+import com.gat.open.sdk.api.EmployeeApi;
+import com.gat.open.sdk.api.EnterpriseApi;
+import com.gat.open.sdk.api.HelperApi;
+import com.gat.open.sdk.api.LoginApi;
+import com.gat.open.sdk.api.TokenApi;
 import com.gat.open.sdk.constant.GATOpenConstant;
-import com.gat.open.sdk.model.*;
+import com.gat.open.sdk.model.ApiResponse;
+import com.gat.open.sdk.model.BatchModel;
+import com.gat.open.sdk.model.Department;
+import com.gat.open.sdk.model.Employee;
+import com.gat.open.sdk.model.EmployeeAccount;
+import com.gat.open.sdk.model.EnterpriseAccount;
+import com.gat.open.sdk.model.LimitStatus;
+import com.gat.open.sdk.model.PointStatus;
+import com.gat.open.sdk.model.Token;
 import com.gat.open.sdk.model.bo.EmployeeBO;
 import com.gat.open.sdk.util.CallUtil;
 import com.gat.open.sdk.util.RetrofitFactory;
 import retrofit2.Call;
-import retrofit2.http.Field;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -330,12 +347,12 @@ public class GATOpen {
     /**
      * 基于员工工号同步员工并获取登录授权码
      *
-     * @param corpCode 工号
+     * @param corpCode       工号
      * @param enterpriseCode 非必填 单企业模式参数为 null
-     * @param mobileArea 不传默认为 86
-     * @param mobile 外部系统的手机号
-     * @param name 外部系统的员工姓名 如有
-     * @param gender 性别:1.男,2.女
+     * @param mobileArea     不传默认为 86
+     * @param mobile         外部系统的手机号
+     * @param name           外部系统的员工姓名 如有
+     * @param gender         性别:1.男,2.女
      * @return
      */
     public ApiResponse<String> syncUserAndGetAuthCode(String corpCode,
@@ -346,7 +363,7 @@ public class GATOpen {
                                                       Integer gender) {
 
         LoginApi loginApi = retrofitFactory.getApi(LoginApi.class);
-        Call<ApiResponse<String>> call = loginApi.syncUserAndGetAuthCode(corpCode,enterpriseCode,mobileArea,mobile,name,gender);
+        Call<ApiResponse<String>> call = loginApi.syncUserAndGetAuthCode(corpCode, enterpriseCode, mobileArea, mobile, name, gender);
 
         return CallUtil.execute(call);
     }

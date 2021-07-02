@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2021, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -6,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 
 /**
- *
  * @author xin.hua
  * @date 2017/7/18
  */

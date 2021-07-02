@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2021, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk;
 
 
@@ -31,7 +36,7 @@ public class TestApi extends TestCase {
      * token接口每小时有次数限制
      */
     protected void setUp() {
-        gatOpen = new GATOpen("20110704", "827a7120c37f0191c392db9d8355cb19", "https://openapi.guanaitong.cc");
+        gatOpen = new GATOpen("20110704", "827a7120c37f0191c392db9d8355cb19", "https://openapi.guanaitong.tech");
     }
 
     public void testToken() {

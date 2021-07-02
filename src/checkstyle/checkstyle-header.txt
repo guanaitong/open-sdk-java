@@ -1,0 +1,6 @@
+^\Q/*\E$
+^\Q * Copyright \E2007-20\d\d\Q, CIIC Guanaitong, Co., Ltd.\E$
+^\Q * All rights reserved.\E$
+^\Q */\E$
+^$
+^.*$
