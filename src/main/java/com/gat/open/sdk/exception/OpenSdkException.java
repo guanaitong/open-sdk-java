@@ -8,7 +8,7 @@ package com.gat.open.sdk.exception;
 /**
  * @author Stanley Shen
  * @version 1.0.0
- * @date 2017/12/18 20:04
+ * date 2017/12/18 20:04
  */
 public class OpenSdkException extends RuntimeException {
 

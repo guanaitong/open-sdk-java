@@ -23,7 +23,7 @@ import java.util.List;
  * 企业接口
  *
  * @author xin.hua
- * @date 2017/7/19
+ * date 2017/7/19
  */
 public interface EnterpriseApi {
 

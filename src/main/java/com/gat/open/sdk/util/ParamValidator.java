@@ -13,7 +13,7 @@ import com.gat.open.sdk.exception.GATException;
  * 参数校验工具类
  *
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 public class ParamValidator {
 

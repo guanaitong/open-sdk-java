@@ -22,7 +22,7 @@ import java.util.Map;
  * retrofit 拦截器
  *
  * @author xin.hua
- * @date 2017/7/20
+ * date 2017/7/20
  */
 public class RetrofitInterceptor implements Interceptor {
 

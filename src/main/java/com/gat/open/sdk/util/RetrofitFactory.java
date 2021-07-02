@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * retrofit 工厂类
  *
  * @author xin.hua
- * @date 2017/7/17
+ * date 2017/7/17
  */
 public class RetrofitFactory {
 

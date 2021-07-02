@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 /**
  * @author Stanley Shen
  * @version 1.0.0
- * @date 2017/12/18 20:07
+ * date 2017/12/18 20:07
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Limit {

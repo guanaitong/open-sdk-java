@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author wenbin
- * @date 2017/12/8
+ * date 2017/12/8
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EmployeeBO {

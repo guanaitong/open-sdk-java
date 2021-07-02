@@ -9,7 +9,7 @@ package com.gat.open.sdk.model;
  * 返回数据类型
  *
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 public class ApiResponse<T> {
 

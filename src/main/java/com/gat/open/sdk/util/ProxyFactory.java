@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy;
  * 代理工厂类
  *
  * @author xin.hua
- * @date 2017/7/19
+ * date 2017/7/19
  */
 public class ProxyFactory {
 

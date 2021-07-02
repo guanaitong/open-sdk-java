@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * @author Stanley Shen
  * @version 1.0.0
- * @date 2018/11/22 17:50
+ * date 2018/11/22 17:50
  */
 public class GatUrlUtil {
 

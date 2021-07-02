@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 /**
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PointStatus {

@@ -15,7 +15,7 @@ import java.util.TreeMap;
 
 /**
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 public class SignUtil {
 

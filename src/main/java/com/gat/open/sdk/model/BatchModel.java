@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author xin.hua
- * @date 2017/7/19
+ * date 2017/7/19
  */
 public class BatchModel<T> {
 

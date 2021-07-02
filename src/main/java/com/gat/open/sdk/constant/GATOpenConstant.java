@@ -12,7 +12,7 @@ import com.gat.open.sdk.util.ParamValidator;
  * 常量
  *
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 public class GATOpenConstant {
 

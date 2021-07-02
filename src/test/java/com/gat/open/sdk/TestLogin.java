@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * @author Stanley Shen
  * @version 1.0.0
- * @date 2017/12/25 10:11
+ * date 2017/12/25 10:11
  */
 public class TestLogin extends TestCase {
 

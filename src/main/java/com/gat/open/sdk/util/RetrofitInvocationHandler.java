@@ -19,7 +19,7 @@ import java.util.Arrays;
  * retrofit 参数校验
  *
  * @author xin.hua
- * @date 2017/7/20
+ * date 2017/7/20
  */
 public class RetrofitInvocationHandler implements InvocationHandler {
 

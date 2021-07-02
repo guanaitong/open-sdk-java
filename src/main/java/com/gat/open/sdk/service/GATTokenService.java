@@ -18,7 +18,7 @@ import com.gat.open.sdk.util.RetrofitFactory;
  * 验证Token以及刷新token
  *
  * @author xin.hua
- * @date 2017/7/18
+ * date 2017/7/18
  */
 public class GATTokenService {
 
