@@ -243,6 +243,12 @@ public class GATOpen {
         return CallUtil.execute(call);
     }
 
+    public ApiResponse<Employee> getEmployeeByMobile(String mobile) {
+        EmployeeApi employeeApi = retrofitFactory.getApi(EmployeeApi.class);
+        Call<ApiResponse<Employee>> call = employeeApi.getEmployeeByMobile(mobile);
+        return CallUtil.execute(call);
+    }
+
     /**
      * 更新员工
      *

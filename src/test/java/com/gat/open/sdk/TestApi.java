@@ -70,6 +70,12 @@ public class TestApi extends TestCase {
         System.out.println(employee);
     }
 
+    public void testGetEmployeeByMobile() throws JsonProcessingException {
+        ApiResponse<Employee> employee = gatOpen.getEmployeeByMobile("13681808787");
+        Assert.assertNotNull(employee);
+        System.out.println(employee);
+    }
+
     public void testEnterprise() {
         ApiResponse<List<EnterpriseAccount>> account = gatOpen.enterpriseAccount(null, null);
         System.out.println(gatOpen.limitStatus("1234"));
