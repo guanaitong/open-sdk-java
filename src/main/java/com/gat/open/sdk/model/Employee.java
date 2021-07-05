@@ -169,4 +169,27 @@ public class Employee {
     public void setTime_active(String time_active) {
         this.time_active = time_active;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "corp_code='" + corp_code + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", card_type=" + card_type +
+                ", card_no='" + card_no + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", dept_code='" + dept_code + '\'' +
+                ", dept_name='" + dept_name + '\'' +
+                ", level='" + level + '\'' +
+                ", category=" + category +
+                ", remark='" + remark + '\'' +
+                ", send_invite=" + send_invite +
+                ", birth_day='" + birth_day + '\'' +
+                ", entry_day='" + entry_day + '\'' +
+                ", time_created='" + time_created + '\'' +
+                ", time_active='" + time_active + '\'' +
+                '}';
+    }
 }

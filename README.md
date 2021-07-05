@@ -4,3 +4,19 @@
 
 jdk版本：1.8+
 
+
+
+## Maven dependency
+
+```xml
+<dependency>
+    <groupId>com.ciicgat.open</groupId>
+    <artifactId>open-sdk-java</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
+
+
+
+可以从单元测试用看到使用示例
+

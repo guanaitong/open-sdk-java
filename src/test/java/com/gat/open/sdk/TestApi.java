@@ -25,7 +25,6 @@ public class TestApi extends TestCase {
 
     private GATOpen gatOpen;
 
-    private ObjectMapper mapper = new ObjectMapper();
 
     /**
      * 这个appid,appsecret和baseUrl是一个测试应用的示例,要根据实际情况切换
@@ -69,7 +68,7 @@ public class TestApi extends TestCase {
     public void testGetEmployee() throws JsonProcessingException {
         ApiResponse<Employee> employee = gatOpen.getEmployee("C002");
         Assert.assertNotNull(employee);
-        System.out.println(mapper.writeValueAsString(employee));
+        System.out.println(employee);
     }
 
     public void testEnterprise() {
