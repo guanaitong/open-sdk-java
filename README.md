@@ -2,7 +2,7 @@
 
 [关爱通 - 开放平台 (guanaitong.com)](https://open.guanaitong.com/)
 
-jdk版本：1.8+
+支持jdk版本：1.8+
 
 
 
