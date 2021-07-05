@@ -21,6 +21,9 @@ jobs:
         distribution: 'adopt'
         server-id: github
         settings-path: ${{ github.workspace }}
+        gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        # gpg私钥
+        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
