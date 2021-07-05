@@ -20,11 +20,11 @@ jobs:
         java-version: 8
         distribution: 'adopt'
         server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+#        settings-path: ${{ github.workspace }} # location for the settings.xml file
         # Nexus用户名环境变量
-        server-username: SONATYPE_USERNAME
+        server-username: MAVEN_USERNAME
         # Nexus密码环境变量
-        server-password: SONATYPE_PASSWORD
+        server-password: MAVEN_CENTRAL_TOKEN
         # gpg短密码环境变量
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
         # gpg私钥
@@ -37,10 +37,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds
     - name: Publish to Maven central
-      run: mvn clean deploy
+      run: mvn deploy
       env:
-        SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-        SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 #    - name: Publish to GitHub Packages Apache Maven
 #      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
