@@ -7,7 +7,6 @@ package com.gat.open.sdk;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gat.open.sdk.model.ApiResponse;
 import com.gat.open.sdk.model.Employee;
 import com.gat.open.sdk.model.EnterpriseAccount;
