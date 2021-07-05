@@ -10,5 +10,9 @@
             <username>${{secrets.SONATYPE_USERNAME}}</username>
             <password>${{secrets.SONATYPE_PASSWORD}}</password>
         </server>
+        <server>
+            <id>gpg.passphrase</id>
+            <passphrase>${env.MAVEN_GPG_PASSPHRASE}</passphrase>
+        </server>
     </servers>
 </settings>
