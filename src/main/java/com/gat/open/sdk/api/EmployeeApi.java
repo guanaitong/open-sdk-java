@@ -64,6 +64,11 @@ public interface EmployeeApi {
     Call<ApiResponse<Employee>> getEmployee(@Field("corp_code") String corpCode);
 
     @FormUrlEncoded
+    @POST("employee/get")
+    @ValidGroup({@Valid(index = 0, required = true, minLen = 11, maxLen = 11)})
+    Call<ApiResponse<Employee>> getEmployeeByMobile(@Field("mobile") String mobile);
+
+    @FormUrlEncoded
     @POST("employee/update")
     @ValidGroup({@Valid(index = 0, required = true, minLen = 1, maxLen = 20),
             @Valid(index = 1, required = true, minLen = 1, maxLen = 50),
