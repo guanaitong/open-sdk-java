@@ -29,6 +29,6 @@ jobs:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
     - name: Build And Publish to GitHub Packages
-      run: mvn deploy
+      run: mvn deploy -Dgpg.skip
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
