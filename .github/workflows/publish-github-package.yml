@@ -20,7 +20,6 @@ jobs:
         java-version: 8
         distribution: 'adopt'
         server-id: github
-        settings-path: ${{ github.workspace }}
         gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         # gpg私钥
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
@@ -30,6 +29,6 @@ jobs:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
     - name: Build And Publish to GitHub Packages
-      run: mvn deploy -s ${{ github.workspace }}/setting.xml
+      run: mvn deploy
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
