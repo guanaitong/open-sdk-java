@@ -3,7 +3,7 @@
 
 name: Build and Test
 
-on: [push, pull_request, workflow_dispatch]
+on: [ push, pull_request, workflow_dispatch ]
 
 jobs:
   build:
@@ -17,18 +17,18 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v2.3.4
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: ${{ matrix.java }}
-        distribution: 'adopt'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-    - name: Cache local Maven repository
-      uses: actions/cache@v2.1.6
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
-    - name: Build  and Test with Maven
-      run: mvn -B package --file pom.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds
+      - uses: actions/checkout@v2.3.4
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'adopt'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
+      - name: Cache local Maven repository
+        uses: actions/cache@v2.1.6
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
+      - name: Build  and Test with Maven
+        run: mvn -B package --file pom.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds
