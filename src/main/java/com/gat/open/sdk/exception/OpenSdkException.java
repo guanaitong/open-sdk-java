@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2021, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -28,6 +28,11 @@ public class OpenSdkException extends RuntimeException {
         this.errorCode = errorCode;
         this.method = methodName;
         this.errorMsg = "method：[ " + methodName + " ] execute error，detail：" + msg;
+    }
+
+    public OpenSdkException(int errorCode, String errorMsg) {
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
     }
 
     public OpenSdkException(String message) {
