@@ -5,6 +5,8 @@
 
 package com.gat.open.sdk.model;
 
+import com.gat.open.sdk.util.JSON;
+
 /**
  * Created by August.Zhou on 2022/6/27 12:34
  */
@@ -45,7 +47,7 @@ public class ApiResponse<T> {
 
     @Override
     public String toString() {
-        return "ApiResponse{" + "code=" + code + ", msg='" + msg + '\'' + ", data=" + data + '}';
+        return JSON.toJSONString(this);
     }
 
 }

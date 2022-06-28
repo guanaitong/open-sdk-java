@@ -63,8 +63,9 @@ public final class OpenClient {
      * @param connectTimeOut
      * @param readTimeout
      */
-    public void config(int connectTimeOut, int readTimeout) {
+    public OpenClient timeout(int connectTimeOut, int readTimeout) {
         this.httpClient.config(connectTimeOut, readTimeout);
+        return this;
     }
 
 
@@ -86,7 +87,7 @@ public final class OpenClient {
             synchronized (this) {
                 if (token == null || token.needRefresh()) {
                     try {
-                        token = new Token(getTokenResp());
+                        token = new Token(createToken());
                     } catch (RuntimeException e) {
                         if (token == null || token.isExpired()) {
                             throw e;
@@ -107,7 +108,7 @@ public final class OpenClient {
     }
 
 
-    private TokenCreateResp getTokenResp() {
+    private TokenCreateResp createToken() {
         return request(false, "/token/create", new TokenCreateRequest());
     }
 
@@ -167,7 +168,7 @@ public final class OpenClient {
         return DigestUtils.sha1Hex(stringBuilder.toString());
     }
 
-    String buildUrl(String path, Map<String, String> params) {
+    public String buildUrl(String path, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.baseUrl);
         stringBuilder.append(path);

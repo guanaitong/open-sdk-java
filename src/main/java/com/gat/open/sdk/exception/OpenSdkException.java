@@ -12,27 +12,14 @@ package com.gat.open.sdk.exception;
  */
 public class OpenSdkException extends RuntimeException {
 
-    private int errorCode;
-    private String errorMsg;
-    private String method;
-    private String field;
+    private int code = 0;
+    private String msg = "client error";
 
-    public OpenSdkException(int errorCode, String field, String methodName, String msg) {
-        this.errorCode = errorCode;
-        this.field = field;
-        this.method = methodName;
-        this.errorMsg = "method：[ " + methodName + " ] ,field：[ " + field + " ] invalid，detail：" + msg;
-    }
 
-    public OpenSdkException(int errorCode, String methodName, String msg) {
-        this.errorCode = errorCode;
-        this.method = methodName;
-        this.errorMsg = "method：[ " + methodName + " ] execute error，detail：" + msg;
-    }
-
-    public OpenSdkException(int errorCode, String errorMsg) {
-        this.errorCode = errorCode;
-        this.errorMsg = errorMsg;
+    public OpenSdkException(int code, String msg) {
+        this(String.format("business error, code-> %d , msg-> %s", code, msg));
+        this.code = code;
+        this.msg = msg;
     }
 
     public OpenSdkException(String message) {
@@ -47,26 +34,11 @@ public class OpenSdkException extends RuntimeException {
         super(cause);
     }
 
-    public int getErrorCode() {
-        return this.errorCode;
+    public int getCode() {
+        return this.code;
     }
 
-    public String getErrorMsg() {
-        return this.errorMsg;
-    }
-
-    public String getMethod() {
-        return this.method;
-    }
-
-    public String getField() {
-        return this.field;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("OpenSdkException occurred, errorCode=" + this.errorCode + ",errorMsg=" + this.errorMsg);
-        return sb.toString();
+    public String getMsg() {
+        return this.msg;
     }
 }

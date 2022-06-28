@@ -33,31 +33,18 @@ public class JSON {
                 .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
     }
 
-    /**
-     * 将对象输出为json字符串
-     *
-     * @param object
-     * @return
-     */
-    public static String toJSONString(Object object) {
-        return toJSONString(object, false);
-    }
 
     /**
      * 将对象输出为json字符串
      *
      * @param object       对象
-     * @param prettyFormat 美化格式
      * @return
      */
-    public static String toJSONString(Object object, boolean prettyFormat) {
+    public static String toJSONString(Object object) {
         try {
-            if (prettyFormat) {
-                return OBJECT_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(object);
-            }
             return OBJECT_MAPPER.writeValueAsString(object);
         } catch (Throwable e) {
-            throw new OpenSdkException("json error", e);
+            throw new OpenSdkException("json format error", e);
         }
     }
 
