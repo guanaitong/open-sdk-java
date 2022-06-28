@@ -6,4 +6,4 @@ stages:
 build:
   stage: build
   script:
-    - mvn verify
+    - mvn test
