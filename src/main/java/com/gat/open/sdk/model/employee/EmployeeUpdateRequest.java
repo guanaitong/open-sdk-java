@@ -12,21 +12,21 @@ import com.gat.open.sdk.model.FormRequest;
 import java.util.List;
 
 /**
+ * https://open.guanaitong.com/doc/enterprise/employee-update
  * Created by August.Zhou on 2022/6/27 15:55
  */
-public class EmployeeAddRequest extends FormRequest<String> implements EnterpriseCodeRequest {
+public class EmployeeUpdateRequest extends FormRequest<String> implements EnterpriseCodeRequest {
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */
     private String enterpriseCode;
     private String userId;
-    private String name;
     private String code;
+    private String name;
     private Integer gender;
     private String email;
     private String mobileArea;
     private String mobile;
-    private Integer sendInvite;
     private String remark;
     private String deptCode;
     private String level;
@@ -36,8 +36,6 @@ public class EmployeeAddRequest extends FormRequest<String> implements Enterpris
     private Integer cardType;
     private String cardNo;
     private List<ThirdUser> extattr;
-    private Integer allowSimplePwd;
-    private String password;
     private List<EmployeeAttribute> employeeAttribute;
     private Integer costCenterId;
 
@@ -59,20 +57,20 @@ public class EmployeeAddRequest extends FormRequest<String> implements Enterpris
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getGender() {
@@ -105,14 +103,6 @@ public class EmployeeAddRequest extends FormRequest<String> implements Enterpris
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
-
-    public Integer getSendInvite() {
-        return sendInvite;
-    }
-
-    public void setSendInvite(Integer sendInvite) {
-        this.sendInvite = sendInvite;
     }
 
     public String getRemark() {
@@ -179,22 +169,6 @@ public class EmployeeAddRequest extends FormRequest<String> implements Enterpris
 
     public void setCategory(List<String> category) {
         this.category = category;
-    }
-
-    public Integer getAllowSimplePwd() {
-        return allowSimplePwd;
-    }
-
-    public void setAllowSimplePwd(Integer allowSimplePwd) {
-        this.allowSimplePwd = allowSimplePwd;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @FormField(converter = FormField.TextConverter.JSON)
