@@ -61,7 +61,7 @@ public class EmployeeApi {
         return this.openClient.postFormWithAuth("/employee/getCountByDepartmentCode", employeeGetCountByDepartmentCodeRequest);
     }
 
-    public EmployeeAttributeGetResp getAttribute(EmployeeAttributeGetRequest employeeAttributeGetRequest) {
+    public List<EmployeeAttributeGetResp> getAttribute(EmployeeAttributeGetRequest employeeAttributeGetRequest) {
         return this.openClient.postFormWithAuth("/employee/attribute/get", employeeAttributeGetRequest);
     }
 }

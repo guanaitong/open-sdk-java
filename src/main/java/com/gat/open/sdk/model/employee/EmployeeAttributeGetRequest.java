@@ -9,12 +9,14 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
+import java.util.List;
+
 /**
  * https://open.guanaitong.com/doc/enterprise/employee-attribute-get
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */
-public class EmployeeAttributeGetRequest extends FormRequest<EmployeeAttributeGetResp> implements EnterpriseCodeRequest {
+public class EmployeeAttributeGetRequest extends FormRequest<List<EmployeeAttributeGetResp>> implements EnterpriseCodeRequest {
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */

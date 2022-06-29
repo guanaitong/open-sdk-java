@@ -9,12 +9,16 @@ import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
-import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
-import com.gat.open.sdk.model.employee.EmployeeInfo;
+import com.gat.open.sdk.model.employee.EmployeeAttributeGetRequest;
+import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
+import com.gat.open.sdk.model.employee.EmployeeGetByDepartmentCodeRequest;
+import com.gat.open.sdk.model.employee.EmployeeGetCountByDepartmentCodeRequest;
+import com.gat.open.sdk.model.employee.EmployeeGetRequest;
+import com.gat.open.sdk.model.employee.EmployeeGetResp;
 import com.gat.open.sdk.util.Constants;
+import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -26,17 +30,17 @@ import static org.junit.Assert.assertNotNull;
 public class EmployeeApiTest {
 
 
-    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110947", "db962af04d5dbbd5bcac6041e82c191a");
+    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 //    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110947", "db962af04d5dbbd5bcac6041e82c191a");
 
     @Test
     public void employeeTest() {
-//        EmployeeGetRequest employeeGetRequest = new EmployeeGetRequest();
-//        employeeGetRequest.setMobile("13711111111");
-//        EmployeeGetResp employeeGetResp = openClient.employeeApi().get(employeeGetRequest);
-//        System.out.println(employeeGetResp);
+        EmployeeGetRequest employeeGetRequest = new EmployeeGetRequest();
+        employeeGetRequest.setMobile("14253142358");
+        EmployeeGetResp employeeGetResp = openClient.employeeApi().get(employeeGetRequest);
+        System.out.println(employeeGetResp);
 
-        EmployeeBatchSyncRequest employeeBatchSyncRequest = new EmployeeBatchSyncRequest();
+        /*EmployeeBatchSyncRequest employeeBatchSyncRequest = new EmployeeBatchSyncRequest();
         List<EmployeeInfo> employeeList = new ArrayList<>();
         employeeBatchSyncRequest.setEmployeeList(employeeList);
         EmployeeInfo employeeInfo = new EmployeeInfo();
@@ -45,7 +49,72 @@ public class EmployeeApiTest {
         employeeInfo.setName("xxx");
         employeeInfo.setMobile("13167019222");
         String synchronize = openClient.employeeApi().batchSynchronize(employeeBatchSyncRequest);
-        System.out.println(synchronize);
+        System.out.println(synchronize);*/
+    }
+
+    @Test
+    public void employeeAddTest() {
+        /*EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
+        employeeAddRequest.setUserId("tom0001");
+        employeeAddRequest.setCode("tom0001");
+        employeeAddRequest.setName("tom0001");
+        employeeAddRequest.setGender(1);
+        employeeAddRequest.setMobile("16898989090");
+        employeeAddRequest.setEmail("16898989090@tom.com");
+        employeeAddRequest.setBirthDay("1990-06-05");
+        employeeAddRequest.setEntryDay("2022-06-29");
+        employeeAddRequest.setCardType(1);
+        employeeAddRequest.setCardNo("110101199003070919");
+        employeeAddRequest.setRemark("test");
+
+        String add = openClient.employeeApi().add(employeeAddRequest);
+        System.out.println(add);*/
+
+        /*EmployeeUpdateRequest employeeUpdateRequest = new EmployeeUpdateRequest();
+        employeeUpdateRequest.setUserId("tom0001");
+        ArrayList<String> category = new ArrayList<>();
+        category.add("帅哥组");
+        employeeUpdateRequest.setCategory(category);
+        employeeUpdateRequest.setLevel("金丹");
+        employeeUpdateRequest.setGender(2);
+        employeeUpdateRequest.setBirthDay("1990-06-05");
+        employeeUpdateRequest.setEntryDay("2022-06-29");
+        employeeUpdateRequest.setCode("tom0002");
+        employeeUpdateRequest.setMobile("16898989091");
+        ArrayList<EmployeeAttribute> employeeAttribute = new ArrayList<>();
+        EmployeeAttribute e = new EmployeeAttribute();
+        e.setAttributeCode("politicalVisage");
+        e.setAttributeValue("群众");
+        employeeAttribute.add(e);
+        employeeUpdateRequest.setEmployeeAttribute(employeeAttribute);
+        openClient.employeeApi().update(employeeUpdateRequest);
+
+        EmployeeResignRequest employeeResignRequest = new EmployeeResignRequest();
+        employeeResignRequest.setUserId("tom0001");
+
+        openClient.employeeApi().resign(employeeResignRequest);*/
+
+        /*EmployeeRestoreRequest employeeRestoreRequest = new EmployeeRestoreRequest();
+        employeeRestoreRequest.setUserId("tom0001");
+
+        openClient.employeeApi().restore(employeeRestoreRequest);*/
+
+        EmployeeGetByDepartmentCodeRequest employeeGetByDepartmentCodeRequest = new EmployeeGetByDepartmentCodeRequest();
+        employeeGetByDepartmentCodeRequest.setDeptCode("TomCompany_第二个部门");
+        List<EmployeeGetResp> employeeGetRespList = openClient.employeeApi().getByDepartmentCode(employeeGetByDepartmentCodeRequest);
+        System.out.println(JSON.toJSONString(employeeGetRespList));
+
+        EmployeeGetCountByDepartmentCodeRequest employeeGetCountByDepartmentCodeRequest = new EmployeeGetCountByDepartmentCodeRequest();
+        employeeGetCountByDepartmentCodeRequest.setDeptCode("TomCompany_第二个部门");
+        Integer countByDepartmentCode = openClient.employeeApi().getCountByDepartmentCode(employeeGetCountByDepartmentCodeRequest);
+        System.out.println(countByDepartmentCode);
+
+        EmployeeAttributeGetRequest employeeAttributeGetRequest = new EmployeeAttributeGetRequest();
+        employeeAttributeGetRequest.setUserId("tom0001");
+
+        List<EmployeeAttributeGetResp> attributeGetRespList = openClient.employeeApi().getAttribute(employeeAttributeGetRequest);
+        System.out.println(JSON.toJSONString(attributeGetRespList));
+
     }
 
     @Test
