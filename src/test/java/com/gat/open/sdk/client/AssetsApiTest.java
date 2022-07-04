@@ -26,7 +26,6 @@ import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitAssignStatusResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetRequest;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitRecycleRequest;
-import com.gat.open.sdk.util.Constants;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -34,7 +33,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class AssetsApiTest {
-//    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+    //    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
     private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 
     @Test
@@ -46,7 +45,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseAssignJiFenTest(){
+    public void enterpriseAssignJiFenTest() {
         EnterpriseAssetsAssignJiFenSingleRequest enterpriseAssetsAssignJiFenSingleRequest = new EnterpriseAssetsAssignJiFenSingleRequest();
         enterpriseAssetsAssignJiFenSingleRequest.setUserId("tom0001");
         enterpriseAssetsAssignJiFenSingleRequest.setAccountOpenid("8c9022b7dfbd84e7f4102d9b0d3c2745");
@@ -57,7 +56,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseAssignJiFenStatusTest(){
+    public void enterpriseAssignJiFenStatusTest() {
         EnterpriseAssetsJiFenAssignStatusRequest enterpriseAssetsJiFenAssignStatusRequest = new EnterpriseAssetsJiFenAssignStatusRequest();
         enterpriseAssetsJiFenAssignStatusRequest.setExternalCode("2011066120220704000001");
         EnterpriseAssetsJiFenAssignStatusResp enterpriseAssetsJiFenAssignStatusResp = openClient.assetsApi().assignJiFenStatus(enterpriseAssetsJiFenAssignStatusRequest);
@@ -65,7 +64,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseAssetsAssignSingle(){
+    public void enterpriseAssetsAssignSingle() {
         EnterpriseAssetsAssignSingleRequest enterpriseAssetsAssignSingleRequest = new EnterpriseAssetsAssignSingleRequest();
         enterpriseAssetsAssignSingleRequest.setUserId("tom0001");
         enterpriseAssetsAssignSingleRequest.setAccountOpenid("8c9022b7dfbd84e7f4102d9b0d3c2745");
@@ -76,7 +75,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseAssignSingleQuery(){
+    public void enterpriseAssignSingleQuery() {
         EnterpriseAssetsAssignSingleQueryRequest enterpriseAssetsAssignSingleQueryRequest = new EnterpriseAssetsAssignSingleQueryRequest();
         enterpriseAssetsAssignSingleQueryRequest.setExternalCode("2011066120220704000002");
         EnterpriseAssetsAssignSingleQueryResp enterpriseAssetsAssignSingleQueryResp = openClient.assetsApi().assignSingleQuery(enterpriseAssetsAssignSingleQueryRequest);
@@ -84,14 +83,14 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseLimitGetTest(){
+    public void enterpriseLimitGetTest() {
         EnterpriseAssetsLimitGetRequest enterpriseAssetsLimitGetRequest = new EnterpriseAssetsLimitGetRequest();
         List<EnterpriseAssetsLimitGetResp> enterpriseAssetsLimit = openClient.assetsApi().getEnterpriseAssetsLimit(enterpriseAssetsLimitGetRequest);
         System.out.println(JSON.toJSONString(enterpriseAssetsLimit));
     }
 
     @Test
-    public void enterpriseAssignLimitTest(){
+    public void enterpriseAssignLimitTest() {
         EnterpriseAssetsAssignLimitSingleRequest enterpriseAssetsAssignLimitSingleRequest = new EnterpriseAssetsAssignLimitSingleRequest();
         enterpriseAssetsAssignLimitSingleRequest.setLimitOpenid("9fdbeea55dab2b1d252d7b593d00e7c5");
         enterpriseAssetsAssignLimitSingleRequest.setAmount(new BigDecimal(100));
@@ -102,7 +101,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseAssignLimitStatusTest(){
+    public void enterpriseAssignLimitStatusTest() {
         EnterpriseAssetsLimitAssignStatusRequest enterpriseAssetsLimitAssignStatusRequest = new EnterpriseAssetsLimitAssignStatusRequest();
         enterpriseAssetsLimitAssignStatusRequest.setExternalCode("2011066120220704000003");
         EnterpriseAssetsLimitAssignStatusResp enterpriseAssetsLimitAssignStatusResp = openClient.assetsApi().assignLimitStatus(enterpriseAssetsLimitAssignStatusRequest);
@@ -110,7 +109,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseRecycleJiFenTest(){
+    public void enterpriseRecycleJiFenTest() {
         EnterpriseAssetsJiFenRecycleRequest enterpriseAssetsJiFenRecycleRequest = new EnterpriseAssetsJiFenRecycleRequest();
         enterpriseAssetsJiFenRecycleRequest.setAmount(new BigDecimal(1));
         enterpriseAssetsJiFenRecycleRequest.setExternalCode("2011066120220704000004");
@@ -120,7 +119,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void enterpriseRecycleLimitTest(){
+    public void enterpriseRecycleLimitTest() {
         EnterpriseAssetsLimitRecycleRequest enterpriseAssetsLimitRecycleRequest = new EnterpriseAssetsLimitRecycleRequest();
         enterpriseAssetsLimitRecycleRequest.setAmount(new BigDecimal(1));
         enterpriseAssetsLimitRecycleRequest.setExternalCode("2011066120220704000005");
@@ -131,7 +130,7 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void employeePointConsumeQueryTest(){
+    public void employeePointConsumeQueryTest() {
         EmployeeAssetsPointConsumeRequest employeeAssetsPointConsumeRequest = new EmployeeAssetsPointConsumeRequest();
         employeeAssetsPointConsumeRequest.setType(1);
         List<EmployeeAssetsPointConsumeResp> employeeAssetsPointConsumeResps = openClient.assetsApi().employeePointConsumeQuery(employeeAssetsPointConsumeRequest);
@@ -139,14 +138,14 @@ public class AssetsApiTest {
     }
 
     @Test
-    public void employeeAssetsLimitRecordQueryTest(){
+    public void employeeAssetsLimitRecordQueryTest() {
         EmployeeAssetsLimitRecordRequest employeeAssetsLimitRecordRequest = new EmployeeAssetsLimitRecordRequest();
         List<EmployeeAssetsLimitRecordResp> employeeAssetsLimitRecordResps = openClient.assetsApi().employeeAssetsLimitRecordQuery(employeeAssetsLimitRecordRequest);
         System.out.println(JSON.toJSONString(employeeAssetsLimitRecordResps));
     }
 
     @Test
-    public void getEmployeeAssetsAccountTest(){
+    public void getEmployeeAssetsAccountTest() {
         EmployeeAssetsAccountGetRequest employeeAssetsAccountGetRequest = new EmployeeAssetsAccountGetRequest();
         employeeAssetsAccountGetRequest.setUserId("tom0001");
         List<EmployeeAssetsAccountGetResp> employeeAssetsAccount = openClient.assetsApi().getEmployeeAssetsAccount(employeeAssetsAccountGetRequest);
