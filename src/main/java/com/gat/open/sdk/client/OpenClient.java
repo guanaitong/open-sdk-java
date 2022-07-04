@@ -81,6 +81,10 @@ public final class OpenClient {
         return new DepartmentApi(this);
     }
 
+    public AssetsApi assetsApi() {
+        return new AssetsApi(this);
+    }
+
 
     private Token getToken() {
         if (token == null || token.needRefresh()) {
