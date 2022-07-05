@@ -10,7 +10,6 @@ import com.gat.open.sdk.model.activity.EnterpriseActivityAssetsGetResp;
 import com.gat.open.sdk.model.activity.EnterpriseActivityAssignRequest;
 import com.gat.open.sdk.model.activity.EnterpriseActivityFindRequest;
 import com.gat.open.sdk.model.activity.EnterpriseActivityFindResp;
-import com.gat.open.sdk.util.Constants;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityApiTest {
-    private static OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+    private OpenClient openClient = Clients.openClient;
 
     @Test
     public void findEnterpriseActivityTest() {

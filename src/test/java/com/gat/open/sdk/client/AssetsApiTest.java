@@ -27,7 +27,6 @@ import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitAssignStatusResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetRequest;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitRecycleRequest;
-import com.gat.open.sdk.util.Constants;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -35,7 +34,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class AssetsApiTest {
-        private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+    private OpenClient openClient = Clients.openClient;
 //    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 
     @Test
