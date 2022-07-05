@@ -31,6 +31,6 @@ public class Token {
 
     public boolean needRefresh() {
         //超过3/5的有效期时，认为需要刷新
-        return (System.currentTimeMillis() - this.createAt) > 0.6 * this.expiresIn;
+        return (System.currentTimeMillis() - this.createAt) > 0.8 * this.expiresIn * 1000;
     }
 }
