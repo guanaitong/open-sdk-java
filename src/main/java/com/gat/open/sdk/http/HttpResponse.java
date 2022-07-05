@@ -12,12 +12,12 @@ public class HttpResponse {
     private final int code;
     private final byte[] body;
 
-//    private final String text;
+    private final String text;
 
     public HttpResponse(int code, byte[] body) {
         this.code = code;
         this.body = body;
-//        this.text = new String(body);
+        this.text = new String(body);
     }
 
     public int getCode() {

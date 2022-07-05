@@ -18,7 +18,7 @@ public class AccountApi {
         this.openClient = openClient;
     }
 
-    public EnterpriseAccountApplyChargeResp findEnterpriseActivity(EnterpriseAccountApplyChargeRequest enterpriseAccountApplyChargeRequest) {
+    public EnterpriseAccountApplyChargeResp applyCharge(EnterpriseAccountApplyChargeRequest enterpriseAccountApplyChargeRequest) {
         return this.openClient.postFormWithAuth("/enterprise/account/applyCharge", enterpriseAccountApplyChargeRequest);
     }
 }

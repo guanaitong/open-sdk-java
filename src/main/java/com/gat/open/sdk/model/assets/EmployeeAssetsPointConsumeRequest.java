@@ -7,15 +7,14 @@ package com.gat.open.sdk.model.assets;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
-
-import java.util.List;
+import com.gat.open.sdk.model.Pagination2;
 
 /**
  * https://open.guanaitong.com/doc/enterprise/employee-point-trade
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */
-public class EmployeeAssetsPointConsumeRequest extends FormRequest<List<EmployeeAssetsPointConsumeResp>> implements EnterpriseCodeRequest {
+public class EmployeeAssetsPointConsumeRequest extends FormRequest<Pagination2<EmployeeAssetsPointConsumeResp>> implements EnterpriseCodeRequest {
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */

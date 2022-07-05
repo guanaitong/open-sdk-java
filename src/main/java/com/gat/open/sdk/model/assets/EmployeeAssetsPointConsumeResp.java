@@ -17,10 +17,12 @@ public class EmployeeAssetsPointConsumeResp {
     /**
      * 商户订单号
      */
+    @JsonProperty("outer_tradeno")
     private String outerTradeNo;
     /**
      * 主交易号
      */
+    @JsonProperty("tradeno")
     private String tradeNo;
     /**
      * 消费还是退款1(消费),2(退款)
@@ -63,7 +65,6 @@ public class EmployeeAssetsPointConsumeResp {
         this.timeCreated = timeCreated;
     }
 
-    @JsonProperty("outer_tradeno")
     public String getOuterTradeNo() {
         return outerTradeNo;
     }
@@ -72,7 +73,6 @@ public class EmployeeAssetsPointConsumeResp {
         this.outerTradeNo = outerTradeNo;
     }
 
-    @JsonProperty("tradeno")
     public String getTradeNo() {
         return tradeNo;
     }

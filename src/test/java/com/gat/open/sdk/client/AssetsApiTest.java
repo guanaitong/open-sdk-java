@@ -5,6 +5,7 @@
 
 package com.gat.open.sdk.client;
 
+import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.assets.EmployeeAssetsAccountGetRequest;
 import com.gat.open.sdk.model.assets.EmployeeAssetsAccountGetResp;
 import com.gat.open.sdk.model.assets.EmployeeAssetsLimitRecordRequest;
@@ -26,6 +27,7 @@ import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitAssignStatusResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetRequest;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitGetResp;
 import com.gat.open.sdk.model.assets.EnterpriseAssetsLimitRecycleRequest;
+import com.gat.open.sdk.util.Constants;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -33,13 +35,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class AssetsApiTest {
-    //    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
-    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+        private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+//    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 
     @Test
     public void enterpriseAccountGetTest() {
         EnterpriseAssetsAccountGetRequest enterpriseAssetsAccountGetRequest = new EnterpriseAssetsAccountGetRequest();
-        enterpriseAssetsAccountGetRequest.setAccountOpenid("8c9022b7dfbd84e7f4102d9b0d3c2745");
+//        enterpriseAssetsAccountGetRequest.setAccountOpenid("8c9022b7dfbd84e7f4102d9b0d3c2745");
         List<EnterpriseAssetsAccountGetResp> enterpriseAssetsAccount = openClient.assetsApi().getEnterpriseAssetsAccount(enterpriseAssetsAccountGetRequest);
         System.out.println(JSON.toJSONString(enterpriseAssetsAccount));
     }
@@ -133,15 +135,17 @@ public class AssetsApiTest {
     public void employeePointConsumeQueryTest() {
         EmployeeAssetsPointConsumeRequest employeeAssetsPointConsumeRequest = new EmployeeAssetsPointConsumeRequest();
         employeeAssetsPointConsumeRequest.setType(1);
-        List<EmployeeAssetsPointConsumeResp> employeeAssetsPointConsumeResps = openClient.assetsApi().employeePointConsumeQuery(employeeAssetsPointConsumeRequest);
-        System.out.println(JSON.toJSONString(employeeAssetsPointConsumeResps));
+        Pagination<EmployeeAssetsPointConsumeResp> employeeAssetsPointConsumeResps = openClient.assetsApi().employeePointConsumeQuery(employeeAssetsPointConsumeRequest);
+        System.out.println(employeeAssetsPointConsumeResps);
     }
 
     @Test
     public void employeeAssetsLimitRecordQueryTest() {
         EmployeeAssetsLimitRecordRequest employeeAssetsLimitRecordRequest = new EmployeeAssetsLimitRecordRequest();
-        List<EmployeeAssetsLimitRecordResp> employeeAssetsLimitRecordResps = openClient.assetsApi().employeeAssetsLimitRecordQuery(employeeAssetsLimitRecordRequest);
-        System.out.println(JSON.toJSONString(employeeAssetsLimitRecordResps));
+        employeeAssetsLimitRecordRequest.setAccountOpenid("9fdbeea55dab2b1d252d7b593d00e7c5");
+        employeeAssetsLimitRecordRequest.setUserId("tom0001");
+        Pagination<EmployeeAssetsLimitRecordResp> employeeAssetsLimitRecordResps = openClient.assetsApi().employeeAssetsLimitRecordQuery(employeeAssetsLimitRecordRequest);
+        System.out.println(employeeAssetsLimitRecordResps);
     }
 
     @Test
