@@ -5,6 +5,7 @@
 
 package com.gat.open.sdk.client;
 
+import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.assets.EmployeeAssetsAccountGetRequest;
 import com.gat.open.sdk.model.assets.EmployeeAssetsAccountGetResp;
 import com.gat.open.sdk.model.assets.EmployeeAssetsLimitRecordRequest;
@@ -90,11 +91,11 @@ public class AssetsApi {
         return this.openClient.postFormWithAuth("/enterprise/assign/single/query", enterpriseAssetsAssignSingleQueryRequest);
     }
 
-    public List<EmployeeAssetsPointConsumeResp> employeePointConsumeQuery(EmployeeAssetsPointConsumeRequest employeeAssetsPointConsumeRequest) {
+    public Pagination<EmployeeAssetsPointConsumeResp> employeePointConsumeQuery(EmployeeAssetsPointConsumeRequest employeeAssetsPointConsumeRequest) {
         return this.openClient.postFormWithAuth("/assets/point/employee/consume", employeeAssetsPointConsumeRequest);
     }
 
-    public List<EmployeeAssetsLimitRecordResp> employeeAssetsLimitRecordQuery(EmployeeAssetsLimitRecordRequest employeeAssetsLimitRecordRequest) {
+    public Pagination<EmployeeAssetsLimitRecordResp> employeeAssetsLimitRecordQuery(EmployeeAssetsLimitRecordRequest employeeAssetsLimitRecordRequest) {
         return this.openClient.postFormWithAuth("/assets/limit/employee/record", employeeAssetsLimitRecordRequest);
     }
 }

@@ -8,13 +8,12 @@ package com.gat.open.sdk.model.assets;
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
-
-import java.util.List;
+import com.gat.open.sdk.model.Pagination;
 
 /**
  * https://open.guanaitong.com/doc/enterprise/employee-quota-trade
  */
-public class EmployeeAssetsLimitRecordRequest extends FormRequest<List<EmployeeAssetsLimitRecordResp>> implements EnterpriseCodeRequest {
+public class EmployeeAssetsLimitRecordRequest extends FormRequest<Pagination<EmployeeAssetsLimitRecordResp>> implements EnterpriseCodeRequest {
     /**
      * 员工第三方唯一标识，不会变更
      */

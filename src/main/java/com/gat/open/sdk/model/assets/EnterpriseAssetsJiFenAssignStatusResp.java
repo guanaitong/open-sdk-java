@@ -5,6 +5,8 @@
 
 package com.gat.open.sdk.model.assets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 
 
@@ -46,6 +48,7 @@ public class EnterpriseAssetsJiFenAssignStatusResp {
         this.amount = amount;
     }
 
+    @JsonProperty("externalCode")
     public String getExternalCode() {
         return externalCode;
     }

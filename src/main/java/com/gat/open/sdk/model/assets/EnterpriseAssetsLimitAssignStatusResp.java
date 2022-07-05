@@ -5,6 +5,8 @@
 
 package com.gat.open.sdk.model.assets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EnterpriseAssetsLimitAssignStatusResp {
     /**
      * 外部交易号
@@ -15,6 +17,7 @@ public class EnterpriseAssetsLimitAssignStatusResp {
      */
     private Integer status;
 
+    @JsonProperty("externalCode")
     public String getExternalCode() {
         return externalCode;
     }

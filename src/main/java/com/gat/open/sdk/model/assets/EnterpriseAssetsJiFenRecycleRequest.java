@@ -32,7 +32,7 @@ public class EnterpriseAssetsJiFenRecycleRequest extends FormRequest<String> imp
      */
     private Integer thirdType;
     /**
-     * 发放金额
+     * 回收积分金额
      */
     private BigDecimal amount;
     /**
