@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityApiTest {
-    private OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+    private static OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 
     @Test
     public void findEnterpriseActivityTest() {
