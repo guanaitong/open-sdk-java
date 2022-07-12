@@ -93,6 +93,10 @@ public final class OpenClient {
         return new AccountApi(this);
     }
 
+    public InvoiceApi invoiceApi() {
+        return new InvoiceApi(this);
+    }
+
 
     private Token getToken() {
         if (token == null || token.needRefresh()) {

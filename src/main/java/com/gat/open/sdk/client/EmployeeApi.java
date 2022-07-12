@@ -5,9 +5,12 @@
 
 package com.gat.open.sdk.client;
 
+import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.employee.EmployeeAddRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
+import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
+import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetByDepartmentCodeRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetCountByDepartmentCodeRequest;
@@ -15,6 +18,7 @@ import com.gat.open.sdk.model.employee.EmployeeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetResp;
 import com.gat.open.sdk.model.employee.EmployeeResignRequest;
 import com.gat.open.sdk.model.employee.EmployeeRestoreRequest;
+import com.gat.open.sdk.model.employee.EmployeeTransferRequest;
 import com.gat.open.sdk.model.employee.EmployeeUpdateRequest;
 
 import java.util.List;
@@ -63,5 +67,13 @@ public class EmployeeApi {
 
     public List<EmployeeAttributeGetResp> getAttribute(EmployeeAttributeGetRequest employeeAttributeGetRequest) {
         return this.openClient.postFormWithAuth("/employee/attribute/get", employeeAttributeGetRequest);
+    }
+
+    public Pagination<EmployeeBatchGetResp> batchGetEmployee(EmployeeBatchGetRequest employeeBatchGetRequest) {
+        return this.openClient.postFormWithAuth("/employee/batchGet", employeeBatchGetRequest);
+    }
+
+    public String transfer(EmployeeTransferRequest employeeTransferRequest) {
+        return this.openClient.postFormWithAuth("/employee/transfer", employeeTransferRequest);
     }
 }
