@@ -5,12 +5,15 @@
 
 package com.gat.open.sdk.client;
 
+import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
+import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
+import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeGetByDepartmentCodeRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetCountByDepartmentCodeRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetRequest;
@@ -125,6 +128,13 @@ public class EmployeeApiTest {
         assertNotNull(departmentResp);
         assertEquals(departmentResp.getName(), "li开放平台企业05");
         System.out.println(departmentResp);
+    }
+
+    @Test
+    public void batchGetEmployeeTest() {
+        EmployeeBatchGetRequest employeeBatchGetRequest = new EmployeeBatchGetRequest();
+        Pagination<EmployeeBatchGetResp> employeeBatchGetRespPagination = openClient.employeeApi().batchGetEmployee(employeeBatchGetRequest);
+        System.out.println(JSON.toJSONString(employeeBatchGetRespPagination));
     }
 
 }
