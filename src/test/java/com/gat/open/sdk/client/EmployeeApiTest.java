@@ -6,6 +6,8 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.Pagination;
+import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeBody;
+import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
@@ -21,6 +23,7 @@ import com.gat.open.sdk.model.employee.EmployeeGetResp;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -135,6 +138,19 @@ public class EmployeeApiTest {
         EmployeeBatchGetRequest employeeBatchGetRequest = new EmployeeBatchGetRequest();
         Pagination<EmployeeBatchGetResp> employeeBatchGetRespPagination = openClient.employeeApi().batchGetEmployee(employeeBatchGetRequest);
         System.out.println(JSON.toJSONString(employeeBatchGetRespPagination));
+    }
+
+    @Test
+    public void batchSynchronizeDeptTest() {
+        List<DepartmentBatchSynchronizeBody> departmentBatchSynchronizeBodyList = new ArrayList<>();
+        DepartmentBatchSynchronizeBody departmentBatchSynchronizeBody = new DepartmentBatchSynchronizeBody();
+        departmentBatchSynchronizeBody.setDeptCode("TOM071201");
+        departmentBatchSynchronizeBody.setName("TOM071201");
+//        departmentBatchSynchronizeBody.setStatus(1);
+        departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
+        DepartmentBatchSynchronizeRequest departmentBatchSynchronizeRequest = new DepartmentBatchSynchronizeRequest(departmentBatchSynchronizeBodyList);
+        String batchSynchronize = openClient.departmentApi().batchSynchronize(departmentBatchSynchronizeRequest);
+        System.out.println(batchSynchronize);
     }
 
 }

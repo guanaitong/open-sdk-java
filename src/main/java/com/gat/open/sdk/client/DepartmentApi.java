@@ -6,6 +6,7 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.department.DepartmentAddRequest;
+import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeRequest;
 import com.gat.open.sdk.model.department.DepartmentDeleteRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
@@ -47,5 +48,7 @@ public class DepartmentApi {
         return this.openClient.postFormWithAuth("/department/getHierarchy", departmentGetHierarchyRequest);
     }
 
-
+    public String batchSynchronize(DepartmentBatchSynchronizeRequest departmentBatchSynchronizeRequest) {
+        return this.openClient.postJsonWithAuth("/department/batchSynchronize", departmentBatchSynchronizeRequest);
+    }
 }
