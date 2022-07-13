@@ -12,7 +12,7 @@ import com.gat.open.sdk.model.notify.NotifyEmployeeBalance;
 import com.gat.open.sdk.model.notify.NotifyEmployeeSync;
 import com.gat.open.sdk.model.notify.NotifyEnterpriseCharge;
 import com.gat.open.sdk.model.notify.NotifyEnterpriseOpen;
-import com.gat.open.sdk.tool.AESCrypt;
+import com.gat.open.sdk.util.AESCrypt;
 import com.gat.open.sdk.util.JSON;
 import com.gat.open.sdk.util.SignUtils;
 
@@ -32,7 +32,7 @@ public class NotifyDecoder {
         this.aesKey = aesKey;
     }
 
-    private <T> T parse(BaseMsg baseMsg, Class<T> clazz) {
+    public <T> T parse(BaseMsg baseMsg, Class<T> clazz) {
         Map<String, Object> signMap = new HashMap<>();
         signMap.put("timestamp", baseMsg.getTimestamp());
         signMap.put("nonce", baseMsg.getNonce());
