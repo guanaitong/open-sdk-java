@@ -14,6 +14,7 @@ import com.gat.open.sdk.http.HttpResponse;
 import com.gat.open.sdk.model.ApiRequest;
 import com.gat.open.sdk.model.ApiResponse;
 import com.gat.open.sdk.model.FormRequest;
+import com.gat.open.sdk.model.JsonArrayRequest;
 import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
@@ -120,6 +121,10 @@ public final class OpenClient {
     }
 
     public <T> T postJsonWithAuth(String path, JsonRequest<T> apiRequest) {
+        return request(true, path, apiRequest);
+    }
+
+    public <T> T postJsonWithAuth(String path, JsonArrayRequest<T> apiRequest) {
         return request(true, path, apiRequest);
     }
 
