@@ -65,6 +65,25 @@ public class JSON {
     }
 
     /**
+     * 解析为指定类
+     *
+     * @param text
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public static <T> T parse(String text, Class<T> clazz) {
+        if (text == null || text.isEmpty()) {
+            return null;
+        }
+        try {
+            return OBJECT_MAPPER.readValue(text, clazz);
+        } catch (Throwable e) {
+            throw new OpenSdkException("json parse error for text:" + text, e);
+        }
+    }
+
+    /**
      * 用于处理带泛型嵌套的类
      *
      * @param data
