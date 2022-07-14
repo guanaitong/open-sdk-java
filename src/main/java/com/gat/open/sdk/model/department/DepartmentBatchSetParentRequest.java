@@ -13,29 +13,25 @@ import java.util.List;
 /**
  * Created by August.Zhou on 2022/6/27 14:40
  */
-public class DepartmentBatchSynchronizeRequest extends JsonArrayRequest<String> implements EnterpriseCodeRequest {
+public class DepartmentBatchSetParentRequest extends JsonArrayRequest<String> implements EnterpriseCodeRequest {
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */
     private String enterpriseCode;
 
-    public DepartmentBatchSynchronizeRequest(List<DepartmentBatchSynchronizeBody> array) {
+    public DepartmentBatchSetParentRequest(List<DepartmentBatchSetParentBody> array) {
         super(array);
     }
 
-    public static class DepartmentBatchSynchronizeBody {
+    public static class DepartmentBatchSetParentBody {
         /**
          * 部门编码
          */
         private String deptCode;
         /**
-         * 部门名称
+         * 父部门编码
          */
-        private String name;
-        /**
-         * 部门是否有效，1有效、2无效
-         */
-        private Integer status;
+        private String parentCode;
 
         public String getDeptCode() {
             return deptCode;
@@ -45,20 +41,12 @@ public class DepartmentBatchSynchronizeRequest extends JsonArrayRequest<String> 
             this.deptCode = deptCode;
         }
 
-        public String getName() {
-            return name;
+        public String getParentCode() {
+            return parentCode;
         }
 
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public Integer getStatus() {
-            return status;
-        }
-
-        public void setStatus(Integer status) {
-            this.status = status;
+        public void setParentCode(String parentCode) {
+            this.parentCode = parentCode;
         }
     }
 

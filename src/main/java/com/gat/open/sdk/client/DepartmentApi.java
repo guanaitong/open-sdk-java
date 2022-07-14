@@ -6,12 +6,17 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.department.DepartmentAddRequest;
+import com.gat.open.sdk.model.department.DepartmentBatchSetManagerRequest;
+import com.gat.open.sdk.model.department.DepartmentBatchSetParentRequest;
 import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeRequest;
 import com.gat.open.sdk.model.department.DepartmentDeleteRequest;
+import com.gat.open.sdk.model.department.DepartmentGetBatchResultRequest;
+import com.gat.open.sdk.model.department.DepartmentGetBatchResultResp;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
+import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
 import com.gat.open.sdk.model.department.DepartmentUpdateRequest;
 
 /**
@@ -50,5 +55,21 @@ public class DepartmentApi {
 
     public String batchSynchronize(DepartmentBatchSynchronizeRequest departmentBatchSynchronizeRequest) {
         return this.openClient.postJsonWithAuth("/department/batchSynchronize", departmentBatchSynchronizeRequest);
+    }
+
+    public DepartmentGetBatchResultResp getDepartmentBatchResult(DepartmentGetBatchResultRequest departmentGetBatchResultRequest) {
+        return this.openClient.postFormWithAuth("/getByBatchNumber", departmentGetBatchResultRequest);
+    }
+
+    public String batchSetParent(DepartmentBatchSetParentRequest departmentBatchSetParentRequest) {
+        return this.openClient.postJsonWithAuth("/department/batchSetParent", departmentBatchSetParentRequest);
+    }
+
+    public String batchSetManager(DepartmentBatchSetManagerRequest departmentBatchSetManagerRequest) {
+        return this.openClient.postJsonWithAuth("/department/batchSetManager", departmentBatchSetManagerRequest);
+    }
+
+    public Boolean transferEmployee(DepartmentTransferEmployeeRequest departmentTransferEmployeeRequest) {
+        return this.openClient.postFormWithAuth("/department/transferEmployee", departmentTransferEmployeeRequest);
     }
 }
