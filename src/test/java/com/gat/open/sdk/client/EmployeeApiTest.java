@@ -6,12 +6,16 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.Pagination;
-import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeBody;
+import com.gat.open.sdk.model.department.DepartmentBatchSetManagerRequest;
+import com.gat.open.sdk.model.department.DepartmentBatchSetParentRequest;
 import com.gat.open.sdk.model.department.DepartmentBatchSynchronizeRequest;
+import com.gat.open.sdk.model.department.DepartmentGetBatchResultRequest;
+import com.gat.open.sdk.model.department.DepartmentGetBatchResultResp;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyRequest;
 import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
+import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
@@ -129,7 +133,7 @@ public class EmployeeApiTest {
         departmentGetRequest.setDeptCode(departmentGetHierarchyResp.get("basic").get(0).getDeptCode());
         DepartmentResp departmentResp = openClient.departmentApi().get(departmentGetRequest);
         assertNotNull(departmentResp);
-        assertEquals(departmentResp.getName(), "li开放平台企业05");
+        assertEquals(departmentResp.getName(), "Tomcampany1");
         System.out.println(departmentResp);
     }
 
@@ -142,15 +146,56 @@ public class EmployeeApiTest {
 
     @Test
     public void batchSynchronizeDeptTest() {
-        List<DepartmentBatchSynchronizeBody> departmentBatchSynchronizeBodyList = new ArrayList<>();
-        DepartmentBatchSynchronizeBody departmentBatchSynchronizeBody = new DepartmentBatchSynchronizeBody();
-        departmentBatchSynchronizeBody.setDeptCode("TOM071201");
-        departmentBatchSynchronizeBody.setName("TOM071201");
+        List<DepartmentBatchSynchronizeRequest.DepartmentBatchSynchronizeBody> departmentBatchSynchronizeBodyList = new ArrayList<>();
+        DepartmentBatchSynchronizeRequest.DepartmentBatchSynchronizeBody departmentBatchSynchronizeBody = new DepartmentBatchSynchronizeRequest.DepartmentBatchSynchronizeBody();
+        departmentBatchSynchronizeBody.setDeptCode("TOM071202");
+        departmentBatchSynchronizeBody.setName("TOM071202");
 //        departmentBatchSynchronizeBody.setStatus(1);
         departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
         DepartmentBatchSynchronizeRequest departmentBatchSynchronizeRequest = new DepartmentBatchSynchronizeRequest(departmentBatchSynchronizeBodyList);
         String batchSynchronize = openClient.departmentApi().batchSynchronize(departmentBatchSynchronizeRequest);
         System.out.println(batchSynchronize);
+    }
+
+    @Test
+    public void getDepartmentBatchResultTest() {
+        DepartmentGetBatchResultRequest departmentGetBatchResultRequest = new DepartmentGetBatchResultRequest();
+        departmentGetBatchResultRequest.setBatchNum("USERDOOR_BATCH_SET_DM_05c49248047386bba6b598edfdc545d2");
+        DepartmentGetBatchResultResp departmentBatchResult = openClient.departmentApi().getDepartmentBatchResult(departmentGetBatchResultRequest);
+        System.out.println(JSON.toJSONString(departmentBatchResult));
+    }
+
+    @Test
+    public void batchSetParentDeptTest() {
+        List<DepartmentBatchSetParentRequest.DepartmentBatchSetParentBody> departmentBatchSynchronizeBodyList = new ArrayList<>();
+        DepartmentBatchSetParentRequest.DepartmentBatchSetParentBody departmentBatchSynchronizeBody = new DepartmentBatchSetParentRequest.DepartmentBatchSetParentBody();
+        departmentBatchSynchronizeBody.setDeptCode("TOM071202");
+        departmentBatchSynchronizeBody.setParentCode("TOM071201");
+        departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
+        DepartmentBatchSetParentRequest departmentBatchSynchronizeRequest = new DepartmentBatchSetParentRequest(departmentBatchSynchronizeBodyList);
+        String batchSynchronize = openClient.departmentApi().batchSetParent(departmentBatchSynchronizeRequest);
+        System.out.println(batchSynchronize);
+    }
+
+    @Test
+    public void departmentBatchSetManagerRequestTest() {
+        List<DepartmentBatchSetManagerRequest.DepartmentBatchSetManagerBody> departmentBatchSynchronizeBodyList = new ArrayList<>();
+        DepartmentBatchSetManagerRequest.DepartmentBatchSetManagerBody departmentBatchSynchronizeBody = new DepartmentBatchSetManagerRequest.DepartmentBatchSetManagerBody();
+        departmentBatchSynchronizeBody.setDeptCode("TOM071202");
+        departmentBatchSynchronizeBody.setManagerCode("TOM0002");
+        departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
+        DepartmentBatchSetManagerRequest departmentBatchSynchronizeRequest = new DepartmentBatchSetManagerRequest(departmentBatchSynchronizeBodyList);
+        String batchSynchronize = openClient.departmentApi().batchSetManager(departmentBatchSynchronizeRequest);
+        System.out.println(batchSynchronize);
+    }
+
+    @Test
+    public void deptTransferEmployeeTest() {
+        DepartmentTransferEmployeeRequest departmentTransferEmployeeRequest = new DepartmentTransferEmployeeRequest();
+        departmentTransferEmployeeRequest.setSourceDeptCode("TomCompany");
+        departmentTransferEmployeeRequest.setTargetDeptCode("TOM071202");
+        /*Boolean s = openClient.departmentApi().transferEmployee(departmentTransferEmployeeRequest);
+        System.out.println(s);*/
     }
 
 }

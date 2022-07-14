@@ -5,9 +5,7 @@
 
 package com.gat.open.sdk.model.notify;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
 
 import java.util.List;
 
@@ -15,12 +13,10 @@ public class NotifyEnterpriseOpen extends NotifyBase {
 
     @JsonProperty("app_id")
     String appId;
-
     @JsonProperty("app_secret")
     String appSecret;
-
+    @JsonProperty("enterprise_code")
     String enterpriseCode;
-
     @JsonProperty("products")
     List<Product> productList;
 
@@ -69,12 +65,11 @@ public class NotifyEnterpriseOpen extends NotifyBase {
         this.appSecret = appSecret;
     }
 
-    @JsonGetter("subsidiary_code")
     public String getEnterpriseCode() {
         return enterpriseCode;
     }
 
-    @JsonSetter("enterprise_code")
+
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
     }
