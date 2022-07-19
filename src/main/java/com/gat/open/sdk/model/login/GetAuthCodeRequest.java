@@ -6,6 +6,7 @@
 package com.gat.open.sdk.model.login;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
+import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
@@ -33,6 +34,7 @@ public class GetAuthCodeRequest extends FormRequest<String> implements Enterpris
         this.enterpriseCode = enterpriseCode;
     }
 
+    @FormField("userid")
     public String getUserId() {
         return userId;
     }
