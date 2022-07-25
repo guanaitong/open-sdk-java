@@ -14,6 +14,8 @@ public class EmployeeInfo {
     private String code;
     private String userId;
     private String name;
+
+    private Integer status;
     private Integer gender = 3;
     private String email;
     private String mobileArea;
@@ -59,6 +61,14 @@ public class EmployeeInfo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getGender() {
