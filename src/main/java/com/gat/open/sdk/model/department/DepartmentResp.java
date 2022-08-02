@@ -18,6 +18,7 @@ public class DepartmentResp {
     private String deptCode;
     private String parentCode;
     private String managerCode;
+    private Boolean isPrimary;
 
     public String getName() {
         return name;
@@ -57,5 +58,13 @@ public class DepartmentResp {
 
     public void setManagerCode(String managerCode) {
         this.managerCode = managerCode;
+    }
+
+    public Boolean getPrimary() {
+        return isPrimary;
+    }
+
+    public void setPrimary(Boolean primary) {
+        isPrimary = primary;
     }
 }
