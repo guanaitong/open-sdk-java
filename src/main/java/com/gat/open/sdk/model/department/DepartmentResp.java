@@ -18,6 +18,7 @@ public class DepartmentResp {
     private String deptCode;
     private String parentCode;
     private String managerCode;
+    @JsonProperty("is_primary")
     private Boolean isPrimary;
 
     public String getName() {
