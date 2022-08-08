@@ -133,8 +133,16 @@ public final class OpenClient {
         return request(false, "/token/create", new TokenCreateRequest());
     }
 
+    private void refreshToken() {
+        token = null;
+        token = getToken();
+    }
 
     public <T> T request(boolean auth, String path, ApiRequest<T> apiRequest) {
+        return request0(auth, path, apiRequest);
+    }
+
+    private <T> T request0(boolean auth, String path, ApiRequest<T> apiRequest) {
         Map<String, String> commonParams = new HashMap<>();
         commonParams.put("appid", this.appId);
         commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
@@ -166,7 +174,12 @@ public final class OpenClient {
         ApiResponse<T> apiResponse = JSON.parse(httpResponse.getBody(), javaType);
         if (apiResponse.getCode() == 0) {
             return apiResponse.getData();
+        } else if (apiResponse.getCode() == 1000210004) {
+            //如果HTTP请求后，token 已失效，默认清空，重新生成新的token
+            refreshToken();
+            return request0(auth, path, apiRequest);
         }
+
         throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
     }
 
