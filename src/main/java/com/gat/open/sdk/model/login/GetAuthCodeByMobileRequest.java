@@ -6,26 +6,16 @@
 package com.gat.open.sdk.model.login;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
  * Created by August.Zhou on 2022/6/27 15:47
  */
-public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implements EnterpriseCodeRequest {
+public class GetAuthCodeByMobileRequest extends FormRequest<String> implements EnterpriseCodeRequest {
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */
     private String enterpriseCode;
-
-    /**
-     * 员工第三方唯一标识，不会变更
-     */
-    private String userId;
-    /**
-     * 员工工号
-     */
-    private String code;
 
     /**
      * 员工绑定手机号
@@ -36,10 +26,6 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      */
     private String mobileArea;
 
-    private String name;
-
-    private Integer gender;
-
 
     @Override
     public String getEnterpriseCode() {
@@ -49,23 +35,6 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
     @Override
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
-    }
-
-    @FormField("userid")
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getMobile() {
@@ -82,21 +51,5 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
 
     public void setMobileArea(String mobileArea) {
         this.mobileArea = mobileArea;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getGender() {
-        return gender;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
     }
 }
