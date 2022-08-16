@@ -97,6 +97,9 @@ public final class OpenClient {
     public InvoiceApi invoiceApi() {
         return new InvoiceApi(this);
     }
+    public TradeApi tradeApi() {
+        return new TradeApi(this);
+    }
 
 
     private Token getToken() {
