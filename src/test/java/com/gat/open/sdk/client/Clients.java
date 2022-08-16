@@ -11,6 +11,6 @@ package com.gat.open.sdk.client;
 public class Clients {
 
     //    public static OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "25001682", "4508d54c5815884a472faacd5bc8685a");
-    public static OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "25001687", "6d476d83457b07669e15e65cfccaac36");
+    public static OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
 
 }
