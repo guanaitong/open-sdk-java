@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.login.GetAuthCodeByEmailRequest;
@@ -11,7 +16,7 @@ public class LoginApiTest {
     private OpenClient openClient = Clients.openClient;
 
     @Test
-    public void loginTest(){
+    public void loginTest() {
         GetAuthCodeRequest getAuthCodeRequest = new GetAuthCodeRequest();
         getAuthCodeRequest.setUserId("tom0001");
         String authCode = openClient.loginApi().getAuthCode(getAuthCodeRequest);
@@ -34,7 +39,7 @@ public class LoginApiTest {
     }
 
     @Test
-    public void syncLoginTest(){
+    public void syncLoginTest() {
         SyncUserAndGetAuthCodeRequest syncUserAndGetAuthCodeRequest = new SyncUserAndGetAuthCodeRequest();
         syncUserAndGetAuthCodeRequest.setCode("tom0816001");
         syncUserAndGetAuthCodeRequest.setUserId("tom081601");

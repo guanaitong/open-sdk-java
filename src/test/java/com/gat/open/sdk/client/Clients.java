@@ -5,8 +5,6 @@
 
 package com.gat.open.sdk.client;
 
-import com.gat.open.sdk.util.Constants;
-
 /**
  * Created by August.Zhou on 2022/7/5 16:18
  */

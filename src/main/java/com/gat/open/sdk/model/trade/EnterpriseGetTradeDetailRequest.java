@@ -7,12 +7,9 @@ package com.gat.open.sdk.model.trade;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.model.account.EnterpriseAccountApplyChargeResp;
-
-import java.math.BigDecimal;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/account-enterprise-applyCharge
+ * https://open.guanaitong.com/doc/enterprise/trade-detai
  */
 public class EnterpriseGetTradeDetailRequest extends FormRequest<EnterpriseGetTradeDetailResp> implements EnterpriseCodeRequest {
     /**

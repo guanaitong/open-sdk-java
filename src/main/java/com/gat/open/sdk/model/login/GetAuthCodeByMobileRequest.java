@@ -6,7 +6,6 @@
 package com.gat.open.sdk.model.login;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**

@@ -107,7 +107,7 @@ public class EnterpriseGetTradeDetailResp {
     public static class Order {
         private String deliveryName; //收货人姓名
         private String deliveryPhone; // String类型，收货人手机号
-        private String address;   //收货地址  
+        private String address; //收货地址
         private BigDecimal orderPrice; //订单价格
         private Integer orderStatus; //订单状态1.等待买家付款<br/>2.已付款,待备货<br/>3.已付款，待备货，部分退款中<br/>4.已备货待发货<br/>5.已备货待发货部分退款中<br/>6.已备货待发货退款中<br/>7.已发货待买家确认收货  <br/>8.已发货待买家确认收货部分退款中  <br/>9.已发货待买家确认收货退款中<br/>10.交易成功<br/>11买家取消交易关闭<br/>12客服取消交易关闭<br/>13超时取消交易关闭<br/>14退款成功交易关闭
         private Integer tradeStatus; //买家订单交易状态<br/>1 等待买家付款<br/>2 买家已付款<br/>3 商家已备货<br/>4 商家已发货<br/>5 买家已收货（交易成功）<br/>6 订单取消（交易关闭）
