@@ -5,10 +5,7 @@
 
 package com.gat.open.sdk.model.consume;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 
@@ -138,7 +135,7 @@ public class GetConsumeResp {
          */
         private Integer activityType;
         /**
-         *  买家姓名
+         * 买家姓名
          */
         private String buyerName;
         /**
