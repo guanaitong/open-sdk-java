@@ -97,8 +97,8 @@ public final class OpenClient {
     public InvoiceApi invoiceApi() {
         return new InvoiceApi(this);
     }
-    public TradeApi tradeApi() {
-        return new TradeApi(this);
+    public ConsumeApi tradeApi() {
+        return new ConsumeApi(this);
     }
 
 
