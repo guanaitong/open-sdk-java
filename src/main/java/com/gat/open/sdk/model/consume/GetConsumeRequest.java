@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.model.trade;
+package com.gat.open.sdk.model.consume;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
@@ -11,7 +11,7 @@ import com.gat.open.sdk.model.FormRequest;
 /**
  * https://open.guanaitong.com/doc/enterprise/trade-detai
  */
-public class EnterpriseGetTradeDetailRequest extends FormRequest<EnterpriseGetTradeDetailResp> implements EnterpriseCodeRequest {
+public class GetConsumeRequest extends FormRequest<GetConsumeResp> implements EnterpriseCodeRequest {
     /**
      * 企业编号（集团和运营商必填,企业不填）
      */
