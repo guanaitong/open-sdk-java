@@ -5,13 +5,16 @@
 
 package com.gat.open.sdk.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 /**
  * Created by August.Zhou on 2022/6/27 14:12
  */
 public class EmployeeGetResp {
-
+    @JsonProperty("userid")
+    private String userId;
     private String corpCode;
     private String name;
     private int gender;
@@ -30,6 +33,13 @@ public class EmployeeGetResp {
     private String timeCreated;
     private String timeActive;
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getCorpCode() {
         return corpCode;

@@ -19,7 +19,7 @@ public class ConsumeApiTest {
     @Test
     public void consumeGetTest() {
         GetConsumeRequest getConsumeRequest = new GetConsumeRequest();
-        getConsumeRequest.setTradeNo("2022082220000455");
+        getConsumeRequest.setTradeNo("2022081620000404");
         GetConsumeResp getConsumeResp = openClient.tradeApi().getConsume(getConsumeRequest);
         System.out.println(JSON.toJSONString(getConsumeResp));
     }

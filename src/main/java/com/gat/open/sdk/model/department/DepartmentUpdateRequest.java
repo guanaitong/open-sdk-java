@@ -21,8 +21,7 @@ public class DepartmentUpdateRequest extends FormRequest<String> implements Ente
 
     private String name;
     private String parentCode;
-
-    private String managerCode;
+    private String managerUserid;
     private Integer status;
 
     public String getEnterpriseCode() {
@@ -65,11 +64,11 @@ public class DepartmentUpdateRequest extends FormRequest<String> implements Ente
         this.status = status;
     }
 
-    public String getManagerCode() {
-        return managerCode;
+    public String getManagerUserid() {
+        return managerUserid;
     }
 
-    public void setManagerCode(String managerCode) {
-        this.managerCode = managerCode;
+    public void setManagerUserid(String managerUserid) {
+        this.managerUserid = managerUserid;
     }
 }
