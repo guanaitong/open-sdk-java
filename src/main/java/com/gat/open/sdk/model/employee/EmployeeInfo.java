@@ -8,8 +8,6 @@ package com.gat.open.sdk.model.employee;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 public class EmployeeInfo {
     private String code;
     private String userId;
@@ -20,23 +18,19 @@ public class EmployeeInfo {
     private String email;
     private String mobileArea;
     private String mobile;
-    private Integer sendInvite;
     private String remark;
     private String deptCode;
     private String level;
 
-    private List<String> category;
+    private String category;
 
     private String birthDay;
     private String entryDay;
 
     private Integer cardType;
     private String cardNo;
-    private List<ThirdUser> extattr;
-    private Integer allowSimplePwd;
     private String password;
-    private List<EmployeeAttribute> employeeAttribute;
-    private Integer costCenterId;
+    private String employeeAttribute;
 
     public String getCode() {
         return code;
@@ -103,14 +97,6 @@ public class EmployeeInfo {
         this.mobile = mobile;
     }
 
-    public Integer getSendInvite() {
-        return sendInvite;
-    }
-
-    public void setSendInvite(Integer sendInvite) {
-        this.sendInvite = sendInvite;
-    }
-
     public String getRemark() {
         return remark;
     }
@@ -135,11 +121,11 @@ public class EmployeeInfo {
         this.level = level;
     }
 
-    public List<String> getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(List<String> category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -175,22 +161,6 @@ public class EmployeeInfo {
         this.cardNo = cardNo;
     }
 
-    public List<ThirdUser> getExtattr() {
-        return extattr;
-    }
-
-    public void setExtattr(List<ThirdUser> extattr) {
-        this.extattr = extattr;
-    }
-
-    public Integer getAllowSimplePwd() {
-        return allowSimplePwd;
-    }
-
-    public void setAllowSimplePwd(Integer allowSimplePwd) {
-        this.allowSimplePwd = allowSimplePwd;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -199,19 +169,11 @@ public class EmployeeInfo {
         this.password = password;
     }
 
-    public List<EmployeeAttribute> getEmployeeAttribute() {
+    public String getEmployeeAttribute() {
         return employeeAttribute;
     }
 
-    public void setEmployeeAttribute(List<EmployeeAttribute> employeeAttribute) {
+    public void setEmployeeAttribute(String employeeAttribute) {
         this.employeeAttribute = employeeAttribute;
-    }
-
-    public Integer getCostCenterId() {
-        return costCenterId;
-    }
-
-    public void setCostCenterId(Integer costCenterId) {
-        this.costCenterId = costCenterId;
     }
 }

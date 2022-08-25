@@ -11,6 +11,7 @@ import java.util.List;
 
 public class GetConsumeResp {
     private String tradeNo; //关爱通的支付单号
+    private String outerTradeNo; //关爱通的业务单号
     private String userid; //支付人第三方唯一标识
     private String payerName; // 支付人
     private String subject; //商品描述或交易描述
@@ -30,6 +31,14 @@ public class GetConsumeResp {
 
     public void setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
+    }
+
+    public String getOuterTradeNo() {
+        return outerTradeNo;
+    }
+
+    public void setOuterTradeNo(String outerTradeNo) {
+        this.outerTradeNo = outerTradeNo;
     }
 
     public String getUserid() {

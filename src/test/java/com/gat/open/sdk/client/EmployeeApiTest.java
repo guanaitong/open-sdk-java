@@ -16,14 +16,11 @@ import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
 import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
-import com.gat.open.sdk.model.employee.EmployeeAttributeGetRequest;
-import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
+import com.gat.open.sdk.model.employee.EmployeeAttribute;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
-import com.gat.open.sdk.model.employee.EmployeeGetByDepartmentCodeRequest;
-import com.gat.open.sdk.model.employee.EmployeeGetCountByDepartmentCodeRequest;
-import com.gat.open.sdk.model.employee.EmployeeGetRequest;
-import com.gat.open.sdk.model.employee.EmployeeGetResp;
+import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
+import com.gat.open.sdk.model.employee.EmployeeInfo;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -43,37 +40,72 @@ public class EmployeeApiTest {
 
     @Test
     public void employeeTest() {
-        EmployeeGetRequest employeeGetRequest = new EmployeeGetRequest();
-        employeeGetRequest.setMobile("14253142358");
+        /*EmployeeGetRequest employeeGetRequest = new EmployeeGetRequest();
+        employeeGetRequest.setMobile("16898989110");
         EmployeeGetResp employeeGetResp = openClient.employeeApi().get(employeeGetRequest);
-        System.out.println(employeeGetResp);
+        System.out.println(JSON.toJSONString(employeeGetResp));*/
 
-        /*EmployeeBatchSyncRequest employeeBatchSyncRequest = new EmployeeBatchSyncRequest();
+        EmployeeBatchSyncRequest employeeBatchSyncRequest = new EmployeeBatchSyncRequest();
         List<EmployeeInfo> employeeList = new ArrayList<>();
         employeeBatchSyncRequest.setEmployeeList(employeeList);
         EmployeeInfo employeeInfo = new EmployeeInfo();
+        employeeInfo.setUserId("tom082402");
+        employeeInfo.setCode("tom082402");
+        employeeInfo.setName("tom082402");
+        employeeInfo.setGender(1);
+        employeeInfo.setStatus(1);
+        employeeInfo.setDeptCode("TOM071201");
+        employeeInfo.setMobile("16898989111");
+        employeeInfo.setMobileArea("86");
+        employeeInfo.setEmail("168989890902@tom.com");
+        employeeInfo.setBirthDay("1990-08-05");
+        employeeInfo.setEntryDay("2022-06-29");
+        employeeInfo.setCardType(1);
+        ArrayList<String> category = new ArrayList<>();
+        category.add("帅哥组");
+        category.add("靓妹组");
+        employeeInfo.setCategory(String.join(",", category));
+        employeeInfo.setCardNo("110101199003070919");
+        employeeInfo.setRemark("test");
+        employeeInfo.setLevel("金丹");
+        ArrayList<EmployeeAttribute> employeeAttribute = new ArrayList<>();
+        EmployeeAttribute e = new EmployeeAttribute();
+        e.setAttributeCode("politicalVisage");
+        e.setAttributeValue("群众");
+        employeeAttribute.add(e);
+        employeeInfo.setEmployeeAttribute(JSON.toJSONString(employeeAttribute));
+
         employeeList.add(employeeInfo);
-        employeeInfo.setCode("xcxcxccc");
-        employeeInfo.setName("xxx");
-        employeeInfo.setMobile("13167019222");
         String synchronize = openClient.employeeApi().batchSynchronize(employeeBatchSyncRequest);
-        System.out.println(synchronize);*/
+        System.out.println(synchronize);
     }
 
     @Test
     public void employeeAddTest() {
         /*EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
-        employeeAddRequest.setUserId("tom0001");
-        employeeAddRequest.setCode("tom0001");
-        employeeAddRequest.setName("tom0001");
+        employeeAddRequest.setUserId("tom082401");
+        employeeAddRequest.setCode("tom082401");
+        employeeAddRequest.setName("tom082401");
         employeeAddRequest.setGender(1);
-        employeeAddRequest.setMobile("16898989090");
-        employeeAddRequest.setEmail("16898989090@tom.com");
-        employeeAddRequest.setBirthDay("1990-06-05");
+        employeeAddRequest.setDeptCode("TOM071201");
+        employeeAddRequest.setMobile("16898989110");
+        employeeAddRequest.setMobileArea("86");
+        employeeAddRequest.setEmail("168989890901@tom.com");
+        employeeAddRequest.setBirthDay("1990-07-05");
         employeeAddRequest.setEntryDay("2022-06-29");
         employeeAddRequest.setCardType(1);
+        ArrayList<String> category = new ArrayList<>();
+        category.add("帅哥组");
+        employeeAddRequest.setCategory(category);
         employeeAddRequest.setCardNo("110101199003070919");
         employeeAddRequest.setRemark("test");
+        employeeAddRequest.setLevel("金丹");
+        ArrayList<EmployeeAttribute> employeeAttribute = new ArrayList<>();
+        EmployeeAttribute e = new EmployeeAttribute();
+        e.setAttributeCode("politicalVisage");
+        e.setAttributeValue("群众");
+        employeeAttribute.add(e);
+        employeeAddRequest.setEmployeeAttribute(employeeAttribute);
 
         String add = openClient.employeeApi().add(employeeAddRequest);
         System.out.println(add);*/
@@ -107,7 +139,7 @@ public class EmployeeApiTest {
 
         openClient.employeeApi().restore(employeeRestoreRequest);*/
 
-        EmployeeGetByDepartmentCodeRequest employeeGetByDepartmentCodeRequest = new EmployeeGetByDepartmentCodeRequest();
+        /*EmployeeGetByDepartmentCodeRequest employeeGetByDepartmentCodeRequest = new EmployeeGetByDepartmentCodeRequest();
         employeeGetByDepartmentCodeRequest.setDeptCode("TomCompany_第二个部门");
         List<EmployeeGetResp> employeeGetRespList = openClient.employeeApi().getByDepartmentCode(employeeGetByDepartmentCodeRequest);
         System.out.println(JSON.toJSONString(employeeGetRespList));
@@ -121,7 +153,7 @@ public class EmployeeApiTest {
         employeeAttributeGetRequest.setUserId("tom0001");
 
         List<EmployeeAttributeGetResp> attributeGetRespList = openClient.employeeApi().getAttribute(employeeAttributeGetRequest);
-        System.out.println(JSON.toJSONString(attributeGetRespList));
+        System.out.println(JSON.toJSONString(attributeGetRespList));*/
 
     }
 
@@ -196,6 +228,29 @@ public class EmployeeApiTest {
         departmentTransferEmployeeRequest.setTargetDeptCode("TOM071202");
         /*Boolean s = openClient.departmentApi().transferEmployee(departmentTransferEmployeeRequest);
         System.out.println(s);*/
+    }
+
+    @Test
+    public void deptAddTest() {
+        /*DepartmentAddRequest departmentAddRequest = new DepartmentAddRequest();
+        departmentAddRequest.setDeptCode("DEPT_0825_03");
+        departmentAddRequest.setName("DEPT_0825_03");
+        departmentAddRequest.setParentCode("DEPT_0825_01");
+
+        String data = openClient.departmentApi().add(departmentAddRequest);
+        System.out.println(data);*/
+        /*
+        DepartmentUpdateRequest departmentUpdateRequest = new DepartmentUpdateRequest();
+        departmentUpdateRequest.setDeptCode("DEPT_0825_02");
+        departmentUpdateRequest.setName("DEPT_0825_02+01");
+        departmentUpdateRequest.setManagerUserid("tom082401");
+        String data = openClient.departmentApi().update(departmentUpdateRequest);
+        System.out.println(data);*/
+
+        DepartmentGetRequest departmentGetRequest = new DepartmentGetRequest();
+        departmentGetRequest.setDeptCode("DEPT_0825_02");
+        DepartmentResp departmentResp = openClient.departmentApi().get(departmentGetRequest);
+        System.out.println(JSON.toJSONString(departmentResp));
     }
 
 }

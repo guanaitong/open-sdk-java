@@ -18,6 +18,7 @@ public class DepartmentResp {
     private String deptCode;
     private String parentCode;
     private String managerCode;
+    private String managerUserid;
     @JsonProperty("is_primary")
     private Boolean isPrimary;
 
@@ -59,6 +60,14 @@ public class DepartmentResp {
 
     public void setManagerCode(String managerCode) {
         this.managerCode = managerCode;
+    }
+
+    public String getManagerUserid() {
+        return managerUserid;
+    }
+
+    public void setManagerUserid(String managerUserid) {
+        this.managerUserid = managerUserid;
     }
 
     public Boolean getPrimary() {
