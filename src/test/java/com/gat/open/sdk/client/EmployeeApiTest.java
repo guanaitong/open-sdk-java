@@ -239,17 +239,12 @@ public class EmployeeApiTest {
 
         String data = openClient.departmentApi().add(departmentAddRequest);
         System.out.println(data);*/
-
-       /* DepartmentUpdateRequest departmentUpdateRequest = new DepartmentUpdateRequest();
+        /*
+        DepartmentUpdateRequest departmentUpdateRequest = new DepartmentUpdateRequest();
         departmentUpdateRequest.setDeptCode("DEPT_0825_02");
         departmentUpdateRequest.setName("DEPT_0825_02+01");
         departmentUpdateRequest.setManagerUserid("tom082401");
         String data = openClient.departmentApi().update(departmentUpdateRequest);
-        System.out.println(data);*/
-
-        /*DepartmentDeleteRequest departmentDeleteRequest = new DepartmentDeleteRequest();
-        departmentDeleteRequest.setDeptCode("DEPT_0825_03");
-        String data = openClient.departmentApi().delete(departmentDeleteRequest);
         System.out.println(data);*/
 
         DepartmentGetRequest departmentGetRequest = new DepartmentGetRequest();

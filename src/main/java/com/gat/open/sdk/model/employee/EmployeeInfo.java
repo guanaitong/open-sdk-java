@@ -8,8 +8,6 @@ package com.gat.open.sdk.model.employee;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 public class EmployeeInfo {
     private String code;
     private String userId;
