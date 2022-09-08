@@ -16,6 +16,7 @@ import com.gat.open.sdk.model.department.DepartmentGetHierarchyResp;
 import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
 import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
+import com.gat.open.sdk.model.employee.EmployeeAddRequest;
 import com.gat.open.sdk.model.employee.EmployeeAttribute;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
@@ -82,15 +83,15 @@ public class EmployeeApiTest {
 
     @Test
     public void employeeAddTest() {
-        /*EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
-        employeeAddRequest.setUserId("tom082401");
-        employeeAddRequest.setCode("tom082401");
-        employeeAddRequest.setName("tom082401");
+        EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
+        employeeAddRequest.setUserId("Porsche008");
+        employeeAddRequest.setCode("Porsche008");
+        employeeAddRequest.setName("Parker Lu");
         employeeAddRequest.setGender(1);
         employeeAddRequest.setDeptCode("TOM071201");
-        employeeAddRequest.setMobile("16898989110");
+        employeeAddRequest.setMobile("16898989119");
         employeeAddRequest.setMobileArea("86");
-        employeeAddRequest.setEmail("168989890901@tom.com");
+        employeeAddRequest.setEmail("parker.lu@porsche.cn");
         employeeAddRequest.setBirthDay("1990-07-05");
         employeeAddRequest.setEntryDay("2022-06-29");
         employeeAddRequest.setCardType(1);
@@ -108,7 +109,7 @@ public class EmployeeApiTest {
         employeeAddRequest.setEmployeeAttribute(employeeAttribute);
 
         String add = openClient.employeeApi().add(employeeAddRequest);
-        System.out.println(add);*/
+        System.out.println(add);
 
         /*EmployeeUpdateRequest employeeUpdateRequest = new EmployeeUpdateRequest();
         employeeUpdateRequest.setUserId("tom0001");

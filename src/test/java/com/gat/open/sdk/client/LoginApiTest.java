@@ -6,9 +6,6 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.model.login.GetAuthCodeByEmailRequest;
-import com.gat.open.sdk.model.login.GetAuthCodeByMobileRequest;
-import com.gat.open.sdk.model.login.GetAuthCodeRequest;
-import com.gat.open.sdk.model.login.LoginRequest;
 import com.gat.open.sdk.model.login.SyncUserAndGetAuthCodeRequest;
 import org.junit.Test;
 
@@ -17,6 +14,7 @@ public class LoginApiTest {
 
     @Test
     public void loginTest() {
+        /*
         GetAuthCodeRequest getAuthCodeRequest = new GetAuthCodeRequest();
         getAuthCodeRequest.setUserId("tom0001");
         String authCode = openClient.loginApi().getAuthCode(getAuthCodeRequest);
@@ -24,18 +22,18 @@ public class LoginApiTest {
         GetAuthCodeByMobileRequest getAuthCodeByMobileRequest = new GetAuthCodeByMobileRequest();
         getAuthCodeByMobileRequest.setMobile("16898989091");
         String authCodeByMobile = openClient.loginApi().getAuthCodeByMobile(getAuthCodeByMobileRequest);
-        System.out.println(authCodeByMobile);
+        System.out.println(authCodeByMobile);*/
 
         GetAuthCodeByEmailRequest getAuthCodeByEmailRequest = new GetAuthCodeByEmailRequest();
-        getAuthCodeByEmailRequest.setEmail("16898989090@tom.com");
+        getAuthCodeByEmailRequest.setEmail("li.yan@guanaitong.com");
         String authCodeByEmail = openClient.loginApi().getAuthCodeByEmail(getAuthCodeByEmailRequest);
         System.out.println(authCodeByEmail);
-
+        /*
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setAuthCode(authCode);
         loginRequest.setRedirectCode("20091132");
         String loginUrl = openClient.loginApi().generateLoginUrl(loginRequest);
-        System.out.println(loginUrl);
+        System.out.println(loginUrl);*/
     }
 
     @Test
