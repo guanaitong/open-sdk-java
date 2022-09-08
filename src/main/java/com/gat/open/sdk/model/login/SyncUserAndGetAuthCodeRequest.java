@@ -17,7 +17,6 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      * 企业编号(集团和运营商必填,企业不填)
      */
     private String enterpriseCode;
-
     /**
      * 员工第三方唯一标识，不会变更
      */
@@ -26,7 +25,6 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      * 员工工号
      */
     private String code;
-
     /**
      * 员工绑定手机号
      */
@@ -35,9 +33,13 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      * 手机号区号
      */
     private String mobileArea;
-
+    /**
+     * 姓名
+     */
     private String name;
-
+    /**
+     * 性别
+     */
     private Integer gender;
 
 

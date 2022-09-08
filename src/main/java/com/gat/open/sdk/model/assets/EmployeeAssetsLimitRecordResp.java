@@ -6,7 +6,6 @@
 package com.gat.open.sdk.model.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.gat.open.sdk.model.FormField;
 
 import java.math.BigDecimal;
 
@@ -31,6 +30,7 @@ public class EmployeeAssetsLimitRecordResp {
     /**
      * 员工唯一标识
      */
+    @JsonProperty("userid")
     private String userId;
     /**
      * 员工姓名
@@ -49,7 +49,6 @@ public class EmployeeAssetsLimitRecordResp {
      */
     private String tradeType;
 
-    @FormField("userid")
     public String getUserId() {
         return userId;
     }
