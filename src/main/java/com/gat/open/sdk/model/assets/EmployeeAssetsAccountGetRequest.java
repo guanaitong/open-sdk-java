@@ -49,6 +49,7 @@ public class EmployeeAssetsAccountGetRequest extends FormRequest<List<EmployeeAs
         this.enterpriseCode = enterpriseCode;
     }
 
+    @FormField("thirdType")
     public Integer getThirdType() {
         return thirdType;
     }

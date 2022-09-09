@@ -11,7 +11,7 @@ import com.gat.open.sdk.model.FormRequest;
 import com.gat.open.sdk.model.Pagination;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-quota-trade
+ * https://open.guanaitong.com/doc/enterprise/employee-quota-trade/
  */
 public class EmployeeAssetsLimitRecordRequest extends FormRequest<Pagination<EmployeeAssetsLimitRecordResp>> implements EnterpriseCodeRequest {
     /**

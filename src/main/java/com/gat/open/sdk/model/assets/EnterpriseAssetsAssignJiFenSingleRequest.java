@@ -66,6 +66,7 @@ public class EnterpriseAssetsAssignJiFenSingleRequest extends FormRequest<String
         this.userId = userId;
     }
 
+    @FormField("thirdType")
     public Integer getThirdType() {
         return thirdType;
     }

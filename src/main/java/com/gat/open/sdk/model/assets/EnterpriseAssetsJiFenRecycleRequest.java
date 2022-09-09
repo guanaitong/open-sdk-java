@@ -53,6 +53,7 @@ public class EnterpriseAssetsJiFenRecycleRequest extends FormRequest<String> imp
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
     }
+
     @FormField("userid")
     public String getUserId() {
         return userId;
@@ -62,6 +63,7 @@ public class EnterpriseAssetsJiFenRecycleRequest extends FormRequest<String> imp
         this.userId = userId;
     }
 
+    @FormField("thirdType")
     public Integer getThirdType() {
         return thirdType;
     }
