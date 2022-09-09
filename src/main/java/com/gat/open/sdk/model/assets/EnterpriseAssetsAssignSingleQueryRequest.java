@@ -8,7 +8,7 @@ package com.gat.open.sdk.model.assets;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * 积分：https://open.guanaitong.com/doc/enterprise/single-assign-query
+ * 积分：https://open.guanaitong.com/doc/enterprise/single-assign-query/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

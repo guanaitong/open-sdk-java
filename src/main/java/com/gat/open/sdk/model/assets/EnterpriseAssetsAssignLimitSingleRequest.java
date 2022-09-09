@@ -57,6 +57,7 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
     }
+
     @FormField("userid")
     public String getUserId() {
         return userId;
@@ -66,6 +67,7 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
         this.userId = userId;
     }
 
+    @FormField("thirdType")
     public Integer getThirdType() {
         return thirdType;
     }
