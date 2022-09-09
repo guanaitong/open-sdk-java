@@ -67,6 +67,7 @@ public class EnterpriseAssetsLimitRecycleRequest extends FormRequest<String> imp
         this.userId = userId;
     }
 
+    @FormField("thirdType")
     public Integer getThirdType() {
         return thirdType;
     }
