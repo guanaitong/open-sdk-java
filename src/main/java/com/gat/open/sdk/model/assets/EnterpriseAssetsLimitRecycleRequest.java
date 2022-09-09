@@ -12,7 +12,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.math.BigDecimal;
 
 /**
- * 额度：https://open.guanaitong.com/doc/enterprise/quota-recycle-single
+ * 额度：https://open.guanaitong.com/doc/enterprise/quota-recycle-single/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */
@@ -36,13 +36,13 @@ public class EnterpriseAssetsLimitRecycleRequest extends FormRequest<String> imp
      */
     private String limitOpenid;
     /**
-     * 发放金额
+     * 回收金额
      */
     private BigDecimal amount;
     /**
-     * 发放原因
+     * 回收原因
      */
-    private String reason;
+    private String remark;
     /**
      * 外部交易号，最小长度2位。
      */
@@ -92,12 +92,12 @@ public class EnterpriseAssetsLimitRecycleRequest extends FormRequest<String> imp
         this.amount = amount;
     }
 
-    public String getReason() {
-        return reason;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public String getExternalCode() {
