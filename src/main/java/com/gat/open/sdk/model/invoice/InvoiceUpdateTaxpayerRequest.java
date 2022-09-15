@@ -9,7 +9,7 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/taxpayer-update
+ * https://open.guanaitong.com/doc/enterprise/taxpayer-update/
  */
 public class InvoiceUpdateTaxpayerRequest extends FormRequest<Boolean> implements EnterpriseCodeRequest {
     /**

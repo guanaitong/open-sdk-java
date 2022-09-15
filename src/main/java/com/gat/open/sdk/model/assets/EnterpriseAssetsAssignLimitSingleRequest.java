@@ -12,7 +12,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.math.BigDecimal;
 
 /**
- * 额度：https://open.guanaitong.com/doc/enterprise/quota-assign-single
+ * 额度：https://open.guanaitong.com/doc/enterprise/quota-assign-single/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

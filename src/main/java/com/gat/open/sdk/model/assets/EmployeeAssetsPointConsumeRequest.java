@@ -10,7 +10,7 @@ import com.gat.open.sdk.model.FormRequest;
 import com.gat.open.sdk.model.Pagination2;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-point-trade
+ * https://open.guanaitong.com/doc/enterprise/employee-point-trade/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

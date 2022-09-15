@@ -12,7 +12,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.util.List;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-update
+ * https://open.guanaitong.com/doc/enterprise/employee-update/
  * Created by August.Zhou on 2022/6/27 15:55
  */
 public class EmployeeUpdateRequest extends FormRequest<String> implements EnterpriseCodeRequest {

@@ -10,7 +10,7 @@ import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-restore
+ * https://open.guanaitong.com/doc/enterprise/employee-restore/
  * Created by August.Zhou on 2022/6/27 15:55
  */
 public class EmployeeRestoreRequest extends FormRequest<String> implements EnterpriseCodeRequest {
