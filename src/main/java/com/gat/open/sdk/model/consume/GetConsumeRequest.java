@@ -9,7 +9,7 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/trade-detai
+ * https://open.guanaitong.tech/doc/enterprise/consume-get/
  */
 public class GetConsumeRequest extends FormRequest<GetConsumeResp> implements EnterpriseCodeRequest {
     /**

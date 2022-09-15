@@ -11,7 +11,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.math.BigDecimal;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/account-enterprise-applyCharge
+ * https://open.guanaitong.com/doc/enterprise/account-enterprise-applyCharge/
  */
 public class EnterpriseAccountApplyChargeRequest extends FormRequest<EnterpriseAccountApplyChargeResp> implements EnterpriseCodeRequest {
     /**

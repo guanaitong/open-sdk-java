@@ -11,7 +11,7 @@ import com.gat.open.sdk.model.JsonRequest;
 import java.util.List;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-get
+ * https://open.guanaitong.com/doc/enterprise/employee-get/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

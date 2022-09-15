@@ -10,7 +10,7 @@ import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/cost-center-add-or-update-rel
+ * https://open.guanaitong.com/doc/enterprise/cost-center-add-or-update-rel/
  */
 public class InvoiceAddOrUpdateCostCenterRelRequest extends FormRequest<Integer> implements EnterpriseCodeRequest {
     /**
@@ -25,6 +25,11 @@ public class InvoiceAddOrUpdateCostCenterRelRequest extends FormRequest<Integer>
      * 员工第三方唯一标识
      */
     private String userId;
+
+    /**
+     * 成本中心编号
+     */
+    private String costCenterCode;
 
     @Override
     public String getEnterpriseCode() {
@@ -45,12 +50,19 @@ public class InvoiceAddOrUpdateCostCenterRelRequest extends FormRequest<Integer>
     }
 
     @FormField("userid")
-
     public String getUserId() {
         return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getCostCenterCode() {
+        return costCenterCode;
+    }
+
+    public void setCostCenterCode(String costCenterCode) {
+        this.costCenterCode = costCenterCode;
     }
 }

@@ -9,7 +9,7 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/cost-center-add
+ * https://open.guanaitong.com/doc/enterprise/cost-center-add/
  */
 public class InvoiceAddCostCenterRequest extends FormRequest<Integer> implements EnterpriseCodeRequest {
     /**
@@ -24,6 +24,16 @@ public class InvoiceAddCostCenterRequest extends FormRequest<Integer> implements
      * 成本中心名称
      */
     private String costCenterName;
+
+    /**
+     * 成本中心标签，多个标签用 $#$ 符号连接例如codea$#$codeb
+     */
+    private String costCenterTags;
+
+    /**
+     * 成本中心描述
+     */
+    private String costCenterDesc;
 
     @Override
     public String getEnterpriseCode() {
@@ -49,5 +59,21 @@ public class InvoiceAddCostCenterRequest extends FormRequest<Integer> implements
 
     public void setCostCenterName(String costCenterName) {
         this.costCenterName = costCenterName;
+    }
+
+    public String getCostCenterTags() {
+        return costCenterTags;
+    }
+
+    public void setCostCenterTags(String costCenterTags) {
+        this.costCenterTags = costCenterTags;
+    }
+
+    public String getCostCenterDesc() {
+        return costCenterDesc;
+    }
+
+    public void setCostCenterDesc(String costCenterDesc) {
+        this.costCenterDesc = costCenterDesc;
     }
 }

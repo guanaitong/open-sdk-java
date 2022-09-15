@@ -9,7 +9,7 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/employee-getCountByDepartmentCode
+ * https://open.guanaitong.com/doc/enterprise/employee-getCountByDepartmentCode/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

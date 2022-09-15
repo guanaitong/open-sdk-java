@@ -12,7 +12,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.math.BigDecimal;
 
 /**
- * 积分：https://open.guanaitong.com/doc/enterprise/single-assign
+ * 积分：https://open.guanaitong.com/doc/enterprise/single-assign/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

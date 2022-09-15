@@ -8,7 +8,7 @@ package com.gat.open.sdk.model.assets;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
- * 积分：https://open.guanaitong.com/doc/enterprise/quota-assign-status
+ * 积分：https://open.guanaitong.com/doc/enterprise/quota-assign-status/
  * <p>
  * Created by August.Zhou on 2022/6/27 13:54
  */

@@ -11,7 +11,7 @@ import com.gat.open.sdk.model.FormRequest;
 import java.util.List;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/cost-center-find-by-enterpriseId
+ * https://open.guanaitong.com/doc/enterprise/cost-center-find-by-enterpriseId/
  */
 public class InvoiceFindCostCenterByEnterpriseIdRequest extends FormRequest<List<InvoiceCostCenterRes>> implements EnterpriseCodeRequest {
     /**

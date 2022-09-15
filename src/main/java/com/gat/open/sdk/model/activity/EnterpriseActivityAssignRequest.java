@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * https://open.guanaitong.com/doc/enterprise/activity-assign
+ * https://open.guanaitong.com/doc/enterprise/activity-assign/
  */
 public class EnterpriseActivityAssignRequest extends FormRequest<String> {
     /**
