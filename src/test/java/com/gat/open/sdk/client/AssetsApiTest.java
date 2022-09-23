@@ -125,7 +125,7 @@ public class AssetsApiTest {
         enterpriseAssetsLimitRecycleRequest.setAmount(new BigDecimal(1));
         enterpriseAssetsLimitRecycleRequest.setExternalCode("2011066120220704000005");
         enterpriseAssetsLimitRecycleRequest.setUserId("tom0001");
-        enterpriseAssetsLimitRecycleRequest.setReason("测试回收额度");
+        enterpriseAssetsLimitRecycleRequest.setRemark("测试回收额度");
         enterpriseAssetsLimitRecycleRequest.setLimitOpenid("9fdbeea55dab2b1d252d7b593d00e7c5");
         openClient.assetsApi().recycleLimit(enterpriseAssetsLimitRecycleRequest);
     }

@@ -16,14 +16,17 @@ public class InvoiceUpdateCostCenterRequest extends FormRequest<Integer> impleme
      * 企业编号（集团和运营商必填,企业不填）
      */
     private String enterpriseCode;
+
     /**
      * 成本中心id
      */
     private Integer costCenterId;
+
     /**
      * 成本中心编号
      */
     private String costCenterCode;
+
     /**
      * 成本中心名称
      */
@@ -33,6 +36,11 @@ public class InvoiceUpdateCostCenterRequest extends FormRequest<Integer> impleme
      * 成本中心标签，多个标签用 $#$ 符号连接例如codea$#$codeb
      */
     private String costCenterTags;
+
+    /**
+     * 成本中心描述
+     */
+    private String costCenterDesc;
 
     /**
      * 成本中心状态 1开启 2关闭
@@ -79,6 +87,14 @@ public class InvoiceUpdateCostCenterRequest extends FormRequest<Integer> impleme
 
     public void setCostCenterTags(String costCenterTags) {
         this.costCenterTags = costCenterTags;
+    }
+
+    public String getCostCenterDesc() {
+        return costCenterDesc;
+    }
+
+    public void setCostCenterDesc(String costCenterDesc) {
+        this.costCenterDesc = costCenterDesc;
     }
 
     public Integer getStatus() {
