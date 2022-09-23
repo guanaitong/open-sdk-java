@@ -5,6 +5,8 @@
 
 package com.gat.open.sdk.model.invoice;
 
+import java.util.List;
+
 public class InvoiceCostCenterRes {
     /**
      * 成本中心id
@@ -17,7 +19,13 @@ public class InvoiceCostCenterRes {
     /**
      * 成本中心名称
      */
-    private  String costCenterName;
+    private String costCenterName;
+
+    /**
+     * 成本中心标签
+     */
+    private List<String> costCenterTags;
+
     /**
      * 状态 1-生效 2-失效
      */
@@ -53,5 +61,13 @@ public class InvoiceCostCenterRes {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public List<String> getCostCenterTags() {
+        return costCenterTags;
+    }
+
+    public void setCostCenterTags(List<String> costCenterTags) {
+        this.costCenterTags = costCenterTags;
     }
 }

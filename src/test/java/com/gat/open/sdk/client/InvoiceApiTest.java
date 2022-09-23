@@ -23,8 +23,10 @@ public class InvoiceApiTest {
     @Test
     public void costCenterAddTest() {
         InvoiceAddCostCenterRequest invoiceAddCostCenterRequest = new InvoiceAddCostCenterRequest();
-        invoiceAddCostCenterRequest.setCostCenterCode("BBB");
-        invoiceAddCostCenterRequest.setCostCenterName("BBB");
+        invoiceAddCostCenterRequest.setCostCenterCode("abpp");
+        invoiceAddCostCenterRequest.setCostCenterName("午餐成本");
+        invoiceAddCostCenterRequest.setCostCenterDesc("desc");
+        invoiceAddCostCenterRequest.setCostCenterTags("标签1");
         Integer id = openClient.invoiceApi().addCostCenter(invoiceAddCostCenterRequest);
         System.out.println(id);
     }
@@ -32,9 +34,11 @@ public class InvoiceApiTest {
     @Test
     public void costCenterUpdateTest() {
         InvoiceUpdateCostCenterRequest invoiceUpdateCostCenterRequest = new InvoiceUpdateCostCenterRequest();
-        invoiceUpdateCostCenterRequest.setCostCenterCode("BBB1");
-        invoiceUpdateCostCenterRequest.setCostCenterName("BBB1");
-        invoiceUpdateCostCenterRequest.setCostCenterId(21030);
+        invoiceUpdateCostCenterRequest.setCostCenterCode("abpp");
+        invoiceUpdateCostCenterRequest.setCostCenterName("wucan08");
+        invoiceUpdateCostCenterRequest.setCostCenterTags("标签A$#$标签B");
+        invoiceUpdateCostCenterRequest.setCostCenterDesc("修改描述");
+        invoiceUpdateCostCenterRequest.setCostCenterId(21107);
         Integer id = openClient.invoiceApi().updateCostCenter(invoiceUpdateCostCenterRequest);
         System.out.println(id);
     }
