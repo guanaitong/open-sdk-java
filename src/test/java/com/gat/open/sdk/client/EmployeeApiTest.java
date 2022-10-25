@@ -84,14 +84,14 @@ public class EmployeeApiTest {
     @Test
     public void employeeAddTest() {
         EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
-        employeeAddRequest.setUserId("Porsche008");
-        employeeAddRequest.setCode("Porsche008");
-        employeeAddRequest.setName("Parker Lu");
+        employeeAddRequest.setUserId("HB102401");
+        employeeAddRequest.setCode("HB102401");
+        employeeAddRequest.setName("HB102401");
         employeeAddRequest.setGender(1);
-        employeeAddRequest.setDeptCode("TOM071201");
-        employeeAddRequest.setMobile("16898989119");
+        employeeAddRequest.setDeptCode("");
+        employeeAddRequest.setMobile("16898989120");
         employeeAddRequest.setMobileArea("86");
-        employeeAddRequest.setEmail("parker.lu@porsche.cn");
+        employeeAddRequest.setEmail("HB102401@tom.com");
         employeeAddRequest.setBirthDay("1990-07-05");
         employeeAddRequest.setEntryDay("2022-06-29");
         employeeAddRequest.setCardType(1);

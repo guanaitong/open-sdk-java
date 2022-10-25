@@ -18,6 +18,7 @@ import com.gat.open.sdk.model.employee.EmployeeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetResp;
 import com.gat.open.sdk.model.employee.EmployeeResignRequest;
 import com.gat.open.sdk.model.employee.EmployeeRestoreRequest;
+import com.gat.open.sdk.model.employee.EmployeeSyncRequest;
 import com.gat.open.sdk.model.employee.EmployeeTransferRequest;
 import com.gat.open.sdk.model.employee.EmployeeUpdateRequest;
 
@@ -75,5 +76,9 @@ public class EmployeeApi {
 
     public String transfer(EmployeeTransferRequest employeeTransferRequest) {
         return this.openClient.postFormWithAuth("/employee/transfer", employeeTransferRequest);
+    }
+
+    public String syncSingleEmployee(EmployeeSyncRequest employeeSyncRequest) {
+        return this.openClient.postFormWithAuth("/employee/syncSingleEmployee", employeeSyncRequest);
     }
 }
