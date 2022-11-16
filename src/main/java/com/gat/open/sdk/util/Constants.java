@@ -16,7 +16,7 @@ public class Constants {
 
     public static String JSON_BODY_KEY = "_body";
 
-    public static String VERSION = "1.0.22";
+    public static String VERSION = "1.0.23";
 
     public static String USER_AGENT = "GatOpenSdk/" + VERSION + " " + System.getProperty("java.version");
 }
