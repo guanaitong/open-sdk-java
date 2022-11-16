@@ -14,6 +14,7 @@ import java.util.List;
 public class EmployeeSyncRequest extends FormRequest<String> implements EnterpriseCodeRequest {
     private String code;
     private String userId;
+    private Integer thirdType;
     private String enterpriseCode;
     private String name;
     private Integer gender = 3;
@@ -45,6 +46,14 @@ public class EmployeeSyncRequest extends FormRequest<String> implements Enterpri
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Integer getThirdType() {
+        return thirdType;
+    }
+
+    public void setThirdType(Integer thirdType) {
+        this.thirdType = thirdType;
     }
 
     public String getEnterpriseCode() {

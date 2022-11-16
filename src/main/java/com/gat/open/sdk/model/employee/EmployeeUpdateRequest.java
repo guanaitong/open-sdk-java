@@ -21,6 +21,7 @@ public class EmployeeUpdateRequest extends FormRequest<String> implements Enterp
      */
     private String enterpriseCode;
     private String userId;
+    private Integer thirdType;
     private String code;
     private String name;
     private Integer gender;
@@ -55,6 +56,14 @@ public class EmployeeUpdateRequest extends FormRequest<String> implements Enterp
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Integer getThirdType() {
+        return thirdType;
+    }
+
+    public void setThirdType(Integer thirdType) {
+        this.thirdType = thirdType;
     }
 
     public String getCode() {
