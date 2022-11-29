@@ -13,6 +13,7 @@ import java.util.Map;
 
 import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 
+//3个老接口使用此形势，新接口建议使用JsonRequest里面加list的传参数形式，统一将业务参数放在json-body中
 public class JsonArrayRequest<T> extends ApiRequest<T> {
     private List<?> array;
 

@@ -84,6 +84,7 @@ public class EmployeeApiTest {
     @Test
     public void employeeAddTest() {
         EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
+        employeeAddRequest.setEnterpriseCode("1990");
         employeeAddRequest.setUserId("HB102401");
         employeeAddRequest.setCode("HB102401");
         employeeAddRequest.setName("HB102401");
@@ -186,6 +187,7 @@ public class EmployeeApiTest {
 //        departmentBatchSynchronizeBody.setStatus(1);
         departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
         DepartmentBatchSynchronizeRequest departmentBatchSynchronizeRequest = new DepartmentBatchSynchronizeRequest(departmentBatchSynchronizeBodyList);
+        departmentBatchSynchronizeRequest.setEnterpriseCode("19998888");
         String batchSynchronize = openClient.departmentApi().batchSynchronize(departmentBatchSynchronizeRequest);
         System.out.println(batchSynchronize);
     }
@@ -193,7 +195,7 @@ public class EmployeeApiTest {
     @Test
     public void getDepartmentBatchResultTest() {
         DepartmentGetBatchResultRequest departmentGetBatchResultRequest = new DepartmentGetBatchResultRequest();
-        departmentGetBatchResultRequest.setBatchNum("USERDOOR_BATCH_SET_DM_05c49248047386bba6b598edfdc545d2");
+        departmentGetBatchResultRequest.setBatchNum("USERDOOR_BATCH_IM_DM_a802d12a240f125626d7640642881928");
         DepartmentGetBatchResultResp departmentBatchResult = openClient.departmentApi().getDepartmentBatchResult(departmentGetBatchResultRequest);
         System.out.println(JSON.toJSONString(departmentBatchResult));
     }
