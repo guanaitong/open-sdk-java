@@ -160,7 +160,13 @@ public final class OpenClient {
 
         //implements EnterpriseCodeRequest 代表queryString参数，JsonRequest和 不建议实现
         if (apiRequest instanceof EnterpriseCodeRequest) {
-            commonParams.put("enterprise_code", ((EnterpriseCodeRequest) apiRequest).getEnterpriseCode());
+            String enterpriseCode = ((EnterpriseCodeRequest) apiRequest).getEnterpriseCode();
+            //避免form和queryString重复设置
+            if (!params.containsKey("enterprise_code")
+                    && !params.containsKey("enterpriseCode")
+                    && Objects.nonNull(enterpriseCode)) {
+                commonParams.put("enterprise_code", enterpriseCode);
+            }
         }
 
         String sign = sign(commonParams, params);
@@ -194,7 +200,6 @@ public final class OpenClient {
 
         throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
     }
-
 
     private String sign(Map<String, String> commonParams, Map<String, String> params) {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
