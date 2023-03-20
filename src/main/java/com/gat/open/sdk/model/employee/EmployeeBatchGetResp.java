@@ -5,7 +5,11 @@
 
 package com.gat.open.sdk.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EmployeeBatchGetResp {
+    @JsonProperty("userid")
+    private String userId;
 
     private String corpCode;
     private String name;
@@ -23,6 +27,14 @@ public class EmployeeBatchGetResp {
     private String entryDay;
     private String timeCreated;
     private String timeActive;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getCorpCode() {
         return corpCode;
