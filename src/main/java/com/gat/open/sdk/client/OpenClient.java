@@ -13,6 +13,7 @@ import com.gat.open.sdk.http.HttpRequest;
 import com.gat.open.sdk.http.HttpResponse;
 import com.gat.open.sdk.model.ApiRequest;
 import com.gat.open.sdk.model.ApiResponse;
+import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 import com.gat.open.sdk.model.JsonArrayRequest;
 import com.gat.open.sdk.model.JsonRequest;
@@ -97,6 +98,7 @@ public final class OpenClient {
     public InvoiceApi invoiceApi() {
         return new InvoiceApi(this);
     }
+
     public ConsumeApi tradeApi() {
         return new ConsumeApi(this);
     }
@@ -153,7 +155,20 @@ public final class OpenClient {
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
+
         Map<String, String> params = apiRequest.toRequestParams();
+
+        //implements EnterpriseCodeRequest 代表queryString参数，JsonRequest和 不建议实现
+        if (apiRequest instanceof EnterpriseCodeRequest) {
+            String enterpriseCode = ((EnterpriseCodeRequest) apiRequest).getEnterpriseCode();
+            //避免form和queryString重复设置
+            if (!params.containsKey("enterprise_code")
+                    && !params.containsKey("enterpriseCode")
+                    && Objects.nonNull(enterpriseCode)) {
+                commonParams.put("enterprise_code", enterpriseCode);
+            }
+        }
+
         String sign = sign(commonParams, params);
         commonParams.put("sign", sign);
         HttpRequest httpRequest = new HttpRequest();
@@ -185,7 +200,6 @@ public final class OpenClient {
 
         throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
     }
-
 
     private String sign(Map<String, String> commonParams, Map<String, String> params) {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
