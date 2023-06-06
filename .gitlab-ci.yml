@@ -7,3 +7,5 @@ build:
   stage: deploy
   script:
     - mvn deploy -DskipTests -Pgitlab
+  only:
+    - master
