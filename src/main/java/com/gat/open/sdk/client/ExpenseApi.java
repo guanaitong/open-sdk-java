@@ -6,14 +6,15 @@
 package com.gat.open.sdk.client;
 
 
+import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.expense.AddApprovalFormRequest;
 import com.gat.open.sdk.model.expense.ApprovalFormResp;
+import com.gat.open.sdk.model.expense.FindBillAggRequest;
+import com.gat.open.sdk.model.expense.FindBillAggResponse;
 import com.gat.open.sdk.model.expense.GetApprovalFormRequest;
 import com.gat.open.sdk.model.expense.RevokeApprovalFormRequest;
 
-/**
- * Created by August.Zhou on 2022/6/27 13:51
- */
+
 public class ExpenseApi {
     private final OpenClient openClient;
 
@@ -34,6 +35,11 @@ public class ExpenseApi {
     //查询审批单
     public ApprovalFormResp getApprovalFormRequest(GetApprovalFormRequest getApprovalFormRequest) {
         return this.openClient.postFormWithAuth("/enterprise/expense/approvalForm/get", getApprovalFormRequest);
+    }
+
+    //查询账单集
+    public Pagination<FindBillAggResponse> findBillAgg(FindBillAggRequest findBillAggRequest) {
+        return this.openClient.postFormWithAuth("/enterprise/expense/billAgg/find", findBillAggRequest);
     }
 
 }

@@ -17,7 +17,6 @@ import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
 import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
 import com.gat.open.sdk.model.employee.EmployeeAddRequest;
-import com.gat.open.sdk.model.employee.EmployeeAttribute;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
@@ -50,15 +49,16 @@ public class EmployeeApiTest {
         List<EmployeeInfo> employeeList = new ArrayList<>();
         employeeBatchSyncRequest.setEmployeeList(employeeList);
         EmployeeInfo employeeInfo = new EmployeeInfo();
-        employeeInfo.setUserId("tom082402");
-        employeeInfo.setCode("tom082402");
-        employeeInfo.setName("tom082402");
-        employeeInfo.setGender(1);
+        employeeInfo.setUserId("99992368");
+        employeeInfo.setCode("99992368");
+        employeeInfo.setName("吴圳");
         employeeInfo.setStatus(1);
-        employeeInfo.setDeptCode("TOM071201");
-        employeeInfo.setMobile("16898989111");
-        employeeInfo.setMobileArea("86");
-        employeeInfo.setEmail("168989890902@tom.com");
+//        employeeInfo.setGender(1);
+
+//        employeeInfo.setDeptCode("TOM071201");
+//        employeeInfo.setMobile("16898989113");
+        /*employeeInfo.setMobileArea("86");
+        employeeInfo.setEmail("168989890903@tom.com");
         employeeInfo.setBirthDay("1990-08-05");
         employeeInfo.setEntryDay("2022-06-29");
         employeeInfo.setCardType(1);
@@ -74,9 +74,30 @@ public class EmployeeApiTest {
         e.setAttributeCode("politicalVisage");
         e.setAttributeValue("群众");
         employeeAttribute.add(e);
-        employeeInfo.setEmployeeAttribute(JSON.toJSONString(employeeAttribute));
+        employeeInfo.setEmployeeAttribute(JSON.toJSONString(employeeAttribute));*/
 
         employeeList.add(employeeInfo);
+
+        EmployeeInfo employeeInfo2 = new EmployeeInfo();
+        employeeInfo2.setUserId("99992158");
+        employeeInfo2.setCode("99992158");
+        employeeInfo2.setName("王维中");
+        employeeInfo2.setStatus(1);
+        employeeList.add(employeeInfo2);
+
+        EmployeeInfo employeeInfo3 = new EmployeeInfo();
+        employeeInfo3.setUserId("99995695");
+        employeeInfo3.setCode("99995695");
+        employeeInfo3.setName("钟劼");
+        employeeInfo3.setStatus(1);
+        employeeList.add(employeeInfo3);
+
+        EmployeeInfo employeeInfo4 = new EmployeeInfo();
+        employeeInfo4.setUserId("10114036");
+        employeeInfo4.setCode("10114036");
+        employeeInfo4.setName("张小宾");
+        employeeInfo4.setStatus(1);
+        employeeList.add(employeeInfo4);
         String synchronize = openClient.employeeApi().batchSynchronize(employeeBatchSyncRequest);
         System.out.println(synchronize);
     }
@@ -84,13 +105,13 @@ public class EmployeeApiTest {
     @Test
     public void employeeAddTest() {
         EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
-        employeeAddRequest.setEnterpriseCode("1990");
-        employeeAddRequest.setUserId("HB102401");
-        employeeAddRequest.setCode("HB102401");
-        employeeAddRequest.setName("HB102401");
+//        employeeAddRequest.setEnterpriseCode("1990");
+        employeeAddRequest.setUserId("83000019");
+        employeeAddRequest.setCode("83000019");
+        employeeAddRequest.setName("EREJER CRISNEL,EREJER CRISNEL");
         employeeAddRequest.setGender(1);
-        employeeAddRequest.setDeptCode("");
-        employeeAddRequest.setMobile("16898989120");
+        employeeAddRequest.setDeptCode("100121210044");
+        /*employeeAddRequest.setMobile("16898989120");
         employeeAddRequest.setMobileArea("86");
         employeeAddRequest.setEmail("HB102401@tom.com");
         employeeAddRequest.setBirthDay("1990-07-05");
@@ -107,7 +128,7 @@ public class EmployeeApiTest {
         e.setAttributeCode("politicalVisage");
         e.setAttributeValue("群众");
         employeeAttribute.add(e);
-        employeeAddRequest.setEmployeeAttribute(employeeAttribute);
+        employeeAddRequest.setEmployeeAttribute(employeeAttribute);*/
 
         String add = openClient.employeeApi().add(employeeAddRequest);
         System.out.println(add);

@@ -103,6 +103,10 @@ public final class OpenClient {
         return new ConsumeApi(this);
     }
 
+    public ExpenseApi expenseApi() {
+        return new ExpenseApi(this);
+    }
+
 
     private Token getToken() {
         if (token == null || token.needRefresh()) {
