@@ -1,9 +1,4 @@
-image: registry.wuxingdev.cn/build/maven:3-eclipse-temurin-8
-
-
-stages:
-  - build
-build:
-  stage: build
-  script:
-    - mvn test
+include:
+  project: 'CICD/template'
+  ref: main
+  file: '/Maven-Deploy.gitlab-ci.yml'
