@@ -6,4 +6,4 @@ stages:
 build:
   stage: deploy
   script:
-    - mvn deploy -DskipTests
+    - mvn deploy -DskipTests -Pgitlab
