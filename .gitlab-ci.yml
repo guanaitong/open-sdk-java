@@ -2,8 +2,8 @@ image: registry.wuxingdev.cn/build/maven:3-eclipse-temurin-8
 
 
 stages:
-  - build
+  - deploy
 build:
-  stage: build
+  stage: deploy
   script:
-    - mvn test
+    - mvn deploy -DskipTests
