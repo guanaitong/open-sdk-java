@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.model.expense;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;

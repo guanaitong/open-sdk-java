@@ -17,7 +17,6 @@ import com.gat.open.sdk.model.department.DepartmentGetRequest;
 import com.gat.open.sdk.model.department.DepartmentResp;
 import com.gat.open.sdk.model.department.DepartmentTransferEmployeeRequest;
 import com.gat.open.sdk.model.employee.EmployeeAddRequest;
-import com.gat.open.sdk.model.employee.EmployeeAttribute;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
