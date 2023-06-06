@@ -28,6 +28,11 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
     private String userId;
 
     /**
+     * 兼容老的发放场景使用工号定位员工
+     */
+    private String corpCode;
+
+    /**
      * 1:企业微信, 2:钉钉,3:飞书,4, 定制, 5:标准对接,非必填默认5
      */
     private Integer thirdType;
@@ -65,6 +70,14 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getCorpCode() {
+        return corpCode;
+    }
+
+    public void setCorpCode(String corpCode) {
+        this.corpCode = corpCode;
     }
 
     @FormField("thirdType")
