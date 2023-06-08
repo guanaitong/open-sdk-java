@@ -47,7 +47,7 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
     /**
      * 发放原因
      */
-    private String reason;
+    private String remark;
     /**
      * 外部交易号，最小长度2位。
      */
@@ -105,12 +105,12 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
         this.amount = amount;
     }
 
-    public String getReason() {
-        return reason;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public String getExternalCode() {
