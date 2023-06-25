@@ -48,6 +48,12 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
      */
     private String externalCode;
 
+    /**
+     * 额度过期时间，格式必须为：yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    private String expireTime;
+
     @Override
     public String getEnterpriseCode() {
         return enterpriseCode;
@@ -104,5 +110,13 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
 
     public void setExternalCode(String externalCode) {
         this.externalCode = externalCode;
+    }
+
+    public String getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
     }
 }

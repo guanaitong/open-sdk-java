@@ -19,6 +19,10 @@ public class EmployeeResignRequest extends FormRequest<String> implements Enterp
      */
     private String enterpriseCode;
     private String userId;
+    /**
+     * 预约离职时间，格式必须为：yyyy-MM-dd HH:mm:ss
+     */
+    private String resignTime;
 
     public String getEnterpriseCode() {
         return enterpriseCode;
@@ -37,4 +41,11 @@ public class EmployeeResignRequest extends FormRequest<String> implements Enterp
         this.userId = userId;
     }
 
+    public String getResignTime() {
+        return resignTime;
+    }
+
+    public void setResignTime(String resignTime) {
+        this.resignTime = resignTime;
+    }
 }
