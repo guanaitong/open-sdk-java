@@ -7,6 +7,7 @@ package com.gat.open.sdk.client;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.gat.open.sdk.client.seller.SellerPayApi;
 import com.gat.open.sdk.exception.OpenSdkException;
 import com.gat.open.sdk.http.HttpClient;
 import com.gat.open.sdk.http.HttpRequest;
@@ -105,6 +106,10 @@ public final class OpenClient {
 
     public ExpenseApi expenseApi() {
         return new ExpenseApi(this);
+    }
+
+    public SellerPayApi sellerPayApi() {
+        return new SellerPayApi(this);
     }
 
 
