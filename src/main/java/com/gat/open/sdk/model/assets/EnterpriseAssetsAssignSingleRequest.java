@@ -32,6 +32,10 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
      */
     private Integer thirdType;
     /**
+     * 发放人openId
+     */
+    private Integer assignerOpenId;
+    /**
      * 积分账户的openid,决定扣哪个积分账户的积分
      */
     private String accountOpenid;
@@ -118,5 +122,13 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
 
     public void setExpireTime(String expireTime) {
         this.expireTime = expireTime;
+    }
+
+    public Integer getAssignerOpenId() {
+        return assignerOpenId;
+    }
+
+    public void setAssignerOpenId(Integer assignerOpenId) {
+        this.assignerOpenId = assignerOpenId;
     }
 }
