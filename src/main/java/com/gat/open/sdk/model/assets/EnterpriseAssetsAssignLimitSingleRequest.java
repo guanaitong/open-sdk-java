@@ -52,6 +52,10 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
      * 外部交易号，最小长度2位。
      */
     private String externalCode;
+    /**
+     * 发放人openId
+     */
+    private Integer assignerOpenId;
 
     @Override
     public String getEnterpriseCode() {
@@ -119,5 +123,13 @@ public class EnterpriseAssetsAssignLimitSingleRequest extends FormRequest<String
 
     public void setExternalCode(String externalCode) {
         this.externalCode = externalCode;
+    }
+
+    public Integer getAssignerOpenId() {
+        return assignerOpenId;
+    }
+
+    public void setAssignerOpenId(Integer assignerOpenId) {
+        this.assignerOpenId = assignerOpenId;
     }
 }
