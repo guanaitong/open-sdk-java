@@ -1,4 +1,4 @@
-package com.gat.open.sdk.model.seller;
+package com.gat.open.sdk.seller.model;
 
 import com.gat.open.sdk.model.JsonRequest;
 
@@ -6,15 +6,25 @@ import java.math.BigDecimal;
 
 
 public class SellerRefundV3Request extends JsonRequest<String> {
+    public SellerRefundV3Request() {
+        noSnake = true;
+    }
+
     private String outerTradeNo;
+
+
     private String outerRefundNo;
     private String reason;
 
+
     private BigDecimal refundAmount;
+
 
     private BigDecimal costAmount;
 
+
     private BigDecimal deliveryFee;
+
 
     private String notifyUrl;
 

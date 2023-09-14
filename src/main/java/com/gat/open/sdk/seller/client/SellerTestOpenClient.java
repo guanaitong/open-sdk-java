@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.client;
+package com.gat.open.sdk.seller.client;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -13,15 +13,12 @@ import com.gat.open.sdk.http.HttpRequest;
 import com.gat.open.sdk.http.HttpResponse;
 import com.gat.open.sdk.model.ApiRequest;
 import com.gat.open.sdk.model.ApiResponse;
-import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 import com.gat.open.sdk.model.JsonArrayRequest;
 import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
 import com.gat.open.sdk.model.token.TokenCreateResp;
-import com.gat.open.sdk.seller.client.SellerPayApi;
-import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
 import com.gat.open.sdk.util.JSON;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -39,9 +36,10 @@ import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 /**
  * Created by August.Zhou on 2022/6/27 12:27
  */
-public final class OpenClient {
+public final class SellerTestOpenClient {
 
     private final String baseUrl;
+    private final String sellerUrl;
     private final String appId;
     private final String appSecret;
 
@@ -54,8 +52,9 @@ public final class OpenClient {
      * @param appId
      * @param appSecret
      */
-    public OpenClient(String baseUrl, String appId, String appSecret) {
+    public SellerTestOpenClient(String baseUrl, String sellerUrl, String appId, String appSecret) {
         this.baseUrl = Objects.requireNonNull(baseUrl);
+        this.sellerUrl = Objects.requireNonNull(sellerUrl);
         this.appId = Objects.requireNonNull(appId);
         this.appSecret = Objects.requireNonNull(appSecret);
         this.httpClient = new HttpClient();
@@ -67,46 +66,9 @@ public final class OpenClient {
      * @param connectTimeOut
      * @param readTimeout
      */
-    public OpenClient timeout(int connectTimeOut, int readTimeout) {
+    public SellerTestOpenClient timeout(int connectTimeOut, int readTimeout) {
         this.httpClient.config(connectTimeOut, readTimeout);
         return this;
-    }
-
-
-    public EmployeeApi employeeApi() {
-        return new EmployeeApi(this);
-    }
-
-    public LoginApi loginApi() {
-        return new LoginApi(this);
-    }
-
-    public DepartmentApi departmentApi() {
-        return new DepartmentApi(this);
-    }
-
-    public AssetsApi assetsApi() {
-        return new AssetsApi(this);
-    }
-
-    public ActivityApi activityApi() {
-        return new ActivityApi(this);
-    }
-
-    public AccountApi accountApi() {
-        return new AccountApi(this);
-    }
-
-    public InvoiceApi invoiceApi() {
-        return new InvoiceApi(this);
-    }
-
-    public ConsumeApi tradeApi() {
-        return new ConsumeApi(this);
-    }
-
-    public ExpenseApi expenseApi() {
-        return new ExpenseApi(this);
     }
 
     public SellerPayApi sellerPayApi() {
@@ -116,7 +78,6 @@ public final class OpenClient {
     public SellerTradeOrderApi sellerTradeOrderApi() {
         return new SellerTradeOrderApi(this);
     }
-
 
     private Token getToken() {
         if (token == null || token.needRefresh()) {
@@ -136,20 +97,20 @@ public final class OpenClient {
     }
 
     public <T> T postFormWithAuth(String path, FormRequest<T> apiRequest) {
-        return request(true, path, apiRequest);
+        return request(true, false, path, apiRequest);
     }
 
     public <T> T postJsonWithAuth(String path, JsonRequest<T> apiRequest) {
-        return request(true, path, apiRequest);
+        return request(true, false, path, apiRequest);
     }
 
     public <T> T postJsonWithAuth(String path, JsonArrayRequest<T> apiRequest) {
-        return request(true, path, apiRequest);
+        return request(true, false, path, apiRequest);
     }
 
 
     private TokenCreateResp createToken() {
-        return request(false, "/token/create", new TokenCreateRequest());
+        return request(false, true, "/token/create", new TokenCreateRequest());
     }
 
     private void refreshToken() {
@@ -157,11 +118,11 @@ public final class OpenClient {
         token = getToken();
     }
 
-    public <T> T request(boolean auth, String path, ApiRequest<T> apiRequest) {
-        return request0(auth, path, apiRequest);
+    public <T> T request(boolean auth, boolean useBase, String path, ApiRequest<T> apiRequest) {
+        return request0(auth, useBase, path, apiRequest);
     }
 
-    private <T> T request0(boolean auth, String path, ApiRequest<T> apiRequest) {
+    private <T> T request0(boolean auth, boolean useBase, String path, ApiRequest<T> apiRequest) {
         Map<String, String> commonParams = new HashMap<>();
         commonParams.put("appid", this.appId);
         commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
@@ -169,25 +130,12 @@ public final class OpenClient {
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
-
         Map<String, String> params = apiRequest.toRequestParams();
-
-        //implements EnterpriseCodeRequest 代表queryString参数，JsonRequest和 不建议实现
-        if (apiRequest instanceof EnterpriseCodeRequest) {
-            String enterpriseCode = ((EnterpriseCodeRequest) apiRequest).getEnterpriseCode();
-            //避免form和queryString重复设置
-            if (!params.containsKey("enterprise_code")
-                    && !params.containsKey("enterpriseCode")
-                    && Objects.nonNull(enterpriseCode)) {
-                commonParams.put("enterprise_code", enterpriseCode);
-            }
-        }
-
         String sign = sign(commonParams, params);
         commonParams.put("sign", sign);
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
-        httpRequest.setUrl(buildUrl(path, commonParams));
+        httpRequest.setUrl(buildUrl(path, useBase, commonParams));
         if (apiRequest instanceof FormRequest) {
             httpRequest.setContentType("application/x-www-form-urlencoded");
             httpRequest.setBody(buildQuery(params));
@@ -209,11 +157,12 @@ public final class OpenClient {
         } else if (apiResponse.getCode() == 1000210004) {
             //如果HTTP请求后，token 已失效，默认清空，重新生成新的token
             refreshToken();
-            return request0(auth, path, apiRequest);
+            return request0(auth, useBase, path, apiRequest);
         }
 
         throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
     }
+
 
     private String sign(Map<String, String> commonParams, Map<String, String> params) {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
@@ -233,9 +182,9 @@ public final class OpenClient {
         return DigestUtils.sha1Hex(stringBuilder.toString());
     }
 
-    public String buildUrl(String path, Map<String, String> params) {
+    public String buildUrl(String path, boolean useBase, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.baseUrl);
+        stringBuilder.append(useBase ? this.baseUrl : this.sellerUrl);
         stringBuilder.append(path);
         if (!params.isEmpty()) {
             stringBuilder.append("?");
