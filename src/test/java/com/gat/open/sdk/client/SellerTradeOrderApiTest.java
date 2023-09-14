@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
@@ -10,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class SellerTradeOrderApiTest {
-//    private SellerOpenClient openClient = new SellerOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "20111018", "7cda55c2953440b6ab9406397cf31b88");
+    //    private SellerOpenClient openClient = new SellerOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "20111018", "7cda55c2953440b6ab9406397cf31b88");
     private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "20111018", "7cda55c2953440b6ab9406397cf31b88");
 //    private SellerOpenClient openClient = new SellerOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
 

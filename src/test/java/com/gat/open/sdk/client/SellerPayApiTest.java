@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
@@ -13,7 +18,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class SellerPayApiTest {
-//    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
+    //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
     private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
     private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
 
@@ -27,6 +32,7 @@ public class SellerPayApiTest {
         sellerRefundV3Request.setNotifyUrl("1");
         sellerTestOpenClient.sellerPayApi().syncRefundV3(sellerRefundV3Request);
     }
+
     @Test
     public void excashierV3() {
         ExcashierV3Request excashierV3Request = new ExcashierV3Request();
@@ -64,7 +70,7 @@ public class SellerPayApiTest {
         goodsDetail.add(goodsDetailReq);
         tradeInfo.setGoodsDetail(goodsDetail);
         excashierV3Request.setTradeInfo(tradeInfo);
-      /*  excashierV3Request.setProvinceCode(320000L);
+        /*  excashierV3Request.setProvinceCode(320000L);
         excashierV3Request.setCityCode(320100L);
         excashierV3Request.setLocationCode(320102L);*/
         /*excashierV3Request.setProvinceName("江苏省");
