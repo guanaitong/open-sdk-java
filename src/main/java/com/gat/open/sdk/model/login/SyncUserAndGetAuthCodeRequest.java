@@ -42,6 +42,10 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      */
     private Integer gender;
 
+    /**
+     * 备注
+     */
+    private String remark;
 
     @Override
     public String getEnterpriseCode() {
@@ -100,5 +104,13 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
 
     public void setGender(Integer gender) {
         this.gender = gender;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
