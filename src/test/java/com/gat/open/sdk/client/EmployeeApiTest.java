@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -106,11 +106,11 @@ public class EmployeeApiTest {
     public void employeeAddTest() {
         EmployeeAddRequest employeeAddRequest = new EmployeeAddRequest();
 //        employeeAddRequest.setEnterpriseCode("1990");
-        employeeAddRequest.setUserId("83000019");
-        employeeAddRequest.setCode("83000019");
-        employeeAddRequest.setName("EREJER CRISNEL,EREJER CRISNEL");
-        employeeAddRequest.setGender(1);
-        employeeAddRequest.setDeptCode("100121210044");
+        employeeAddRequest.setUserId("10158416");
+        employeeAddRequest.setCode("10158416");
+        employeeAddRequest.setName("盛玉娟");
+        employeeAddRequest.setGender(2);
+        employeeAddRequest.setDeptCode("100032007941");
         /*employeeAddRequest.setMobile("16898989120");
         employeeAddRequest.setMobileArea("86");
         employeeAddRequest.setEmail("HB102401@tom.com");

@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 public class JSON {
 
     private static final ObjectMapper OBJECT_MAPPER;
+    private static final ObjectMapper OBJECT_MAPPER_NO_SNAKE;
 
     static {
         OBJECT_MAPPER = new ObjectMapper();
@@ -31,6 +32,11 @@ public class JSON {
                 .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
                 .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
                 .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        OBJECT_MAPPER_NO_SNAKE = new ObjectMapper();
+        OBJECT_MAPPER_NO_SNAKE.setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                .configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
+                .configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
     }
 
 
@@ -41,8 +47,12 @@ public class JSON {
      * @return
      */
     public static String toJSONString(Object object) {
+       return toJSONString(object, false);
+    }
+
+    public static String toJSONString(Object object, boolean noSnake) {
         try {
-            return OBJECT_MAPPER.writeValueAsString(object);
+            return noSnake ?  OBJECT_MAPPER_NO_SNAKE.writeValueAsString(object) : OBJECT_MAPPER.writeValueAsString(object);
         } catch (Throwable e) {
             throw new OpenSdkException("json format error", e);
         }

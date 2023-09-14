@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -97,7 +97,7 @@ public class AssetsApiTest {
         enterpriseAssetsAssignLimitSingleRequest.setAmount(new BigDecimal(100));
         enterpriseAssetsAssignLimitSingleRequest.setExternalCode("2011066120220704000007");
         enterpriseAssetsAssignLimitSingleRequest.setUserId("tom0001");
-        enterpriseAssetsAssignLimitSingleRequest.setReason("测试发送额度");
+        enterpriseAssetsAssignLimitSingleRequest.setRemark("测试发送额度");
         openClient.assetsApi().assignSingleLimit(enterpriseAssetsAssignLimitSingleRequest);
     }
 

@@ -1,5 +1,5 @@
 ^\Q/*\E$
-^\Q * Copyright \E2007-2022\Q, CIIC Guanaitong, Co., Ltd.\E$
+^\Q * Copyright \E2007-2023\Q, CIIC Guanaitong, Co., Ltd.\E$
 ^\Q * All rights reserved.\E$
 ^\Q */\E$
 ^$

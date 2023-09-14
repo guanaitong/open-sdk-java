@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2022, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -20,6 +20,8 @@ import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
 import com.gat.open.sdk.model.token.TokenCreateResp;
+import com.gat.open.sdk.seller.client.SellerPayApi;
+import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
 import com.gat.open.sdk.util.JSON;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -105,6 +107,14 @@ public final class OpenClient {
 
     public ExpenseApi expenseApi() {
         return new ExpenseApi(this);
+    }
+
+    public SellerPayApi sellerPayApi() {
+        return new SellerPayApi(this);
+    }
+
+    public SellerTradeOrderApi sellerTradeOrderApi() {
+        return new SellerTradeOrderApi(this);
     }
 
 
