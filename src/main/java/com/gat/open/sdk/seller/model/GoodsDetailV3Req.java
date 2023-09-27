@@ -7,7 +7,7 @@ package com.gat.open.sdk.seller.model;
 
 import java.math.BigDecimal;
 
-public class ExcashierV3GoodsDetailReq {
+public class GoodsDetailV3Req {
     /**
      * 商品id
      */
