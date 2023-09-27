@@ -8,16 +8,17 @@ package com.gat.open.sdk.seller.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-
-public class ExcashierV3TradeInfo {
+public class RefundInfoV3Request {
     /**
      * 第三方订单号
      */
     private String thirdTradeNo;
+    /**
+     * 第三方退款订单号
+     */
+    private String thirdRefundNo;
 
-    private BigDecimal thirdTotalAmount;
-
-    private BigDecimal thirdPayAmount;
+    private BigDecimal thirdRefundAmount;
 
     private BigDecimal thirdCostAmount;
 
@@ -26,7 +27,6 @@ public class ExcashierV3TradeInfo {
     private Integer isThirdOrders;
 
     private List<ThirdOrder> thirdOrders;
-
     private List<GoodsDetailV3Req> goodsDetail;
 
     public String getThirdTradeNo() {
@@ -37,20 +37,20 @@ public class ExcashierV3TradeInfo {
         this.thirdTradeNo = thirdTradeNo;
     }
 
-    public BigDecimal getThirdTotalAmount() {
-        return thirdTotalAmount;
+    public String getThirdRefundNo() {
+        return thirdRefundNo;
     }
 
-    public void setThirdTotalAmount(BigDecimal thirdTotalAmount) {
-        this.thirdTotalAmount = thirdTotalAmount;
+    public void setThirdRefundNo(String thirdRefundNo) {
+        this.thirdRefundNo = thirdRefundNo;
     }
 
-    public BigDecimal getThirdPayAmount() {
-        return thirdPayAmount;
+    public BigDecimal getThirdRefundAmount() {
+        return thirdRefundAmount;
     }
 
-    public void setThirdPayAmount(BigDecimal thirdPayAmount) {
-        this.thirdPayAmount = thirdPayAmount;
+    public void setThirdRefundAmount(BigDecimal thirdRefundAmount) {
+        this.thirdRefundAmount = thirdRefundAmount;
     }
 
     public BigDecimal getThirdCostAmount() {
@@ -94,19 +94,15 @@ public class ExcashierV3TradeInfo {
     }
 
     public static class ThirdOrder {
-
         private String outerTradeNo;
 
         private String thirdSubTradeNo;
 
+        private String thirdSubRefundNo;
 
-        private BigDecimal thirdSubTotalAmount;
-
-        private BigDecimal thirdSubPayAmount;
-
+        private BigDecimal thirdSubRefundAmount;
 
         private BigDecimal thirdSubCostAmount;
-
 
         private BigDecimal thirdSubDeliveryFee;
 
@@ -128,20 +124,20 @@ public class ExcashierV3TradeInfo {
             this.thirdSubTradeNo = thirdSubTradeNo;
         }
 
-        public BigDecimal getThirdSubTotalAmount() {
-            return thirdSubTotalAmount;
+        public String getThirdSubRefundNo() {
+            return thirdSubRefundNo;
         }
 
-        public void setThirdSubTotalAmount(BigDecimal thirdSubTotalAmount) {
-            this.thirdSubTotalAmount = thirdSubTotalAmount;
+        public void setThirdSubRefundNo(String thirdSubRefundNo) {
+            this.thirdSubRefundNo = thirdSubRefundNo;
         }
 
-        public BigDecimal getThirdSubPayAmount() {
-            return thirdSubPayAmount;
+        public BigDecimal getThirdSubRefundAmount() {
+            return thirdSubRefundAmount;
         }
 
-        public void setThirdSubPayAmount(BigDecimal thirdSubPayAmount) {
-            this.thirdSubPayAmount = thirdSubPayAmount;
+        public void setThirdSubRefundAmount(BigDecimal thirdSubRefundAmount) {
+            this.thirdSubRefundAmount = thirdSubRefundAmount;
         }
 
         public BigDecimal getThirdSubCostAmount() {

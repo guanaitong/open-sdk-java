@@ -23,13 +23,16 @@ public class ExcashierV3Request extends JsonRequest<ExcashierV3Response> {
 
     private Integer tradeType;
 
+
     private String buyerOpenId;
 
     private ExcashierV3TradeInfo tradeInfo;
 
+
     private BigDecimal totalAmount;
 
-    private BigDecimal totalGatAmount;
+
+    private BigDecimal costAmount;
 
     private String attach;
 
@@ -151,12 +154,12 @@ public class ExcashierV3Request extends JsonRequest<ExcashierV3Response> {
         this.totalAmount = totalAmount;
     }
 
-    public BigDecimal getTotalGatAmount() {
-        return totalGatAmount;
+    public BigDecimal getCostAmount() {
+        return costAmount;
     }
 
-    public void setTotalGatAmount(BigDecimal totalGatAmount) {
-        this.totalGatAmount = totalGatAmount;
+    public void setCostAmount(BigDecimal costAmount) {
+        this.costAmount = costAmount;
     }
 
     public String getAttach() {
