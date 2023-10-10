@@ -5,25 +5,7 @@
 
 package com.gat.open.sdk.client;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.HttpClient;
-import com.gat.open.sdk.http.HttpRequest;
-import com.gat.open.sdk.http.HttpResponse;
-import com.gat.open.sdk.model.ApiRequest;
-import com.gat.open.sdk.model.ApiResponse;
-import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.model.JsonArrayRequest;
-import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.model.token.Token;
-import com.gat.open.sdk.model.token.TokenCreateRequest;
-import com.gat.open.sdk.model.token.TokenCreateResp;
-import com.gat.open.sdk.seller.client.SellerPayApi;
-import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
-import com.gat.open.sdk.util.JSON;
-import org.apache.commons.codec.digest.DigestUtils;
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.ParameterizedType;
@@ -34,20 +16,31 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import org.apache.commons.codec.digest.DigestUtils;
+
+import com.gat.open.sdk.exception.OpenSdkException;
+import com.gat.open.sdk.http.*;
+import com.gat.open.sdk.model.*;
+import com.gat.open.sdk.model.token.Token;
+import com.gat.open.sdk.model.token.TokenCreateRequest;
+import com.gat.open.sdk.model.token.TokenCreateResp;
+import com.gat.open.sdk.seller.client.SellerPayApi;
+import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
  */
 public final class OpenClient {
 
-    private final String baseUrl;
-    private final String appId;
-    private final String appSecret;
+    private final String               baseUrl;
+    private final String               appId;
+    private final String               appSecret;
 
-    private final HttpClient httpClient;
+    private final HttpClient           httpClient;
 
-    private volatile Token token;
+    private final HttpMessageConverter httpMessageConverter;
+
+    private volatile Token             token;
 
     /**
      * @param baseUrl
@@ -55,10 +48,20 @@ public final class OpenClient {
      * @param appSecret
      */
     public OpenClient(String baseUrl, String appId, String appSecret) {
+        this(baseUrl, appId, appSecret, new JacksonHttpMessageConverter());
+    }
+
+    /**
+     * @param baseUrl
+     * @param appId
+     * @param appSecret
+     */
+    public OpenClient(String baseUrl, String appId, String appSecret, HttpMessageConverter httpMessageConverter) {
         this.baseUrl = Objects.requireNonNull(baseUrl);
         this.appId = Objects.requireNonNull(appId);
         this.appSecret = Objects.requireNonNull(appSecret);
         this.httpClient = new HttpClient();
+        this.httpMessageConverter = httpMessageConverter;
     }
 
     /**
@@ -71,7 +74,6 @@ public final class OpenClient {
         this.httpClient.config(connectTimeOut, readTimeout);
         return this;
     }
-
 
     public EmployeeApi employeeApi() {
         return new EmployeeApi(this);
@@ -117,7 +119,6 @@ public final class OpenClient {
         return new SellerTradeOrderApi(this);
     }
 
-
     private Token getToken() {
         if (token == null || token.needRefresh()) {
             synchronized (this) {
@@ -147,7 +148,6 @@ public final class OpenClient {
         return request(true, path, apiRequest);
     }
 
-
     private TokenCreateResp createToken() {
         return request(false, "/token/create", new TokenCreateRequest());
     }
@@ -176,8 +176,7 @@ public final class OpenClient {
         if (apiRequest instanceof EnterpriseCodeRequest) {
             String enterpriseCode = ((EnterpriseCodeRequest) apiRequest).getEnterpriseCode();
             //避免form和queryString重复设置
-            if (!params.containsKey("enterprise_code")
-                    && !params.containsKey("enterpriseCode")
+            if (!params.containsKey("enterprise_code") && !params.containsKey("enterpriseCode")
                     && Objects.nonNull(enterpriseCode)) {
                 commonParams.put("enterprise_code", enterpriseCode);
             }
@@ -200,10 +199,8 @@ public final class OpenClient {
         if (httpResponse.getCode() != 200) {
             throw new OpenSdkException("status_code is " + httpResponse.getCode());
         }
-        TypeFactory typeFactory = JSON.getTypeFactory();
         Type type = ((ParameterizedType) apiRequest.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        JavaType javaType = typeFactory.constructParametricType(ApiResponse.class, typeFactory.constructType(type));
-        ApiResponse<T> apiResponse = JSON.parse(httpResponse.getBody(), javaType);
+        ApiResponse<T> apiResponse = httpMessageConverter.read(httpResponse.getBody(), type);
         if (apiResponse.getCode() == 0) {
             return apiResponse.getData();
         } else if (apiResponse.getCode() == 1000210004) {
