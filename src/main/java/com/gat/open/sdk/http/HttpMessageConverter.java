@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.http;
 
 import com.gat.open.sdk.model.ApiResponse;
