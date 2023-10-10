@@ -32,7 +32,7 @@ jobs:
           cache: 'maven'
       - name: Build And Publish to Maven central
 #        run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -Pgithub --no-transfer-progress
-        run: echo ${MAVEN_USERNAME}
+        run: echo ${MAVEN_GPG_PASSPHRASE}
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
