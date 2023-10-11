@@ -5,13 +5,13 @@
 
 package com.gat.open.sdk.model;
 
-import com.gat.open.sdk.util.JSON;
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import com.gat.open.sdk.http.HttpMessageConverter;
 
 //3个老接口使用此形势，新接口建议使用JsonRequest里面加list的传参数形式，统一将业务参数放在json-body中
 public class JsonArrayRequest<T> extends ApiRequest<T> {
@@ -22,8 +22,8 @@ public class JsonArrayRequest<T> extends ApiRequest<T> {
     }
 
     @Override
-    public final Map<String, String> toRequestParams() {
-        String jsonBody = JSON.toJSONString(array);
+    public final Map<String, String> toRequestParams(HttpMessageConverter httpMessageConverter) {
+        String jsonBody = httpMessageConverter.writeToString(array);
         Map<String, String> params = new HashMap<>(2);
         params.put(JSON_BODY_KEY, jsonBody);
         return params;

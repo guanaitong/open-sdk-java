@@ -5,9 +5,9 @@
 
 package com.gat.open.sdk.http;
 
-import com.gat.open.sdk.model.ApiResponse;
-
 import java.lang.reflect.Type;
+
+import com.gat.open.sdk.model.ApiResponse;
 
 public interface HttpMessageConverter {
 
@@ -19,4 +19,16 @@ public interface HttpMessageConverter {
      */
     <T> ApiResponse<T> read(byte[] body, Type type);
 
+    /**
+     * @param i
+     * @param oClass
+     * @param <I>
+     * @param <O>
+     * @return
+     */
+    <I, O> O write(I i, Class<O> oClass);
+
+    default <I> String writeToString(I i) {
+        return write(i, String.class);
+    }
 }
