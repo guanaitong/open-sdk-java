@@ -179,7 +179,7 @@ public final class OpenClient {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
 
-        Map<String, String> params = apiRequest.toRequestParams();
+        Map<String, String> params = apiRequest.toRequestParams(httpMessageConverter);
 
         //implements EnterpriseCodeRequest 代表queryString参数，JsonRequest和 不建议实现
         if (apiRequest instanceof EnterpriseCodeRequest) {
@@ -274,4 +274,8 @@ public final class OpenClient {
         return stringBuilder.toString();
     }
 
+
+    public HttpMessageConverter getHttpMessageConverter() {
+        return httpMessageConverter;
+    }
 }

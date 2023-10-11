@@ -5,6 +5,8 @@
 
 package com.gat.open.sdk.model;
 
+import com.gat.open.sdk.http.HttpMessageConverter;
+
 import java.util.Map;
 
 /**
@@ -12,6 +14,6 @@ import java.util.Map;
  */
 public abstract class ApiRequest<T> {
 
-    public abstract Map<String, String> toRequestParams();
+    public abstract Map<String, String> toRequestParams(HttpMessageConverter httpMessageConverter);
 
 }

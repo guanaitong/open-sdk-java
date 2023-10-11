@@ -11,6 +11,7 @@ import com.gat.open.sdk.exception.OpenSdkException;
 import com.gat.open.sdk.http.HttpClient;
 import com.gat.open.sdk.http.HttpRequest;
 import com.gat.open.sdk.http.HttpResponse;
+import com.gat.open.sdk.http.JacksonHttpMessageConverter;
 import com.gat.open.sdk.model.ApiRequest;
 import com.gat.open.sdk.model.ApiResponse;
 import com.gat.open.sdk.model.FormRequest;
@@ -130,7 +131,7 @@ public final class SellerTestOpenClient {
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
-        Map<String, String> params = apiRequest.toRequestParams();
+        Map<String, String> params = apiRequest.toRequestParams(new JacksonHttpMessageConverter());
         String sign = sign(commonParams, params);
         commonParams.put("sign", sign);
         HttpRequest httpRequest = new HttpRequest();

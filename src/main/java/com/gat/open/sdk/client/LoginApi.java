@@ -40,6 +40,6 @@ public class LoginApi {
 
 
     public String generateLoginUrl(LoginRequest loginRequest) {
-        return openClient.buildUrl("/sso/employee/login", loginRequest.toRequestParams());
+        return openClient.buildUrl("/sso/employee/login", loginRequest.toRequestParams(openClient.getHttpMessageConverter()));
     }
 }

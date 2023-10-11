@@ -5,9 +5,6 @@
 
 package com.gat.open.sdk.model;
 
-import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.util.JSON;
-
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
@@ -18,6 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import com.gat.open.sdk.exception.OpenSdkException;
+import com.gat.open.sdk.http.HttpMessageConverter;
+
 
 /**
  * Created by August.Zhou on 2022/6/27 12:25
@@ -25,7 +25,7 @@ import java.util.Objects;
 public abstract class FormRequest<T> extends ApiRequest<T> {
 
     @Override
-    public final Map<String, String> toRequestParams() {
+    public final Map<String, String> toRequestParams(HttpMessageConverter httpMessageConverter) {
         BeanInfo beanInfo = null;
         try {
             beanInfo = Introspector.getBeanInfo(this.getClass());
@@ -57,7 +57,7 @@ public abstract class FormRequest<T> extends ApiRequest<T> {
                             if (formField.converter() == FormField.TextConverter.JOIN) {
                                 textValue = String.join(",", (Iterable<? extends CharSequence>) value);
                             } else if (formField.converter() == FormField.TextConverter.JSON) {
-                                textValue = JSON.toJSONString(value);
+                                textValue = httpMessageConverter.writeToString(value);
                             } else {
                                 textValue = value.toString().trim();
                             }
