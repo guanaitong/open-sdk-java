@@ -48,7 +48,6 @@ public class AssetsApi {
         return this.openClient.postFormWithAuth("/assets/account/enterprise/get", enterpriseAssetsAccountGetRequest);
     }
 
-    @Deprecated
     public List<EnterpriseAssetsLimitGetResp> getEnterpriseAssetsLimit(EnterpriseAssetsLimitGetRequest enterpriseAssetsLimitGetRequest) {
         return this.openClient.postFormWithAuth("/assets/limit/enterprise/get", enterpriseAssetsLimitGetRequest);
     }
