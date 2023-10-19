@@ -86,7 +86,7 @@ public class EnterpriseAssetsLimitGetResp {
         this.subLimits = subLimits;
     }
 
-    public static class SubLimit{
+    public static class SubLimit {
         String name;
         Integer id;
         Integer status;
