@@ -40,6 +40,10 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
      */
     private String accountOpenid;
     /**
+     * 额度子账户id
+     */
+    private Integer subLimitId;
+    /**
      * 发放金额
      */
     private BigDecimal amount;
@@ -130,5 +134,13 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
 
     public void setAssignerOpenId(Integer assignerOpenId) {
         this.assignerOpenId = assignerOpenId;
+    }
+
+    public Integer getSubLimitId() {
+        return subLimitId;
+    }
+
+    public void setSubLimitId(Integer subLimitId) {
+        this.subLimitId = subLimitId;
     }
 }
