@@ -23,6 +23,11 @@ public class GetAuthCodeRequest extends FormRequest<String> implements Enterpris
      */
     private String userId;
 
+    /**
+     * 员工工号，在不同步员工userId的场景下使用
+     */
+    private String corpCode;
+
 
     @Override
     public String getEnterpriseCode() {
@@ -41,5 +46,13 @@ public class GetAuthCodeRequest extends FormRequest<String> implements Enterpris
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getCorpCode() {
+        return corpCode;
+    }
+
+    public void setCorpCode(String corpCode) {
+        this.corpCode = corpCode;
     }
 }
