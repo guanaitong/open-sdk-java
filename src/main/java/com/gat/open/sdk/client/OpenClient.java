@@ -19,17 +19,8 @@ import java.util.TreeMap;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.HttpClient;
-import com.gat.open.sdk.http.HttpMessageConverter;
-import com.gat.open.sdk.http.HttpRequest;
-import com.gat.open.sdk.http.HttpResponse;
-import com.gat.open.sdk.http.JacksonHttpMessageConverter;
-import com.gat.open.sdk.model.ApiRequest;
-import com.gat.open.sdk.model.ApiResponse;
-import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.model.JsonArrayRequest;
-import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.http.*;
+import com.gat.open.sdk.model.*;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
 import com.gat.open.sdk.model.token.TokenCreateResp;
@@ -39,7 +30,7 @@ import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
 /**
  * Created by August.Zhou on 2022/6/27 12:27
  */
-public final class OpenClient {
+public class OpenClient {
 
     private final String               baseUrl;
     private final String               appId;
