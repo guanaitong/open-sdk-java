@@ -5,6 +5,7 @@
 
 package com.gat.open.sdk.model.assets;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
@@ -27,6 +28,7 @@ public class EmployeeAssetsLimitRecordResp {
      * 外部流水号
      */
     @JsonProperty("outer_trade_no")
+    @JsonAlias({"outer_tradeno", "outer_trade_no"})
     private String outerTradeNo;
     /**
      * 员工唯一标识
@@ -90,7 +92,6 @@ public class EmployeeAssetsLimitRecordResp {
         this.balance = balance;
     }
 
-    @JsonProperty("outer_tradeno")
     public String getOuterTradeNo() {
         return outerTradeNo;
     }
