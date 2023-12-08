@@ -26,6 +26,7 @@ public class EmployeeAssetsLimitRecordResp {
     /**
      * 外部流水号
      */
+    @JsonProperty("outer_trade_no")
     private String outerTradeNo;
     /**
      * 员工唯一标识
