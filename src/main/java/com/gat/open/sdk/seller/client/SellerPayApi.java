@@ -6,11 +6,11 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.Response.CompleteOrderV3Response;
-import com.gat.open.sdk.seller.model.Response.DebitPayV3Response;
-import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
-import com.gat.open.sdk.seller.model.Response.GetCashierUrlV3Response;
-import com.gat.open.sdk.seller.model.Response.RefundV3Response;
+import com.gat.open.sdk.seller.model.response.CompleteOrderV3Response;
+import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.response.GetCashierUrlV3Response;
+import com.gat.open.sdk.seller.model.response.RefundV3Response;
 import com.gat.open.sdk.seller.model.request.CompleteOrderV3Request;
 import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
 import com.gat.open.sdk.seller.model.request.ExcashierV3Request;

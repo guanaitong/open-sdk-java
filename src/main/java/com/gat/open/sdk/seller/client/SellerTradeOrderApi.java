@@ -6,14 +6,14 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.Response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
 import com.gat.open.sdk.seller.model.request.MovieTicketOrderV3Request;
-import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
+import com.gat.open.sdk.seller.model.response.MovieTicketOrderV3Response;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsCancelOrderV3Request;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsPayOrderV3Request;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsRefundOrderV3Request;
-import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
-import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.SavePayPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.SaveRefundPhysicalGoodsOrderRes;
 
 import java.util.Objects;
 

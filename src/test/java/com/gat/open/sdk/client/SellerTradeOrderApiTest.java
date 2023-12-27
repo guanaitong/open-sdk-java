@@ -6,10 +6,10 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
-import com.gat.open.sdk.seller.model.Response.CancelPhysicalGoodsOrderRes;
-import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
-import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
-import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.MovieTicketOrderV3Response;
+import com.gat.open.sdk.seller.model.response.SavePayPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.SaveRefundPhysicalGoodsOrderRes;
 import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
 import com.gat.open.sdk.seller.model.request.MovieTicketOrderV3Request;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsCancelOrderV3Request;

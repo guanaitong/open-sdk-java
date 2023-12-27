@@ -3,13 +3,16 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model.Response;
+package com.gat.open.sdk.seller.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MovieTicketOrderV3Response {
+public class SavePayPhysicalGoodsOrderRes {
     @JsonProperty("outerTradeNo")
     private String outerTradeNo;
+
+    @JsonProperty("orderNo")
+    private String orderNo;
 
     public String getOuterTradeNo() {
         return outerTradeNo;
@@ -17,5 +20,13 @@ public class MovieTicketOrderV3Response {
 
     public void setOuterTradeNo(String outerTradeNo) {
         this.outerTradeNo = outerTradeNo;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 }

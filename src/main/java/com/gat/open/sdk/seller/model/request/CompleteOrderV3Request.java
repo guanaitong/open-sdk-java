@@ -6,7 +6,7 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.Response.CompleteOrderV3Response;
+import com.gat.open.sdk.seller.model.response.CompleteOrderV3Response;
 
 public class CompleteOrderV3Request extends JsonRequest<CompleteOrderV3Response> {
     public CompleteOrderV3Request() {

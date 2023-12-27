@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model.Response;
+package com.gat.open.sdk.seller.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -6,7 +6,7 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.SavePayPhysicalGoodsOrderRes;
 
 import java.math.BigDecimal;
 import java.util.List;

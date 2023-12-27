@@ -3,15 +3,17 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model.Response;
+package com.gat.open.sdk.seller.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ExcashierV3Response {
+public class CompleteOrderV3Response {
+
+    /**
+     * 订单号
+     */
     @JsonProperty("outerTradeNo")
     private String outerTradeNo;
-    @JsonProperty("redirectUrl")
-    private String redirectUrl;
 
     public String getOuterTradeNo() {
         return outerTradeNo;
@@ -19,13 +21,5 @@ public class ExcashierV3Response {
 
     public void setOuterTradeNo(String outerTradeNo) {
         this.outerTradeNo = outerTradeNo;
-    }
-
-    public String getRedirectUrl() {
-        return redirectUrl;
-    }
-
-    public void setRedirectUrl(String redirectUrl) {
-        this.redirectUrl = redirectUrl;
     }
 }

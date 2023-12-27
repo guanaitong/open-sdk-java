@@ -1,12 +1,12 @@
 /*
- * Copyright 2007-2020, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.Response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
 
 import java.math.BigDecimal;
 import java.util.List;

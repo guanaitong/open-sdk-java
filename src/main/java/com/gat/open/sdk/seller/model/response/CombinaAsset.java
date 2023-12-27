@@ -1,27 +1,21 @@
 /*
- * Copyright 2007-2020, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model.Response;
+package com.gat.open.sdk.seller.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-public class Assets {
 
+public class CombinaAsset {
     /**
      * 资产中文名称
      */
     @JsonProperty("name")
     private String name;
-    /**
-     * 余额
-     */
-    @JsonProperty("balance")
-    private BigDecimal balance;
     /**
      * 资产类型
      */
@@ -32,8 +26,11 @@ public class Assets {
      */
     @JsonProperty("assetOpenId")
     private String assetOpenId;
-    @JsonProperty("combinableAssets")
-    private List<CombinaAsset> combinableAssets;
+    /**
+     * 资产支付金额
+     */
+    @JsonProperty("payAmount")
+    private BigDecimal payAmount;
 
     public String getName() {
         return name;
@@ -41,14 +38,6 @@ public class Assets {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
     }
 
     public String getAssetCode() {
@@ -67,11 +56,11 @@ public class Assets {
         this.assetOpenId = assetOpenId;
     }
 
-    public List<CombinaAsset> getCombinableAssets() {
-        return combinableAssets;
+    public BigDecimal getPayAmount() {
+        return payAmount;
     }
 
-    public void setCombinableAssets(List<CombinaAsset> combinableAssets) {
-        this.combinableAssets = combinableAssets;
+    public void setPayAmount(BigDecimal payAmount) {
+        this.payAmount = payAmount;
     }
 }
