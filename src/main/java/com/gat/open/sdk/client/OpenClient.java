@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
+import com.gat.open.sdk.seller.client.SellerLoginApi;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import com.gat.open.sdk.exception.OpenSdkException;
@@ -122,6 +123,10 @@ public class OpenClient {
 
     public SellerPayApi sellerPayApi() {
         return new SellerPayApi(this);
+    }
+
+    public SellerLoginApi sellerLoginApi() {
+        return new SellerLoginApi(this);
     }
 
     public SellerTradeOrderApi sellerTradeOrderApi() {

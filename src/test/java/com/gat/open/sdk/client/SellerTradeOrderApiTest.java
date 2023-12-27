@@ -6,16 +6,24 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
-import com.gat.open.sdk.seller.model.MovieTicketOrderV3Request;
-import com.gat.open.sdk.seller.model.MovieTicketOrderV3Response;
+import com.gat.open.sdk.seller.model.Response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
+import com.gat.open.sdk.seller.model.request.MovieTicketOrderV3Request;
+import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
+import com.gat.open.sdk.seller.model.request.PhysicalGoodsCancelOrderV3Request;
+import com.gat.open.sdk.seller.model.request.PhysicalGoodsPayOrderV3Request;
+import com.gat.open.sdk.seller.model.request.PhysicalGoodsRefundOrderV3Request;
+import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SellerTradeOrderApiTest {
-        private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "20111018", "7cda55c2953440b6ab9406397cf31b88");
+        private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "20111018", "7cda55c2953440b6ab9406397cf31b88");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
 
@@ -59,5 +67,96 @@ public class SellerTradeOrderApiTest {
 
         MovieTicketOrderV3Response movieTicketOrderV3Response = openClient.sellerTradeOrderApi().movieTicketCreateOrder(movieTicketOrderV3Request);
         System.out.println(JSON.toJSONString(movieTicketOrderV3Response));
+    }
+
+    @Test
+    public void testSavePayPhysicalGoodsOrder(){
+        PhysicalGoodsPayOrderV3Request physicalGoodsPayOrderV3Request = new PhysicalGoodsPayOrderV3Request();
+        physicalGoodsPayOrderV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
+        physicalGoodsPayOrderV3Request.setOrderNo("2023122100000011");
+        physicalGoodsPayOrderV3Request.setTotalAmount(new BigDecimal("13.11"));
+        physicalGoodsPayOrderV3Request.setPayAmount(new BigDecimal("13.11"));
+        physicalGoodsPayOrderV3Request.setCostAmount(new BigDecimal("13.11"));
+        physicalGoodsPayOrderV3Request.setFreight(new BigDecimal("0.00"));
+        physicalGoodsPayOrderV3Request.setTimeOrdered("2023-12-21 18:00:00");
+        physicalGoodsPayOrderV3Request.setRemark("测试订单");
+        physicalGoodsPayOrderV3Request.setProvinceCode("320000");
+        physicalGoodsPayOrderV3Request.setCityCode("320100");
+        physicalGoodsPayOrderV3Request.setLocationCode("320102");
+        physicalGoodsPayOrderV3Request.setProvinceName("江苏省");
+        physicalGoodsPayOrderV3Request.setCityName("南京市");
+        physicalGoodsPayOrderV3Request.setLocationName("玄武区");
+        physicalGoodsPayOrderV3Request.setShopName("好看测试药房");
+        physicalGoodsPayOrderV3Request.setShopAddress("新街口大洋百货负1楼扶梯旁美食街区A16铺");
+        physicalGoodsPayOrderV3Request.setShopPhone("13654545051");
+
+        List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
+        physicalGoodsPayOrderV3Request.setGoodsDetail(goodsDetailV3ReqList);
+        GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
+        goodsDetailV3Req.setAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setCostAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setQuantity(1);
+        goodsDetailV3Req.setPrice(new BigDecimal("13.11"));
+        goodsDetailV3Req.setGatAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setFreight(new BigDecimal("0.00"));
+        goodsDetailV3Req.setSkuCode("test0001");
+        goodsDetailV3Req.setSkuName("测试商品");
+        goodsDetailV3Req.setInvoiceType(1);
+
+        goodsDetailV3ReqList.add(goodsDetailV3Req);
+
+        SavePayPhysicalGoodsOrderRes savePayPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsCreateOrder(physicalGoodsPayOrderV3Request);
+        System.out.println(JSON.toJSONString(savePayPhysicalGoodsOrderRes));
+    }
+
+    @Test
+    public void testSaveRefundPhysicalGoodsOrder(){
+        PhysicalGoodsRefundOrderV3Request physicalGoodsPayOrderV3Request = new PhysicalGoodsRefundOrderV3Request();
+        physicalGoodsPayOrderV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
+        physicalGoodsPayOrderV3Request.setOrderNo("2023122100000011");
+        physicalGoodsPayOrderV3Request.setRefundOrderNo("2023122100000012");
+        physicalGoodsPayOrderV3Request.setRefundAmount(new BigDecimal("13.11"));
+        physicalGoodsPayOrderV3Request.setCostAmount(new BigDecimal("13.11"));
+        physicalGoodsPayOrderV3Request.setFreight(new BigDecimal("0.00"));
+        physicalGoodsPayOrderV3Request.setTimeOrdered("2023-12-21 18:00:00");
+        physicalGoodsPayOrderV3Request.setRemark("测试订单");
+        physicalGoodsPayOrderV3Request.setProvinceCode("320000");
+        physicalGoodsPayOrderV3Request.setCityCode("320100");
+        physicalGoodsPayOrderV3Request.setLocationCode("320102");
+        physicalGoodsPayOrderV3Request.setProvinceName("江苏省");
+        physicalGoodsPayOrderV3Request.setCityName("南京市");
+        physicalGoodsPayOrderV3Request.setLocationName("玄武区");
+        physicalGoodsPayOrderV3Request.setShopName("好看测试药房");
+        physicalGoodsPayOrderV3Request.setShopAddress("新街口大洋百货负1楼扶梯旁美食街区A16铺");
+        physicalGoodsPayOrderV3Request.setShopPhone("13654545051");
+
+        List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
+        physicalGoodsPayOrderV3Request.setGoodsDetail(goodsDetailV3ReqList);
+        GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
+        goodsDetailV3Req.setAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setCostAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setQuantity(1);
+        goodsDetailV3Req.setPrice(new BigDecimal("13.11"));
+        goodsDetailV3Req.setGatAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setFreight(new BigDecimal("0.00"));
+        goodsDetailV3Req.setSkuCode("test0001");
+        goodsDetailV3Req.setSkuName("测试商品");
+        goodsDetailV3Req.setInvoiceType(1);
+
+        goodsDetailV3ReqList.add(goodsDetailV3Req);
+
+        SaveRefundPhysicalGoodsOrderRes saveRefundPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsRefundOrder(physicalGoodsPayOrderV3Request);
+        System.out.println(JSON.toJSONString(saveRefundPhysicalGoodsOrderRes));
+    }
+
+    @Test
+    public void testPhysicalGoodsCancelOrder(){
+        PhysicalGoodsCancelOrderV3Request physicalGoodsCancelOrderV3Request = new PhysicalGoodsCancelOrderV3Request();
+        physicalGoodsCancelOrderV3Request.setOrderNo("2023122100000010");
+
+
+
+        CancelPhysicalGoodsOrderRes cancelPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsCancelOrder(physicalGoodsCancelOrderV3Request);
+        System.out.println(JSON.toJSONString(cancelPhysicalGoodsOrderRes));
     }
 }

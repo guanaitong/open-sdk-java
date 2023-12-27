@@ -3,7 +3,9 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.Response;
+
+import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
 
 import java.math.BigDecimal;
 import java.util.List;

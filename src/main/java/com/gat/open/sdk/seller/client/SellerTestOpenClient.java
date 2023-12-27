@@ -75,6 +75,9 @@ public final class SellerTestOpenClient {
     public SellerPayApi sellerPayApi() {
         return new SellerPayApi(this);
     }
+    public SellerLoginApi sellerLoginApi() {
+        return new SellerLoginApi(this);
+    }
 
     public SellerTradeOrderApi sellerTradeOrderApi() {
         return new SellerTradeOrderApi(this);

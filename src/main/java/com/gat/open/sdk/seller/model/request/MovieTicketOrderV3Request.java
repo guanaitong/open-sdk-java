@@ -3,9 +3,10 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
 
 import java.math.BigDecimal;
 import java.util.List;

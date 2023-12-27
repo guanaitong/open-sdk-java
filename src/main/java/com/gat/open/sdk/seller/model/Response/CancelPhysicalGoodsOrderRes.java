@@ -1,17 +1,19 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2020, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.Response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ExcashierV3Response {
+
+public class CancelPhysicalGoodsOrderRes {
     @JsonProperty("outerTradeNo")
     private String outerTradeNo;
-    @JsonProperty("redirectUrl")
-    private String redirectUrl;
+
+    @JsonProperty("orderNo")
+    private String orderNo;
 
     public String getOuterTradeNo() {
         return outerTradeNo;
@@ -21,11 +23,11 @@ public class ExcashierV3Response {
         this.outerTradeNo = outerTradeNo;
     }
 
-    public String getRedirectUrl() {
-        return redirectUrl;
+    public String getOrderNo() {
+        return orderNo;
     }
 
-    public void setRedirectUrl(String redirectUrl) {
-        this.redirectUrl = redirectUrl;
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 }

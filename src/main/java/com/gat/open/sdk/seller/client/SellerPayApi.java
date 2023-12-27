@@ -6,9 +6,17 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.ExcashierV3Request;
-import com.gat.open.sdk.seller.model.ExcashierV3Response;
-import com.gat.open.sdk.seller.model.SellerRefundV3Request;
+import com.gat.open.sdk.seller.model.Response.CompleteOrderV3Response;
+import com.gat.open.sdk.seller.model.Response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.Response.GetCashierUrlV3Response;
+import com.gat.open.sdk.seller.model.Response.RefundV3Response;
+import com.gat.open.sdk.seller.model.request.CompleteOrderV3Request;
+import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
+import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
+import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
+import com.gat.open.sdk.seller.model.request.RefundV3Request;
+import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
 
 import java.util.Objects;
 
@@ -26,6 +34,7 @@ public class SellerPayApi {
         sellerTestOpenClient = null;
     }
 
+    @Deprecated
     public String syncRefundV3(SellerRefundV3Request sellerRefundV3Request) {
         if (Objects.nonNull(sellerTestOpenClient)) {
             return sellerTestOpenClient.postJsonWithAuth("/seller/v3/pay/syncRefund", sellerRefundV3Request);
@@ -34,11 +43,48 @@ public class SellerPayApi {
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth("/seller/v3/pay/syncRefund", sellerRefundV3Request);
     }
 
+    @Deprecated
     public ExcashierV3Response excashierV3(ExcashierV3Request excashierV3Request) {
         if (Objects.nonNull(sellerTestOpenClient)) {
             return sellerTestOpenClient.postJsonWithAuth("/seller/v3/pay/excashier", excashierV3Request);
         }
 
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth("/seller/v3/pay/excashier", excashierV3Request);
+    }
+
+    public GetCashierUrlV3Response getCashierUrlV3(GetCashierUrlV3Request getCashierUrlV3Request) {
+        String path = "/seller/v3/pay/getCashierUrl";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, getCashierUrlV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getCashierUrlV3Request);
+    }
+
+    public RefundV3Response refundV3(RefundV3Request refundV3Request) {
+        String path = "/seller/v3/pay/refund";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, refundV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, refundV3Request);
+    }
+
+    public DebitPayV3Response debitPayV3(DebitPayV3Request debitPayV3Request) {
+        String path = "/seller/v3/pay/debitPay";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, debitPayV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, debitPayV3Request);
+    }
+
+    public CompleteOrderV3Response completeOrderV3(CompleteOrderV3Request completeOrderV3Request) {
+        String path = "/seller/v3/pay/complete";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, completeOrderV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, completeOrderV3Request);
     }
 }

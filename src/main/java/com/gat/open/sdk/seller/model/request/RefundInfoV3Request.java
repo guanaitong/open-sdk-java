@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.request;
 
 import java.math.BigDecimal;
 import java.util.List;
