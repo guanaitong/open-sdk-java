@@ -7,12 +7,12 @@ package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.Response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3TradeInfo;
 import com.gat.open.sdk.seller.model.Response.GetCashierUrlV3Response;
 import com.gat.open.sdk.seller.model.Response.RefundV3Response;
 import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
 import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
-import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
-import com.gat.open.sdk.seller.model.Response.ExcashierV3TradeInfo;
 import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
 import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
 import com.gat.open.sdk.seller.model.request.RefundInfoV3Request;
@@ -130,7 +130,7 @@ public class SellerPayApiTest {
     }
 
     @Test
-    public void testGetCashierUrlV3(){
+    public void testGetCashierUrlV3() {
         GetCashierUrlV3Request getCashierUrlV3Request = new GetCashierUrlV3Request();
         getCashierUrlV3Request.setOrderNo("2023122100000011");
         getCashierUrlV3Request.setPaySeqNo("2023122100000011");
@@ -146,7 +146,7 @@ public class SellerPayApiTest {
     }
 
     @Test
-    public void testDebitPayV3(){
+    public void testDebitPayV3() {
         DebitPayV3Request debitPayV3Request = new DebitPayV3Request();
         debitPayV3Request.setOrderNo("2023122100000002");
         debitPayV3Request.setPaySeqNo("2023122100000002");
@@ -160,7 +160,7 @@ public class SellerPayApiTest {
     }
 
     @Test
-    public void refundV3(){
+    public void refundV3() {
         RefundV3Request refundV3Request = new RefundV3Request();
         refundV3Request.setOrderNo("2023122100000011");
         refundV3Request.setRefundOrderNo("2023122100000012");

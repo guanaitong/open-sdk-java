@@ -7,14 +7,14 @@ package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.Response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
+import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
 import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
 import com.gat.open.sdk.seller.model.request.MovieTicketOrderV3Request;
-import com.gat.open.sdk.seller.model.Response.MovieTicketOrderV3Response;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsCancelOrderV3Request;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsPayOrderV3Request;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsRefundOrderV3Request;
-import com.gat.open.sdk.seller.model.Response.SavePayPhysicalGoodsOrderRes;
-import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerTradeOrderApiTest {
-        private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
+    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "20111018", "7cda55c2953440b6ab9406397cf31b88");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
 
@@ -70,7 +70,7 @@ public class SellerTradeOrderApiTest {
     }
 
     @Test
-    public void testSavePayPhysicalGoodsOrder(){
+    public void testSavePayPhysicalGoodsOrder() {
         PhysicalGoodsPayOrderV3Request physicalGoodsPayOrderV3Request = new PhysicalGoodsPayOrderV3Request();
         physicalGoodsPayOrderV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
         physicalGoodsPayOrderV3Request.setOrderNo("2023122100000011");
@@ -110,7 +110,7 @@ public class SellerTradeOrderApiTest {
     }
 
     @Test
-    public void testSaveRefundPhysicalGoodsOrder(){
+    public void testSaveRefundPhysicalGoodsOrder() {
         PhysicalGoodsRefundOrderV3Request physicalGoodsPayOrderV3Request = new PhysicalGoodsRefundOrderV3Request();
         physicalGoodsPayOrderV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
         physicalGoodsPayOrderV3Request.setOrderNo("2023122100000011");
@@ -150,10 +150,9 @@ public class SellerTradeOrderApiTest {
     }
 
     @Test
-    public void testPhysicalGoodsCancelOrder(){
+    public void testPhysicalGoodsCancelOrder() {
         PhysicalGoodsCancelOrderV3Request physicalGoodsCancelOrderV3Request = new PhysicalGoodsCancelOrderV3Request();
         physicalGoodsCancelOrderV3Request.setOrderNo("2023122100000010");
-
 
 
         CancelPhysicalGoodsOrderRes cancelPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsCancelOrder(physicalGoodsCancelOrderV3Request);
