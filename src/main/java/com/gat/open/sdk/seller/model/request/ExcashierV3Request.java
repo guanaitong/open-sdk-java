@@ -3,9 +3,11 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3TradeInfo;
 
 import java.math.BigDecimal;
 

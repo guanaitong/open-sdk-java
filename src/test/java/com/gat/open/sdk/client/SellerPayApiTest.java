@@ -6,12 +6,18 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
-import com.gat.open.sdk.seller.model.ExcashierV3Request;
-import com.gat.open.sdk.seller.model.ExcashierV3Response;
-import com.gat.open.sdk.seller.model.ExcashierV3TradeInfo;
-import com.gat.open.sdk.seller.model.GoodsDetailV3Req;
-import com.gat.open.sdk.seller.model.RefundInfoV3Request;
-import com.gat.open.sdk.seller.model.SellerRefundV3Request;
+import com.gat.open.sdk.seller.model.Response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.Response.GetCashierUrlV3Response;
+import com.gat.open.sdk.seller.model.Response.RefundV3Response;
+import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
+import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.Response.ExcashierV3TradeInfo;
+import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
+import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
+import com.gat.open.sdk.seller.model.request.RefundInfoV3Request;
+import com.gat.open.sdk.seller.model.request.RefundV3Request;
+import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -20,7 +26,7 @@ import java.util.ArrayList;
 
 public class SellerPayApiTest {
     //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
-    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "25001763", "ced6c1b8342dd58abea4dfe5c1a6a2a9");
+    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
 //    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "20110752", "f8d4c27e3120dac4f1df6da0f6f09487");
 
     @Test
@@ -121,5 +127,48 @@ public class SellerPayApiTest {
         ExcashierV3Response excashierV3Response = sellerTestOpenClient.sellerPayApi().excashierV3(excashierV3Request);
 //        ExcashierV3Response excashierV3Response = openClient.sellerPayApi().excashierV3(excashierV3Request);
         System.out.println(JSON.toJSONString(excashierV3Response));
+    }
+
+    @Test
+    public void testGetCashierUrlV3(){
+        GetCashierUrlV3Request getCashierUrlV3Request = new GetCashierUrlV3Request();
+        getCashierUrlV3Request.setOrderNo("2023122100000011");
+        getCashierUrlV3Request.setPaySeqNo("2023122100000011");
+        getCashierUrlV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
+        getCashierUrlV3Request.setTimeOrdered("2023-12-21 18:30:00");
+        getCashierUrlV3Request.setTotalAmount(new BigDecimal("13.11"));
+//        getCashierUrlV3Request.setCostAmount(new BigDecimal("11.11"));
+        getCashierUrlV3Request.setReturnUrl("https://openapi.guanaitong.tech/seller");
+        getCashierUrlV3Request.setReason("就测试");
+        getCashierUrlV3Request.setNotifyUrl("https://openapi.guanaitong.tech/seller");
+        GetCashierUrlV3Response cashierUrlV3 = sellerTestOpenClient.sellerPayApi().getCashierUrlV3(getCashierUrlV3Request);
+        System.out.println(JSON.toJSONString(cashierUrlV3));
+    }
+
+    @Test
+    public void testDebitPayV3(){
+        DebitPayV3Request debitPayV3Request = new DebitPayV3Request();
+        debitPayV3Request.setOrderNo("2023122100000002");
+        debitPayV3Request.setPaySeqNo("2023122100000002");
+        debitPayV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
+        debitPayV3Request.setTimeOrdered("2023-12-21 16:50:00");
+        debitPayV3Request.setTotalAmount(new BigDecimal("12.11"));
+        debitPayV3Request.setReason("就测试");
+        debitPayV3Request.setNotifyUrl("https://openapi.guanaitong.tech/seller");
+        DebitPayV3Response debitPayV3Response = sellerTestOpenClient.sellerPayApi().debitPayV3(debitPayV3Request);
+        System.out.println(JSON.toJSONString(debitPayV3Response));
+    }
+
+    @Test
+    public void refundV3(){
+        RefundV3Request refundV3Request = new RefundV3Request();
+        refundV3Request.setOrderNo("2023122100000011");
+        refundV3Request.setRefundOrderNo("2023122100000012");
+        refundV3Request.setRefundSeqNo("2023122100000012");
+        refundV3Request.setTotalRefundAmount(new BigDecimal("13.11"));
+        refundV3Request.setNotifyUrl("https://openapi.guanaitong.tech/seller");
+        refundV3Request.setRemark("测试退款");
+        RefundV3Response refundV3Response = sellerTestOpenClient.sellerPayApi().refundV3(refundV3Request);
+        System.out.println(JSON.toJSONString(refundV3Response));
     }
 }

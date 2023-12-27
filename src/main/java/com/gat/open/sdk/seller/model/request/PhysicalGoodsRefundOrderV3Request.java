@@ -3,42 +3,51 @@
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model;
+package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.seller.model.Response.SaveRefundPhysicalGoodsOrderRes;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-
-public class SellerRefundV3Request extends JsonRequest<String> {
-    public SellerRefundV3Request() {
+/**
+ * 实物订单详情推送参数对象
+ */
+public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhysicalGoodsOrderRes> {
+    public PhysicalGoodsRefundOrderV3Request() {
         noSnake = true;
     }
 
-    private String outerTradeNo;
+    /**
+     * 合作方订单号
+     */
+    private String orderNo;
+    private String refundOrderNo;
 
-    private String outerRefundNo;
-    private String reason;
+    private String buyerOpenId;
+
+    private String timeOrdered;
 
     private BigDecimal refundAmount;
 
     private BigDecimal costAmount;
 
-    private BigDecimal deliveryFee;
+    private BigDecimal freight;
 
-    private String notifyUrl;
+    private String remark;
 
-    private RefundInfoV3Request tradeInfo;
+    private List<GoodsDetailV3Req> goodsDetail;
 
-    private Long provinceCode;
+    private String provinceCode;
 
     private String provinceName;
 
-    private Long cityCode;
+    private String cityCode;
 
     private String cityName;
 
-    private Long locationCode;
+    private String locationCode;
 
     private String locationName;
 
@@ -61,10 +70,11 @@ public class SellerRefundV3Request extends JsonRequest<String> {
      * 收货人地址
      */
     private String recipientAddress;
+
     /**
      * 商家一级品类code
      */
-    private Long poiCateCode;
+    private String poiCateCode;
     /**
      * 商家一级品类名称
      */
@@ -72,42 +82,46 @@ public class SellerRefundV3Request extends JsonRequest<String> {
     /**
      * 商家二级品类code
      */
-    private Long poi2ndCateCode;
-    /**
-     * 商家二级品类名称
-     */
     private String poi2ndCateDesc;
     /**
      * 商家三级品类code
      */
-    private Long poi3rdCateCode;
+    private String poi3rdCateCode;
     /**
      * 商家三级品类名称
      */
     private String poi3rdCateDesc;
 
-    public String getOuterTradeNo() {
-        return outerTradeNo;
+    public String getOrderNo() {
+        return orderNo;
     }
 
-    public void setOuterTradeNo(String outerTradeNo) {
-        this.outerTradeNo = outerTradeNo;
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
-    public String getOuterRefundNo() {
-        return outerRefundNo;
+    public String getRefundOrderNo() {
+        return refundOrderNo;
     }
 
-    public void setOuterRefundNo(String outerRefundNo) {
-        this.outerRefundNo = outerRefundNo;
+    public void setRefundOrderNo(String refundOrderNo) {
+        this.refundOrderNo = refundOrderNo;
     }
 
-    public String getReason() {
-        return reason;
+    public String getBuyerOpenId() {
+        return buyerOpenId;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setBuyerOpenId(String buyerOpenId) {
+        this.buyerOpenId = buyerOpenId;
+    }
+
+    public String getTimeOrdered() {
+        return timeOrdered;
+    }
+
+    public void setTimeOrdered(String timeOrdered) {
+        this.timeOrdered = timeOrdered;
     }
 
     public BigDecimal getRefundAmount() {
@@ -126,35 +140,35 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.costAmount = costAmount;
     }
 
-    public BigDecimal getDeliveryFee() {
-        return deliveryFee;
+    public BigDecimal getFreight() {
+        return freight;
     }
 
-    public void setDeliveryFee(BigDecimal deliveryFee) {
-        this.deliveryFee = deliveryFee;
+    public void setFreight(BigDecimal freight) {
+        this.freight = freight;
     }
 
-    public String getNotifyUrl() {
-        return notifyUrl;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setNotifyUrl(String notifyUrl) {
-        this.notifyUrl = notifyUrl;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
-    public RefundInfoV3Request getTradeInfo() {
-        return tradeInfo;
+    public List<GoodsDetailV3Req> getGoodsDetail() {
+        return goodsDetail;
     }
 
-    public void setTradeInfo(RefundInfoV3Request tradeInfo) {
-        this.tradeInfo = tradeInfo;
+    public void setGoodsDetail(List<GoodsDetailV3Req> goodsDetail) {
+        this.goodsDetail = goodsDetail;
     }
 
-    public Long getProvinceCode() {
+    public String getProvinceCode() {
         return provinceCode;
     }
 
-    public void setProvinceCode(Long provinceCode) {
+    public void setProvinceCode(String provinceCode) {
         this.provinceCode = provinceCode;
     }
 
@@ -166,11 +180,11 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.provinceName = provinceName;
     }
 
-    public Long getCityCode() {
+    public String getCityCode() {
         return cityCode;
     }
 
-    public void setCityCode(Long cityCode) {
+    public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
     }
 
@@ -182,11 +196,11 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.cityName = cityName;
     }
 
-    public Long getLocationCode() {
+    public String getLocationCode() {
         return locationCode;
     }
 
-    public void setLocationCode(Long locationCode) {
+    public void setLocationCode(String locationCode) {
         this.locationCode = locationCode;
     }
 
@@ -246,11 +260,11 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.recipientAddress = recipientAddress;
     }
 
-    public Long getPoiCateCode() {
+    public String getPoiCateCode() {
         return poiCateCode;
     }
 
-    public void setPoiCateCode(Long poiCateCode) {
+    public void setPoiCateCode(String poiCateCode) {
         this.poiCateCode = poiCateCode;
     }
 
@@ -262,14 +276,6 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.poiCateDesc = poiCateDesc;
     }
 
-    public Long getPoi2ndCateCode() {
-        return poi2ndCateCode;
-    }
-
-    public void setPoi2ndCateCode(Long poi2ndCateCode) {
-        this.poi2ndCateCode = poi2ndCateCode;
-    }
-
     public String getPoi2ndCateDesc() {
         return poi2ndCateDesc;
     }
@@ -278,11 +284,11 @@ public class SellerRefundV3Request extends JsonRequest<String> {
         this.poi2ndCateDesc = poi2ndCateDesc;
     }
 
-    public Long getPoi3rdCateCode() {
+    public String getPoi3rdCateCode() {
         return poi3rdCateCode;
     }
 
-    public void setPoi3rdCateCode(Long poi3rdCateCode) {
+    public void setPoi3rdCateCode(String poi3rdCateCode) {
         this.poi3rdCateCode = poi3rdCateCode;
     }
 
