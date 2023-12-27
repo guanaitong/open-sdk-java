@@ -1,9 +1,9 @@
 /*
- * Copyright 2007-2020, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
-package com.gat.open.sdk.seller.model.Response;
+package com.gat.open.sdk.seller.model.response;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

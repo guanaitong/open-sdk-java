@@ -6,7 +6,7 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.Response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
 
 public class PhysicalGoodsCancelOrderV3Request extends JsonRequest<CancelPhysicalGoodsOrderRes> {
     public PhysicalGoodsCancelOrderV3Request() {

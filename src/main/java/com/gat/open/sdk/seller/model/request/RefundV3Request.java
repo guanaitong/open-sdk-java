@@ -6,7 +6,7 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.Response.RefundV3Response;
+import com.gat.open.sdk.seller.model.response.RefundV3Response;
 
 import java.math.BigDecimal;
 

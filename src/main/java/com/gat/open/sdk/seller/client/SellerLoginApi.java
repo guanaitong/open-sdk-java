@@ -6,11 +6,9 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.Response.CompleteOrderV3Response;
-import com.gat.open.sdk.seller.model.Response.PersonAssetsResponse;
-import com.gat.open.sdk.seller.model.Response.PersonDetailResponse;
-import com.gat.open.sdk.seller.model.Response.SellerLoginAuthResponse;
-import com.gat.open.sdk.seller.model.request.CompleteOrderV3Request;
+import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
+import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
+import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
 import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
 import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;

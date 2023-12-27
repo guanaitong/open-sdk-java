@@ -7,7 +7,7 @@ package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.seller.model.Response.SellerLoginAuthResponse;
+import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 
 public class SellerLoginAuthRequest extends FormRequest<SellerLoginAuthResponse> {
 
