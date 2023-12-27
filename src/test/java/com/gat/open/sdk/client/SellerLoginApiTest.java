@@ -8,16 +8,12 @@ package com.gat.open.sdk.client;
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.Response.PersonAssetsResponse;
 import com.gat.open.sdk.seller.model.Response.PersonDetailResponse;
-import com.gat.open.sdk.seller.model.Response.RefundV3Response;
 import com.gat.open.sdk.seller.model.Response.SellerLoginAuthResponse;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
 import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
-import com.gat.open.sdk.seller.model.request.RefundV3Request;
 import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
-
-import java.math.BigDecimal;
 
 public class SellerLoginApiTest {
     //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
