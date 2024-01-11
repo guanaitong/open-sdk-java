@@ -38,7 +38,7 @@ public class PhysicalGoodsPayOrderV3Request extends JsonRequest<SavePayPhysicalG
 
     private String remark;
 
-    private List<GoodsDetailV3Req> goodsDetail;
+    private List<GoodsDetailV3Req> goodsDetails;
 
     private String provinceCode;
 
@@ -157,12 +157,12 @@ public class PhysicalGoodsPayOrderV3Request extends JsonRequest<SavePayPhysicalG
         this.remark = remark;
     }
 
-    public List<GoodsDetailV3Req> getGoodsDetail() {
-        return goodsDetail;
+    public List<GoodsDetailV3Req> getGoodsDetails() {
+        return goodsDetails;
     }
 
-    public void setGoodsDetail(List<GoodsDetailV3Req> goodsDetail) {
-        this.goodsDetail = goodsDetail;
+    public void setGoodsDetails(List<GoodsDetailV3Req> goodsDetails) {
+        this.goodsDetails = goodsDetails;
     }
 
     public String getProvinceCode() {
