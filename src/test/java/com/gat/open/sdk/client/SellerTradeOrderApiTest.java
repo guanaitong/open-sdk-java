@@ -6,6 +6,7 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
+import com.gat.open.sdk.seller.model.request.PhysicalGoodsPayOrdersV3Request;
 import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
 import com.gat.open.sdk.seller.model.response.MovieTicketOrderV3Response;
 import com.gat.open.sdk.seller.model.response.SavePayPhysicalGoodsOrderRes;
@@ -91,7 +92,7 @@ public class SellerTradeOrderApiTest {
         physicalGoodsPayOrderV3Request.setShopPhone("13654545051");
 
         List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
-        physicalGoodsPayOrderV3Request.setGoodsDetail(goodsDetailV3ReqList);
+        physicalGoodsPayOrderV3Request.setGoodsDetails(goodsDetailV3ReqList);
         GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
         goodsDetailV3Req.setAmount(new BigDecimal("13.11"));
         goodsDetailV3Req.setCostAmount(new BigDecimal("13.11"));
@@ -131,7 +132,7 @@ public class SellerTradeOrderApiTest {
         physicalGoodsPayOrderV3Request.setShopPhone("13654545051");
 
         List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
-        physicalGoodsPayOrderV3Request.setGoodsDetail(goodsDetailV3ReqList);
+        physicalGoodsPayOrderV3Request.setGoodsDetails(goodsDetailV3ReqList);
         GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
         goodsDetailV3Req.setAmount(new BigDecimal("13.11"));
         goodsDetailV3Req.setCostAmount(new BigDecimal("13.11"));
@@ -157,5 +158,90 @@ public class SellerTradeOrderApiTest {
 
         CancelPhysicalGoodsOrderRes cancelPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsCancelOrder(physicalGoodsCancelOrderV3Request);
         System.out.println(JSON.toJSONString(cancelPhysicalGoodsOrderRes));
+    }
+
+    @Test
+    public void testSavePayPhysicalGoodsOrders() {
+        PhysicalGoodsPayOrdersV3Request physicalGoodsPayOrdersV3Request = new PhysicalGoodsPayOrdersV3Request();
+        physicalGoodsPayOrdersV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
+        physicalGoodsPayOrdersV3Request.setOrderNo("2024011100000001");
+        physicalGoodsPayOrdersV3Request.setTotalAmount(new BigDecimal("23.11"));
+        physicalGoodsPayOrdersV3Request.setPayAmount(new BigDecimal("23.11"));
+        physicalGoodsPayOrdersV3Request.setCostAmount(new BigDecimal("23.11"));
+        physicalGoodsPayOrdersV3Request.setFreight(new BigDecimal("0.00"));
+        physicalGoodsPayOrdersV3Request.setTimeOrdered("2024-01-11 11:00:00");
+        physicalGoodsPayOrdersV3Request.setRemark("测试订单");
+        physicalGoodsPayOrdersV3Request.setProvinceCode("320000");
+        physicalGoodsPayOrdersV3Request.setCityCode("320100");
+        physicalGoodsPayOrdersV3Request.setLocationCode("320102");
+        physicalGoodsPayOrdersV3Request.setProvinceName("江苏省");
+        physicalGoodsPayOrdersV3Request.setCityName("南京市");
+        physicalGoodsPayOrdersV3Request.setLocationName("玄武区");
+        physicalGoodsPayOrdersV3Request.setShopName("好看测试药房");
+        physicalGoodsPayOrdersV3Request.setShopAddress("新街口大洋百货负1楼扶梯旁美食街区A16铺");
+        physicalGoodsPayOrdersV3Request.setShopPhone("13654545051");
+
+        List<PhysicalGoodsPayOrdersV3Request.SubOrder> subOrders = new ArrayList<>();
+        physicalGoodsPayOrdersV3Request.setSubOrders(subOrders);
+        PhysicalGoodsPayOrdersV3Request.SubOrder subOrder = getSubOrder();
+        PhysicalGoodsPayOrdersV3Request.SubOrder subOrder2 = getSubOrder2();
+
+        subOrders.add(subOrder);
+        subOrders.add(subOrder2);
+
+        SavePayPhysicalGoodsOrderRes savePayPhysicalGoodsOrderRes = openClient.sellerTradeOrderApi().physicalGoodsCreateOrders(physicalGoodsPayOrdersV3Request);
+        System.out.println(JSON.toJSONString(savePayPhysicalGoodsOrderRes));
+    }
+
+    private static PhysicalGoodsPayOrdersV3Request.SubOrder getSubOrder2() {
+        PhysicalGoodsPayOrdersV3Request.SubOrder subOrder2 = new PhysicalGoodsPayOrdersV3Request.SubOrder();
+        subOrder2.setSubOrderNo("2024011100000003");
+        subOrder2.setSubTotalAmount(new BigDecimal("10.00"));
+        subOrder2.setSubPayAmount(new BigDecimal("10.00"));
+        subOrder2.setSubCostAmount(new BigDecimal("10.00"));
+        subOrder2.setSubFreight(new BigDecimal("0.00"));
+        subOrder2.setShopAddress("新街口大洋百货负1楼扶梯旁美食街区A16铺");
+        subOrder2.setShopPhone("13654545051");
+        List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
+        GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
+        goodsDetailV3Req.setAmount(new BigDecimal("10.00"));
+        goodsDetailV3Req.setCostAmount(new BigDecimal("10.00"));
+        goodsDetailV3Req.setQuantity(1);
+        goodsDetailV3Req.setPrice(new BigDecimal("10.00"));
+        goodsDetailV3Req.setGatAmount(new BigDecimal("10.00"));
+        goodsDetailV3Req.setFreight(new BigDecimal("0.00"));
+        goodsDetailV3Req.setSkuCode("test0002");
+        goodsDetailV3Req.setSkuName("测试商品2");
+        goodsDetailV3Req.setInvoiceType(1);
+
+        goodsDetailV3ReqList.add(goodsDetailV3Req);
+        subOrder2.setGoodsDetails(goodsDetailV3ReqList);
+        return subOrder2;
+    }
+
+    private static PhysicalGoodsPayOrdersV3Request.SubOrder getSubOrder() {
+        PhysicalGoodsPayOrdersV3Request.SubOrder subOrder = new PhysicalGoodsPayOrdersV3Request.SubOrder();
+        subOrder.setSubOrderNo("2024011100000002");
+        subOrder.setSubTotalAmount(new BigDecimal("13.11"));
+        subOrder.setSubPayAmount(new BigDecimal("13.11"));
+        subOrder.setSubCostAmount(new BigDecimal("13.11"));
+        subOrder.setSubFreight(new BigDecimal("0.00"));
+        subOrder.setShopAddress("新街口大洋百货负1楼扶梯旁美食街区A16铺");
+        subOrder.setShopPhone("13654545051");
+        List<GoodsDetailV3Req> goodsDetailV3ReqList = new ArrayList<>();
+        GoodsDetailV3Req goodsDetailV3Req = new GoodsDetailV3Req();
+        goodsDetailV3Req.setAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setCostAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setQuantity(1);
+        goodsDetailV3Req.setPrice(new BigDecimal("13.11"));
+        goodsDetailV3Req.setGatAmount(new BigDecimal("13.11"));
+        goodsDetailV3Req.setFreight(new BigDecimal("0.00"));
+        goodsDetailV3Req.setSkuCode("test0001");
+        goodsDetailV3Req.setSkuName("测试商品");
+        goodsDetailV3Req.setInvoiceType(1);
+
+        goodsDetailV3ReqList.add(goodsDetailV3Req);
+        subOrder.setGoodsDetails(goodsDetailV3ReqList);
+        return subOrder;
     }
 }

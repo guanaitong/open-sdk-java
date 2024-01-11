@@ -6,16 +6,16 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.response.SaveRefundPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.SavePayPhysicalGoodsOrderRes;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * 实物订单详情推送参数对象
+ * 实物多订单详情推送参数对象
  */
-public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhysicalGoodsOrderRes> {
-    public PhysicalGoodsRefundOrderV3Request() {
+public class PhysicalGoodsPayOrdersV3Request extends JsonRequest<SavePayPhysicalGoodsOrderRes> {
+    public PhysicalGoodsPayOrdersV3Request() {
         noSnake = true;
     }
 
@@ -23,13 +23,15 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
      * 合作方订单号
      */
     private String orderNo;
-    private String refundOrderNo;
+    private String sellerCode;
 
     private String buyerOpenId;
 
     private String timeOrdered;
 
-    private BigDecimal refundAmount;
+    private BigDecimal totalAmount;
+
+    private BigDecimal payAmount;
 
     private BigDecimal costAmount;
 
@@ -38,6 +40,7 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
     private String remark;
 
     private List<GoodsDetailV3Req> goodsDetails;
+    private List<SubOrder> subOrders;
 
     private String provinceCode;
 
@@ -100,12 +103,12 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
         this.orderNo = orderNo;
     }
 
-    public String getRefundOrderNo() {
-        return refundOrderNo;
+    public String getSellerCode() {
+        return sellerCode;
     }
 
-    public void setRefundOrderNo(String refundOrderNo) {
-        this.refundOrderNo = refundOrderNo;
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     public String getBuyerOpenId() {
@@ -124,12 +127,20 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
         this.timeOrdered = timeOrdered;
     }
 
-    public BigDecimal getRefundAmount() {
-        return refundAmount;
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setRefundAmount(BigDecimal refundAmount) {
-        this.refundAmount = refundAmount;
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public BigDecimal getPayAmount() {
+        return payAmount;
+    }
+
+    public void setPayAmount(BigDecimal payAmount) {
+        this.payAmount = payAmount;
     }
 
     public BigDecimal getCostAmount() {
@@ -162,6 +173,14 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
 
     public void setGoodsDetails(List<GoodsDetailV3Req> goodsDetails) {
         this.goodsDetails = goodsDetails;
+    }
+
+    public List<SubOrder> getSubOrders() {
+        return subOrders;
+    }
+
+    public void setSubOrders(List<SubOrder> subOrders) {
+        this.subOrders = subOrders;
     }
 
     public String getProvinceCode() {
@@ -298,5 +317,183 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
 
     public void setPoi3rdCateDesc(String poi3rdCateDesc) {
         this.poi3rdCateDesc = poi3rdCateDesc;
+    }
+
+    public static class SubOrder {
+
+        private String subOrderNo;
+
+        private String subSellerCode;
+
+        private BigDecimal subTotalAmount;
+
+        private BigDecimal subPayAmount;
+
+        private BigDecimal subCostAmount;
+
+        private BigDecimal subFreight;
+
+        private List<GoodsDetailV3Req> goodsDetails;
+
+        private String shopName;
+
+        private String shopAddress;
+        /**
+         * 商家电话
+         */
+        private String shopPhone;
+
+        /**
+         * 商家一级品类code
+         */
+        private String poiCateCode;
+        /**
+         * 商家一级品类名称
+         */
+        private String poiCateDesc;
+        /**
+         * 商家二级品类code
+         */
+        private String poi2ndCateCode;
+        /**
+         * 商家二级品类名称
+         */
+        private String poi2ndCateDesc;
+        /**
+         * 商家三级品类code
+         */
+        private String poi3rdCateCode;
+        /**
+         * 商家三级品类名称
+         */
+        private String poi3rdCateDesc;
+
+        public String getSubOrderNo() {
+            return subOrderNo;
+        }
+
+        public void setSubOrderNo(String subOrderNo) {
+            this.subOrderNo = subOrderNo;
+        }
+
+        public String getSubSellerCode() {
+            return subSellerCode;
+        }
+
+        public void setSubSellerCode(String subSellerCode) {
+            this.subSellerCode = subSellerCode;
+        }
+
+        public BigDecimal getSubTotalAmount() {
+            return subTotalAmount;
+        }
+
+        public void setSubTotalAmount(BigDecimal subTotalAmount) {
+            this.subTotalAmount = subTotalAmount;
+        }
+
+        public BigDecimal getSubPayAmount() {
+            return subPayAmount;
+        }
+
+        public void setSubPayAmount(BigDecimal subPayAmount) {
+            this.subPayAmount = subPayAmount;
+        }
+
+        public BigDecimal getSubCostAmount() {
+            return subCostAmount;
+        }
+
+        public void setSubCostAmount(BigDecimal subCostAmount) {
+            this.subCostAmount = subCostAmount;
+        }
+
+        public BigDecimal getSubFreight() {
+            return subFreight;
+        }
+
+        public void setSubFreight(BigDecimal subFreight) {
+            this.subFreight = subFreight;
+        }
+
+        public List<GoodsDetailV3Req> getGoodsDetails() {
+            return goodsDetails;
+        }
+
+        public void setGoodsDetails(List<GoodsDetailV3Req> goodsDetails) {
+            this.goodsDetails = goodsDetails;
+        }
+
+        public String getShopName() {
+            return shopName;
+        }
+
+        public void setShopName(String shopName) {
+            this.shopName = shopName;
+        }
+
+        public String getShopAddress() {
+            return shopAddress;
+        }
+
+        public void setShopAddress(String shopAddress) {
+            this.shopAddress = shopAddress;
+        }
+
+        public String getShopPhone() {
+            return shopPhone;
+        }
+
+        public void setShopPhone(String shopPhone) {
+            this.shopPhone = shopPhone;
+        }
+
+        public String getPoiCateCode() {
+            return poiCateCode;
+        }
+
+        public void setPoiCateCode(String poiCateCode) {
+            this.poiCateCode = poiCateCode;
+        }
+
+        public String getPoiCateDesc() {
+            return poiCateDesc;
+        }
+
+        public void setPoiCateDesc(String poiCateDesc) {
+            this.poiCateDesc = poiCateDesc;
+        }
+
+        public String getPoi2ndCateCode() {
+            return poi2ndCateCode;
+        }
+
+        public void setPoi2ndCateCode(String poi2ndCateCode) {
+            this.poi2ndCateCode = poi2ndCateCode;
+        }
+
+        public String getPoi2ndCateDesc() {
+            return poi2ndCateDesc;
+        }
+
+        public void setPoi2ndCateDesc(String poi2ndCateDesc) {
+            this.poi2ndCateDesc = poi2ndCateDesc;
+        }
+
+        public String getPoi3rdCateCode() {
+            return poi3rdCateCode;
+        }
+
+        public void setPoi3rdCateCode(String poi3rdCateCode) {
+            this.poi3rdCateCode = poi3rdCateCode;
+        }
+
+        public String getPoi3rdCateDesc() {
+            return poi3rdCateDesc;
+        }
+
+        public void setPoi3rdCateDesc(String poi3rdCateDesc) {
+            this.poi3rdCateDesc = poi3rdCateDesc;
+        }
     }
 }

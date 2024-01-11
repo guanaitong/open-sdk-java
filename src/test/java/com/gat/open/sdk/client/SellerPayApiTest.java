@@ -132,11 +132,11 @@ public class SellerPayApiTest {
     @Test
     public void testGetCashierUrlV3() {
         GetCashierUrlV3Request getCashierUrlV3Request = new GetCashierUrlV3Request();
-        getCashierUrlV3Request.setOrderNo("2023122100000011");
-        getCashierUrlV3Request.setPaySeqNo("2023122100000011");
+        getCashierUrlV3Request.setOrderNo("2024011100000001");
+        getCashierUrlV3Request.setPaySeqNo("2024011100000001");
         getCashierUrlV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
-        getCashierUrlV3Request.setTimeOrdered("2023-12-21 18:30:00");
-        getCashierUrlV3Request.setTotalAmount(new BigDecimal("13.11"));
+        getCashierUrlV3Request.setTimeOrdered("2024-01-11 11:00:00");
+        getCashierUrlV3Request.setTotalAmount(new BigDecimal("23.11"));
 //        getCashierUrlV3Request.setCostAmount(new BigDecimal("11.11"));
         getCashierUrlV3Request.setReturnUrl("https://openapi.guanaitong.tech/seller");
         getCashierUrlV3Request.setReason("就测试");
