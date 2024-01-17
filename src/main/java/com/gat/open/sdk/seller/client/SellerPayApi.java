@@ -6,17 +6,21 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.response.CompleteOrderV3Response;
-import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
-import com.gat.open.sdk.seller.model.response.ExcashierV3Response;
-import com.gat.open.sdk.seller.model.response.GetCashierUrlV3Response;
-import com.gat.open.sdk.seller.model.response.RefundV3Response;
 import com.gat.open.sdk.seller.model.request.CompleteOrderV3Request;
 import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
 import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
 import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
+import com.gat.open.sdk.seller.model.request.GetPayResultV3Request;
+import com.gat.open.sdk.seller.model.request.GetRefundResultV3Request;
 import com.gat.open.sdk.seller.model.request.RefundV3Request;
 import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
+import com.gat.open.sdk.seller.model.response.CompleteOrderV3Response;
+import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
+import com.gat.open.sdk.seller.model.response.ExcashierV3Response;
+import com.gat.open.sdk.seller.model.response.GetCashierUrlV3Response;
+import com.gat.open.sdk.seller.model.response.GetPayResultV3Response;
+import com.gat.open.sdk.seller.model.response.GetRefundResultV3Response;
+import com.gat.open.sdk.seller.model.response.RefundV3Response;
 
 import java.util.Objects;
 
@@ -86,5 +90,23 @@ public class SellerPayApi {
         }
 
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, completeOrderV3Request);
+    }
+
+    public GetPayResultV3Response getResultV3(GetPayResultV3Request getPayResultV3Request) {
+        String path = "/seller/v3/pay/getResult";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, getPayResultV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getPayResultV3Request);
+    }
+
+    public GetRefundResultV3Response getResultV3(GetRefundResultV3Request getRefundResultV3Request) {
+        String path = "/seller/v3/pay/getRefundResult";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, getRefundResultV3Request);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getRefundResultV3Request);
     }
 }
