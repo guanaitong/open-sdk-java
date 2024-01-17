@@ -11,7 +11,7 @@
 <dependency>
     <groupId>com.ciicgat.open</groupId>
     <artifactId>open-sdk-java</artifactId>
-    <version>1.0.45</version>
+    <version>1.0.46</version>
 </dependency>
 ```
 

@@ -92,7 +92,7 @@ public class SellerPayApi {
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, completeOrderV3Request);
     }
 
-    public GetPayResultV3Response getResultV3(GetPayResultV3Request getPayResultV3Request) {
+    public GetPayResultV3Response getPayResultV3(GetPayResultV3Request getPayResultV3Request) {
         String path = "/seller/v3/pay/getResult";
         if (Objects.nonNull(sellerTestOpenClient)) {
             return sellerTestOpenClient.postJsonWithAuth(path, getPayResultV3Request);
@@ -101,7 +101,7 @@ public class SellerPayApi {
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getPayResultV3Request);
     }
 
-    public GetRefundResultV3Response getResultV3(GetRefundResultV3Request getRefundResultV3Request) {
+    public GetRefundResultV3Response getRefundResultV3(GetRefundResultV3Request getRefundResultV3Request) {
         String path = "/seller/v3/pay/getRefundResult";
         if (Objects.nonNull(sellerTestOpenClient)) {
             return sellerTestOpenClient.postJsonWithAuth(path, getRefundResultV3Request);
