@@ -6,7 +6,6 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.response.GetPayResultV3Response;
 import com.gat.open.sdk.seller.model.response.GetRefundResultV3Response;
 
 public class GetRefundResultV3Request extends JsonRequest<GetRefundResultV3Response> {
