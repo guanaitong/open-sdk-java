@@ -12,4 +12,12 @@ import java.util.List;
 public class PersonAssetsResponse {
     @JsonProperty("assetsList")
     private List<Assets> assetsList;
+
+    public List<Assets> getAssetsList() {
+        return assetsList;
+    }
+
+    public void setAssetsList(List<Assets> assetsList) {
+        this.assetsList = assetsList;
+    }
 }

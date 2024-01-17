@@ -19,6 +19,7 @@ public class DebitPayV3Request extends JsonRequest<DebitPayV3Response> {
 
     private String paySeqNo;
     private String buyerOpenId;
+    private String sellerCode;
     private String orderNo;
     private String timeOrdered;
     private BigDecimal totalAmount;
@@ -41,6 +42,14 @@ public class DebitPayV3Request extends JsonRequest<DebitPayV3Response> {
 
     public String getBuyerOpenId() {
         return buyerOpenId;
+    }
+
+    public String getSellerCode() {
+        return sellerCode;
+    }
+
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     public void setBuyerOpenId(String buyerOpenId) {

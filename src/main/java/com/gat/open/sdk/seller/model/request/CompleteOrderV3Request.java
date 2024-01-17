@@ -24,6 +24,7 @@ public class CompleteOrderV3Request extends JsonRequest<CompleteOrderV3Response>
      * 订单完成时间
      */
     private String completeTime;
+    private String sellerCode;
 
     public String getOrderNo() {
         return orderNo;
@@ -47,5 +48,13 @@ public class CompleteOrderV3Request extends JsonRequest<CompleteOrderV3Response>
 
     public void setCompleteTime(String completeTime) {
         this.completeTime = completeTime;
+    }
+
+    public String getSellerCode() {
+        return sellerCode;
+    }
+
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 }

@@ -6,17 +6,16 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
+import com.gat.open.sdk.seller.model.response.GetPayResultV3Response;
 
-public class PhysicalGoodsCancelOrderV3Request extends JsonRequest<CancelPhysicalGoodsOrderRes> {
-    public PhysicalGoodsCancelOrderV3Request() {
+public class GetPayResultV3Request extends JsonRequest<GetPayResultV3Response> {
+    public GetPayResultV3Request() {
         noSnake = true;
     }
+
     private String orderNo;
-
+    private String paySeqNo;
     private String outerTradeNo;
-
-    private String notifyUrl;
     private String sellerCode;
 
     public String getOrderNo() {
@@ -27,20 +26,20 @@ public class PhysicalGoodsCancelOrderV3Request extends JsonRequest<CancelPhysica
         this.orderNo = orderNo;
     }
 
+    public String getPaySeqNo() {
+        return paySeqNo;
+    }
+
+    public void setPaySeqNo(String paySeqNo) {
+        this.paySeqNo = paySeqNo;
+    }
+
     public String getOuterTradeNo() {
         return outerTradeNo;
     }
 
     public void setOuterTradeNo(String outerTradeNo) {
         this.outerTradeNo = outerTradeNo;
-    }
-
-    public String getNotifyUrl() {
-        return notifyUrl;
-    }
-
-    public void setNotifyUrl(String notifyUrl) {
-        this.notifyUrl = notifyUrl;
     }
 
     public String getSellerCode() {

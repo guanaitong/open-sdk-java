@@ -25,6 +25,7 @@ public class PhysicalGoodsPayOrderV3Request extends JsonRequest<SavePayPhysicalG
     private String orderNo;
 
     private String buyerOpenId;
+    private String sellerCode;
 
     private String timeOrdered;
 
@@ -107,6 +108,14 @@ public class PhysicalGoodsPayOrderV3Request extends JsonRequest<SavePayPhysicalG
 
     public void setBuyerOpenId(String buyerOpenId) {
         this.buyerOpenId = buyerOpenId;
+    }
+
+    public String getSellerCode() {
+        return sellerCode;
+    }
+
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     public String getTimeOrdered() {

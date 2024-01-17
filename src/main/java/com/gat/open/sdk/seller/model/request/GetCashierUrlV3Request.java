@@ -18,6 +18,7 @@ public class GetCashierUrlV3Request extends JsonRequest<GetCashierUrlV3Response>
     private String orderNo;
     private String timeOrdered;
     private String buyerOpenId;
+    private String sellerCode;
     private BigDecimal totalAmount;
     private BigDecimal costAmount;
     private BigDecimal freight;
@@ -60,6 +61,14 @@ public class GetCashierUrlV3Request extends JsonRequest<GetCashierUrlV3Response>
 
     public void setBuyerOpenId(String buyerOpenId) {
         this.buyerOpenId = buyerOpenId;
+    }
+
+    public String getSellerCode() {
+        return sellerCode;
+    }
+
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     public BigDecimal getTotalAmount() {
