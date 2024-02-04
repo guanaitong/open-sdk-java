@@ -24,6 +24,7 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
      */
     private String orderNo;
     private String refundOrderNo;
+    private String sellerCode;
 
     private String buyerOpenId;
 
@@ -114,6 +115,14 @@ public class PhysicalGoodsRefundOrderV3Request extends JsonRequest<SaveRefundPhy
 
     public void setBuyerOpenId(String buyerOpenId) {
         this.buyerOpenId = buyerOpenId;
+    }
+
+    public String getSellerCode() {
+        return sellerCode;
+    }
+
+    public void setSellerCode(String sellerCode) {
+        this.sellerCode = sellerCode;
     }
 
     public String getTimeOrdered() {
