@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import com.gat.open.sdk.seller.client.SellerLoginApi;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import com.gat.open.sdk.exception.OpenSdkException;
@@ -34,8 +33,10 @@ import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
 import com.gat.open.sdk.model.token.TokenCreateResp;
+import com.gat.open.sdk.seller.client.SellerLoginApi;
 import com.gat.open.sdk.seller.client.SellerPayApi;
 import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
+import com.gat.open.sdk.util.Constants;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
@@ -179,7 +180,7 @@ public class OpenClient {
         Map<String, String> commonParams = new HashMap<>();
         commonParams.put("appid", this.appId);
         commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        commonParams.put("version", "1.0.0");
+        commonParams.put("version", Constants.VERSION);
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
