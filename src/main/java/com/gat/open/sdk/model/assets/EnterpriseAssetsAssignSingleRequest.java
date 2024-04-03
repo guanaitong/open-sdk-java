@@ -20,29 +20,29 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
     /**
      * 企业编号(集团和运营商必填,企业不填)
      */
-    private String enterpriseCode;
+    private String     enterpriseCode;
 
     /**
      * 员工第三方唯一标识，不会变更
      */
-    private String userId;
+    private String     userId;
 
     /**
      * 1:企业微信, 2:钉钉,3:飞书,4, 定制, 5:标准对接,非必填默认5
      */
-    private Integer thirdType;
+    private Integer    thirdType;
     /**
      * 发放人openId
      */
-    private Integer assignerOpenId;
+    private Integer    assignerOpenId;
     /**
      * 积分账户的openid,决定扣哪个积分账户的积分
      */
-    private String accountOpenid;
+    private String     accountOpenid;
     /**
      * 额度子账户id
      */
-    private Integer subLimitId;
+    private Integer    subLimitId;
     /**
      * 发放金额
      */
@@ -50,17 +50,24 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
     /**
      * 发放原因
      */
-    private String reason;
+    private String     reason;
+
+    /**
+     * 操作人
+     */
+    private String     operator;
+
     /**
      * 外部交易号，最小长度2位。
      */
-    private String externalCode;
+    private String     externalCode;
 
     /**
      * 额度过期时间，格式必须为：yyyy-MM-dd HH:mm:ss
+     * 
      * @return
      */
-    private String expireTime;
+    private String     expireTime;
 
     @Override
     public String getEnterpriseCode() {
@@ -71,6 +78,7 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
     }
+
     @FormField("userid")
     public String getUserId() {
         return userId;
@@ -142,5 +150,13 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
 
     public void setSubLimitId(Integer subLimitId) {
         this.subLimitId = subLimitId;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 }
