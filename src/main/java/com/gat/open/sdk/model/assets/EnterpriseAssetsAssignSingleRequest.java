@@ -64,8 +64,6 @@ public class EnterpriseAssetsAssignSingleRequest extends FormRequest<String> imp
 
     /**
      * 额度过期时间，格式必须为：yyyy-MM-dd HH:mm:ss
-     * 
-     * @return
      */
     private String     expireTime;
 
