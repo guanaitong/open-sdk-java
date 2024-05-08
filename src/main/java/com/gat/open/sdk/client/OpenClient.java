@@ -94,6 +94,10 @@ public class OpenClient {
         return new LoginApi(this);
     }
 
+    public AdminLoginApi adminLoginApi() {
+        return new AdminLoginApi(this);
+    }
+
     public DepartmentApi departmentApi() {
         return new DepartmentApi(this);
     }
