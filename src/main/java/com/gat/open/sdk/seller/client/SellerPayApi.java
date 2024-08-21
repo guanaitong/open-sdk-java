@@ -12,6 +12,7 @@ import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
 import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
 import com.gat.open.sdk.seller.model.request.GetPayResultV3Request;
 import com.gat.open.sdk.seller.model.request.GetRefundResultV3Request;
+import com.gat.open.sdk.seller.model.request.QuickPayRequest;
 import com.gat.open.sdk.seller.model.request.RefundV3Request;
 import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
 import com.gat.open.sdk.seller.model.response.CompleteOrderV3Response;
@@ -108,5 +109,14 @@ public class SellerPayApi {
         }
 
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getRefundResultV3Request);
+    }
+
+    public String quickPay(QuickPayRequest quickPayRequest) {
+        String path = "/seller/quickPay";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postFormWithAuth(path, quickPayRequest);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, quickPayRequest);
     }
 }

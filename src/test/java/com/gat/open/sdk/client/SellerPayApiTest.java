@@ -6,6 +6,7 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
+import com.gat.open.sdk.seller.model.request.QuickPayRequest;
 import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
 import com.gat.open.sdk.seller.model.response.ExcashierV3Response;
 import com.gat.open.sdk.seller.model.response.ExcashierV3TradeInfo;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class SellerPayApiTest {
     //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
     private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
-//    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "20110752", "f8d4c27e3120dac4f1df6da0f6f09487");
+    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.com", "20091580", "769e7b401a90ecf5edc694c71846f818");
 
     @Test
     public void syncRefund() {
@@ -170,5 +171,17 @@ public class SellerPayApiTest {
         refundV3Request.setRemark("测试退款");
         RefundV3Response refundV3Response = sellerTestOpenClient.sellerPayApi().refundV3(refundV3Request);
         System.out.println(JSON.toJSONString(refundV3Response));
+    }
+
+    @Test
+    public void quickPay(){
+        QuickPayRequest quickPayRequest = new QuickPayRequest();
+        quickPayRequest.setOuterTradeNo("200915801826080698738503681");
+        quickPayRequest.setBuyerOpenId("e45ed070b80c8da29e0f373493dc26fe");
+        quickPayRequest.setReason("深圳市->南田发型私人定制(嘉宝田花园店)->深圳市->龙华供电局(公交站)");
+        quickPayRequest.setTotalAmount(new BigDecimal("87.78"));
+        quickPayRequest.setNotifyUrl("https://dache.wenyu6.com/api/order/gat/payNotify");
+        String quickPayResponse = openClient.sellerPayApi().quickPay(quickPayRequest);
+        System.out.println(quickPayResponse);
     }
 }
