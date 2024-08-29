@@ -176,10 +176,10 @@ public class SellerPayApiTest {
     @Test
     public void quickPay(){
         QuickPayRequest quickPayRequest = new QuickPayRequest();
-        quickPayRequest.setOuterTradeNo("200915801826080698738503681");
-        quickPayRequest.setBuyerOpenId("e45ed070b80c8da29e0f373493dc26fe");
-        quickPayRequest.setReason("深圳市->南田发型私人定制(嘉宝田花园店)->深圳市->龙华供电局(公交站)");
-        quickPayRequest.setTotalAmount(new BigDecimal("87.78"));
+        quickPayRequest.setOuterTradeNo("200915801828813394241744898");
+        quickPayRequest.setBuyerOpenId("cbed57604477b124bbd4edbd1d634c29");
+        quickPayRequest.setReason("深圳市->福民派出所(东北门)->深圳市->新乐公寓(宝安海雅缤纷城新安地铁站店)");
+        quickPayRequest.setTotalAmount(new BigDecimal("82.15"));
         quickPayRequest.setNotifyUrl("https://dache.wenyu6.com/api/order/gat/payNotify");
         String quickPayResponse = openClient.sellerPayApi().quickPay(quickPayRequest);
         System.out.println(quickPayResponse);
