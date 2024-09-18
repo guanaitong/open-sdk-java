@@ -12,7 +12,7 @@ import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
 public class ExpenseApiTest {
-    private OpenClient openClient =  new OpenClient("https://openapi.guanaitong.com", "20210556", "8ae9fecb7b2a36bafafced62b2d23a38");
+    private OpenClient openClient =  new OpenClient("https://openapi.guanaitong.com", "", "");
 
     @Test
     public void testBillAggFind() {

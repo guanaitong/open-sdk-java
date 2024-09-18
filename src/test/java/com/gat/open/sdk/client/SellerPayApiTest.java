@@ -26,9 +26,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class SellerPayApiTest {
-    //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
-    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
-    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.com", "20091580", "769e7b401a90ecf5edc694c71846f818");
+    //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
+    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
+    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.com", "", "");
 
     @Test
     public void syncRefund() {
@@ -176,11 +176,11 @@ public class SellerPayApiTest {
     @Test
     public void quickPay(){
         QuickPayRequest quickPayRequest = new QuickPayRequest();
-        quickPayRequest.setOuterTradeNo("200915801828813394241744898");
-        quickPayRequest.setBuyerOpenId("cbed57604477b124bbd4edbd1d634c29");
-        quickPayRequest.setReason("深圳市->福民派出所(东北门)->深圳市->新乐公寓(宝安海雅缤纷城新安地铁站店)");
+        quickPayRequest.setOuterTradeNo("");
+        quickPayRequest.setBuyerOpenId("");
+        quickPayRequest.setReason("");
         quickPayRequest.setTotalAmount(new BigDecimal("82.15"));
-        quickPayRequest.setNotifyUrl("https://dache.wenyu6.com/api/order/gat/payNotify");
+        quickPayRequest.setNotifyUrl("");
         String quickPayResponse = openClient.sellerPayApi().quickPay(quickPayRequest);
         System.out.println(quickPayResponse);
     }

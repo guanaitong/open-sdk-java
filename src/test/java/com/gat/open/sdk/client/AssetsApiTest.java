@@ -35,7 +35,7 @@ import java.util.List;
 
 public class AssetsApiTest {
     private OpenClient openClient = Clients.openClient;
-//    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "20110661", "fba0575923aa07fbfdaddbc99bc4e017");
+//    private OpenClient openClient = new OpenClient("http://127.0.0.1:18080", "", "");
 
     @Test
     public void enterpriseAccountGetTest() {
