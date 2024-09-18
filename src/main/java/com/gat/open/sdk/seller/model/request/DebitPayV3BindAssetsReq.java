@@ -9,7 +9,6 @@ import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 
 public class DebitPayV3BindAssetsReq extends JsonRequest<DebitPayV3Response> {
