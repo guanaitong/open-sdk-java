@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerTradeOrderApiTest {
-    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "15003994", "60933dd0a828ab920439d6b52b5b6e98");
-//    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "20111018", "7cda55c2953440b6ab9406397cf31b88");
-//    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "25001782", "f72c0aeb74630c760a9bbf9c01b9acf4");
+    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
+//    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "", "");
+//    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "", "");
 
     @Test
     public void movieTicketCreateOrder() {
