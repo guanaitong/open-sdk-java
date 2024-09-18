@@ -6,19 +6,19 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
+import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
+import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
+import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
+import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
 import com.gat.open.sdk.seller.model.request.QuickPayRequest;
+import com.gat.open.sdk.seller.model.request.RefundInfoV3Request;
+import com.gat.open.sdk.seller.model.request.RefundV3Request;
+import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
 import com.gat.open.sdk.seller.model.response.DebitPayV3Response;
 import com.gat.open.sdk.seller.model.response.ExcashierV3Response;
 import com.gat.open.sdk.seller.model.response.ExcashierV3TradeInfo;
 import com.gat.open.sdk.seller.model.response.GetCashierUrlV3Response;
 import com.gat.open.sdk.seller.model.response.RefundV3Response;
-import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
-import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
-import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
-import com.gat.open.sdk.seller.model.request.GoodsDetailV3Req;
-import com.gat.open.sdk.seller.model.request.RefundInfoV3Request;
-import com.gat.open.sdk.seller.model.request.RefundV3Request;
-import com.gat.open.sdk.seller.model.request.SellerRefundV3Request;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 
@@ -174,7 +174,7 @@ public class SellerPayApiTest {
     }
 
     @Test
-    public void quickPay(){
+    public void quickPay() {
         QuickPayRequest quickPayRequest = new QuickPayRequest();
         quickPayRequest.setOuterTradeNo("");
         quickPayRequest.setBuyerOpenId("");
