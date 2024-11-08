@@ -1,4 +1,4 @@
-## 关爱通开放平台JDK
+## 关爱通开放平台SDK
 
 [关爱通 - 开放平台 (guanaitong.com)](https://open.guanaitong.com/)
 
