@@ -126,6 +126,10 @@ public class OpenClient {
         return new ExpenseApi(this);
     }
 
+    public EnterpriseApi enterpriseApi() {
+        return new EnterpriseApi(this);
+    }
+
     public SellerPayApi sellerPayApi() {
         return new SellerPayApi(this);
     }
