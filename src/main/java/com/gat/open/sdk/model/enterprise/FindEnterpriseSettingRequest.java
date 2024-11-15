@@ -1,3 +1,8 @@
+/*
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
+
 package com.gat.open.sdk.model.enterprise;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
@@ -7,7 +12,7 @@ import com.gat.open.sdk.model.enums.ThirdTypeEnum;
 public class FindEnterpriseSettingRequest extends FormRequest<ThirdSyncSettingResponse>
         implements EnterpriseCodeRequest {
 
-    private String        enterpriseCode;
+    private String enterpriseCode;
 
     private ThirdTypeEnum thirdType;
 

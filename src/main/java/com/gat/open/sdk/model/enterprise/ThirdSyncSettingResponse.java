@@ -1,53 +1,58 @@
-package com.gat.open.sdk.model.enterprise;
+/*
+ * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * All rights reserved.
+ */
 
-import java.util.Date;
+package com.gat.open.sdk.model.enterprise;
 
 import com.gat.open.sdk.model.enums.LoginCodeEnum;
 import com.gat.open.sdk.model.enums.RuleTypeEnum;
 import com.gat.open.sdk.model.enums.ThirdTypeEnum;
+
+import java.util.Date;
 
 /**
  * 企业配置表
  */
 public class ThirdSyncSettingResponse {
 
-    private Integer       id;
+    private Integer id;
     private ThirdTypeEnum thirdType;             //对接类型 1、企业微信 2、钉钉 3、飞书
-    private String        thirdEnterpriseId;     //第三方企业ID
-    private String        thirdOpenEnterpriseId; //第三方开放企业ID
-    private RuleTypeEnum  ruleType;              // 同步规则类型 0 按企业区分 1 按部门区分 2 按扩展属性区分
-    private Integer       mustHaveMobile;        //必填手机，1 只同步手机 2 手机邮箱必填之一 3 手机和邮箱都不同步 4 只同步邮箱， 默认 3
-    private Integer       mustHaveCode;          //必填工号，1 是 0 否 2 userid当工号， 默认0
-    private Integer       mustHaveBirthDay;      //必填生日， 1 同步且必填 0 同步且不必填 2 不同步， 默认 0
-    private Integer       mustHaveEntryDay;      //必填入职日期， 1 同步且必填 0 同步且不必填 2 不同步， 默认 0
-    private Integer       isAllowSync;           //上述未填写是否允许同步，1 是 0 否 默认 0
-    private Integer       needSyncDept;          //是否同步部门，1是0否
-    private String        statusMapping;         //企业微信员工状态:1已激活,2已禁用,4未激活,5退出企业;关爱通员工状态：1在职,0离职
-    private String        mobileAreas;           //手机区号，例如泰国+66，土耳其+90，多个用英文逗号隔开
-    private String        contactEmail;          //默认联系人邮箱
+    private String thirdEnterpriseId;     //第三方企业ID
+    private String thirdOpenEnterpriseId; //第三方开放企业ID
+    private RuleTypeEnum ruleType;              // 同步规则类型 0 按企业区分 1 按部门区分 2 按扩展属性区分
+    private Integer mustHaveMobile;        //必填手机，1 只同步手机 2 手机邮箱必填之一 3 手机和邮箱都不同步 4 只同步邮箱， 默认 3
+    private Integer mustHaveCode;          //必填工号，1 是 0 否 2 userid当工号， 默认0
+    private Integer mustHaveBirthDay;      //必填生日， 1 同步且必填 0 同步且不必填 2 不同步， 默认 0
+    private Integer mustHaveEntryDay;      //必填入职日期， 1 同步且必填 0 同步且不必填 2 不同步， 默认 0
+    private Integer isAllowSync;           //上述未填写是否允许同步，1 是 0 否 默认 0
+    private Integer needSyncDept;          //是否同步部门，1是0否
+    private String statusMapping;         //企业微信员工状态:1已激活,2已禁用,4未激活,5退出企业;关爱通员工状态：1在职,0离职
+    private String mobileAreas;           //手机区号，例如泰国+66，土耳其+90，多个用英文逗号隔开
+    private String contactEmail;          //默认联系人邮箱
     /**
      * 登录绑定的方式;为了支持未开启自动同步的企业 | 1 | 第三方userId作为工号 | | 2 | 第三方userId和员工绑定关系的模式 | | 3
      * | 第三方userId作为工号以及和员工绑定关系模式 | | 4 | 第三方扩展属性作为工号 | | 5 | 第三方工号作为工号 | | 6 |
      * 手机号作为工号
      */
     private LoginCodeEnum loginCode;
-    private String        loginContent;          //loginCode为4时,loginContent为第三方的扩展字段名称
-    private String        additionalInformation;
+    private String loginContent;          //loginCode为4时,loginContent为第三方的扩展字段名称
+    private String additionalInformation;
     //是否是ISV 0 否 1 是
-    private Integer       isIsv;
-    private Integer       isvId;                 //开放平台Isv的ID
+    private Integer isIsv;
+    private Integer isvId;                 //开放平台Isv的ID
     // 是否允许通知 0 否 1 是 默认 1
-    private Integer       isAllowNotify;
+    private Integer isAllowNotify;
     // 使用过期时间，只有代开发模式的企业才有值
-    private Date          trialExpirationTime;
+    private Date trialExpirationTime;
     // 授权时间，只有代开发模式的企业才有值
-    private Date          authTime;
+    private Date authTime;
     //备注
-    private String        remark;
+    private String remark;
     //是否开通员工授权功能 0 否 1 是 ，开通后，员工授权即可获取员工敏感信息
-    private Integer       isOpenEmployeeAuth;
-    private Date          timeCreated;           //创建时间
-    private Date          timeModified;          //修改时间
+    private Integer isOpenEmployeeAuth;
+    private Date timeCreated;           //创建时间
+    private Date timeModified;          //修改时间
 
     public Integer getId() {
         return id;
