@@ -7,7 +7,11 @@ package com.gat.open.sdk.model.enterprise;
 
 import java.util.List;
 
+import com.gat.open.sdk.model.enums.ThirdTypeEnum;
+
 public class AppSubscribeResponse {
+
+    private ThirdTypeEnum thirdType;
 
     private String        enterpriseCode;
 

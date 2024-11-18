@@ -5,16 +5,17 @@
 
 package com.gat.open.sdk.model.enterprise;
 
-import java.util.List;
-
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
+import com.gat.open.sdk.model.enums.ThirdTypeEnum;
 
 public class AppSubscribeRequest extends FormRequest<String> implements EnterpriseCodeRequest {
 
+    private ThirdTypeEnum thirdType;
+
     private String        enterpriseCode;
 
-    private List<Integer> productCategorys;
+    private Integer       productCategory;
 
     @Override
     public String getEnterpriseCode() {
@@ -26,11 +27,19 @@ public class AppSubscribeRequest extends FormRequest<String> implements Enterpri
         this.enterpriseCode = enterpriseCode;
     }
 
-    public List<Integer> getProductCategorys() {
-        return productCategorys;
+    public Integer getProductCategory() {
+        return productCategory;
     }
 
-    public void setProductCategorys(List<Integer> productCategorys) {
-        this.productCategorys = productCategorys;
+    public void setProductCategory(Integer productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public ThirdTypeEnum getThirdType() {
+        return thirdType;
+    }
+
+    public void setThirdType(ThirdTypeEnum thirdType) {
+        this.thirdType = thirdType;
     }
 }

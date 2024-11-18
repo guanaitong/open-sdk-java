@@ -7,8 +7,11 @@ package com.gat.open.sdk.model.enterprise;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
+import com.gat.open.sdk.model.enums.ThirdTypeEnum;
 
-public class AppSubscribeQueryRequest  extends FormRequest<AppSubscribeResponse> implements EnterpriseCodeRequest {
+public class AppSubscribeQueryRequest extends FormRequest<AppSubscribeResponse> implements EnterpriseCodeRequest {
+
+    private ThirdTypeEnum thirdType;
 
     private String        enterpriseCode;
 
@@ -20,5 +23,13 @@ public class AppSubscribeQueryRequest  extends FormRequest<AppSubscribeResponse>
     @Override
     public void setEnterpriseCode(String enterpriseCode) {
         this.enterpriseCode = enterpriseCode;
+    }
+
+    public ThirdTypeEnum getThirdType() {
+        return thirdType;
+    }
+
+    public void setThirdType(ThirdTypeEnum thirdType) {
+        this.thirdType = thirdType;
     }
 }
