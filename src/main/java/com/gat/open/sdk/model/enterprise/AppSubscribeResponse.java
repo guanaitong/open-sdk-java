@@ -32,4 +32,12 @@ public class AppSubscribeResponse {
     public void setProductCategorys(List<Integer> productCategorys) {
         this.productCategorys = productCategorys;
     }
+
+    public ThirdTypeEnum getThirdType() {
+        return thirdType;
+    }
+
+    public void setThirdType(ThirdTypeEnum thirdType) {
+        this.thirdType = thirdType;
+    }
 }
