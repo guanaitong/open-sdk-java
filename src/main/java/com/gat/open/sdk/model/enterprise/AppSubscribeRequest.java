@@ -15,6 +15,8 @@ public class AppSubscribeRequest extends FormRequest<String> implements Enterpri
 
     private String        enterpriseCode;
 
+    private String        enterpriseName;
+
     private Integer       productCategory;
 
     @Override
@@ -41,5 +43,13 @@ public class AppSubscribeRequest extends FormRequest<String> implements Enterpri
 
     public void setThirdType(ThirdTypeEnum thirdType) {
         this.thirdType = thirdType;
+    }
+
+    public String getEnterpriseName() {
+        return enterpriseName;
+    }
+
+    public void setEnterpriseName(String enterpriseName) {
+        this.enterpriseName = enterpriseName;
     }
 }
