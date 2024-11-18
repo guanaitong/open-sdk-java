@@ -5,14 +5,14 @@
 
 package com.gat.open.sdk.model.enterprise;
 
+import java.util.List;
+
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 
-import java.util.List;
+public class AppSubscribeRequest extends FormRequest<String> implements EnterpriseCodeRequest {
 
-public class AddEnterpriseSettingRequest extends FormRequest<String> implements EnterpriseCodeRequest {
-
-    private String enterpriseCode;
+    private String        enterpriseCode;
 
     private List<Integer> productCategorys;
 
