@@ -5,7 +5,7 @@
 
 package com.gat.open.sdk.client;
 
-import com.gat.open.sdk.model.enterprise.AddEnterpriseSettingRequest;
+import com.gat.open.sdk.model.enterprise.AppSubscribeRequest;
 import com.gat.open.sdk.model.enterprise.FindEnterpriseSettingRequest;
 import com.gat.open.sdk.model.enterprise.ThirdSyncSettingResponse;
 
@@ -17,8 +17,8 @@ public class EnterpriseApi {
         this.openClient = openClient;
     }
 
-    public String addSetting(AddEnterpriseSettingRequest addEnterpriseSettingRequest) {
-        return openClient.postFormWithAuth("/enterprise/setting/add", addEnterpriseSettingRequest);
+    public String subscribe(AppSubscribeRequest appSubscribeRequest) {
+        return openClient.postFormWithAuth("/enterprise/app/subscribe", appSubscribeRequest);
     }
 
     public ThirdSyncSettingResponse findSetting(FindEnterpriseSettingRequest addEnterpriseSettingRequest) {
