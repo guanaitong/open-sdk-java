@@ -19,6 +19,8 @@ public class AppSubscribeRequest extends FormRequest<String> implements Enterpri
 
     private Integer       productCategory;
 
+    private String        businessProductCode;
+
     @Override
     public String getEnterpriseCode() {
         return enterpriseCode;
@@ -51,5 +53,13 @@ public class AppSubscribeRequest extends FormRequest<String> implements Enterpri
 
     public void setEnterpriseName(String enterpriseName) {
         this.enterpriseName = enterpriseName;
+    }
+
+    public String getBusinessProductCode() {
+        return businessProductCode;
+    }
+
+    public void setBusinessProductCode(String businessProductCode) {
+        this.businessProductCode = businessProductCode;
     }
 }
