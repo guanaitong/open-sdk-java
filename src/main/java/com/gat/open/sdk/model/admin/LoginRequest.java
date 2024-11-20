@@ -19,6 +19,9 @@ public class LoginRequest extends FormRequest<EmployeeGetResp> {
     //场景编码：暂时不需要传递
     private String sceneCode;
 
+    //管理员信任登录地址
+    private String redirectUrl;
+
     public String getAuthCode() {
         return authCode;
     }
@@ -33,5 +36,13 @@ public class LoginRequest extends FormRequest<EmployeeGetResp> {
 
     public void setSceneCode(String sceneCode) {
         this.sceneCode = sceneCode;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
     }
 }
