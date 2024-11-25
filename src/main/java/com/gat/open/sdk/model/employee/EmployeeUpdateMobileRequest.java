@@ -6,6 +6,7 @@
 package com.gat.open.sdk.model.employee;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
+import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
 
 /**
@@ -22,6 +23,7 @@ public class EmployeeUpdateMobileRequest extends FormRequest<String> implements 
     private String mobileArea;
     private String mobile;
 
+    @FormField("userid")
     public String getUserId() {
         return userId;
     }
