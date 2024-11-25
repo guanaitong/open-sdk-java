@@ -64,13 +64,11 @@ public class EmployeeUpdateMobileRequest extends FormRequest<String> implements 
         this.mobile = mobile;
     }
 
-    @Override
     public String getEnterpriseCode() {
-        return null;
+        return enterpriseCode;
     }
 
-    @Override
     public void setEnterpriseCode(String enterpriseCode) {
-
+        this.enterpriseCode = enterpriseCode;
     }
 }
