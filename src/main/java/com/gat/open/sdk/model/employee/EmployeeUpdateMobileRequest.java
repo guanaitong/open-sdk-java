@@ -6,10 +6,7 @@
 package com.gat.open.sdk.model.employee;
 
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
-
-import java.util.List;
 
 /**
  * 单独更新员工手机号
