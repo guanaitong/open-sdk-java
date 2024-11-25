@@ -20,6 +20,7 @@ import com.gat.open.sdk.model.employee.EmployeeResignRequest;
 import com.gat.open.sdk.model.employee.EmployeeRestoreRequest;
 import com.gat.open.sdk.model.employee.EmployeeSyncRequest;
 import com.gat.open.sdk.model.employee.EmployeeTransferRequest;
+import com.gat.open.sdk.model.employee.EmployeeUpdateMobileRequest;
 import com.gat.open.sdk.model.employee.EmployeeUpdateRequest;
 
 import java.util.List;
@@ -40,6 +41,10 @@ public class EmployeeApi {
 
     public String update(EmployeeUpdateRequest employeeUpdateRequest) {
         return this.openClient.postFormWithAuth("/employee/update", employeeUpdateRequest);
+    }
+
+    public String updateMobile(EmployeeUpdateMobileRequest employeeUpdateRequest) {
+        return this.openClient.postFormWithAuth("/employee/updateMobile", employeeUpdateRequest);
     }
 
     public EmployeeGetResp get(EmployeeGetRequest employeeGetRequest) {
