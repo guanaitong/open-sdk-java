@@ -5,19 +5,6 @@
 
 package com.gat.open.sdk.client;
 
-import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
-
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
-
-import org.apache.commons.codec.digest.DigestUtils;
-
 import com.gat.open.sdk.exception.OpenSdkException;
 import com.gat.open.sdk.http.HttpClient;
 import com.gat.open.sdk.http.HttpMessageConverter;
@@ -30,6 +17,7 @@ import com.gat.open.sdk.model.EnterpriseCodeRequest;
 import com.gat.open.sdk.model.FormRequest;
 import com.gat.open.sdk.model.JsonArrayRequest;
 import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.model.enums.OpenSignType;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
 import com.gat.open.sdk.model.token.TokenCreateResp;
@@ -37,21 +25,34 @@ import com.gat.open.sdk.seller.client.SellerLoginApi;
 import com.gat.open.sdk.seller.client.SellerPayApi;
 import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
 import com.gat.open.sdk.util.Constants;
+import org.apache.commons.codec.digest.DigestUtils;
+
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
+
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
  */
 public class OpenClient {
 
-    private final String               baseUrl;
-    private final String               appId;
-    private final String               appSecret;
+    private final String baseUrl;
+    private final String appId;
+    private final String appSecret;
 
-    private final HttpClient           httpClient;
+    private final HttpClient httpClient;
 
     private final HttpMessageConverter httpMessageConverter;
 
-    private volatile Token             token;
+    private volatile Token token;
+    private OpenSignType openSignType;
 
     /**
      * @param baseUrl
@@ -59,7 +60,17 @@ public class OpenClient {
      * @param appSecret
      */
     public OpenClient(String baseUrl, String appId, String appSecret) {
-        this(baseUrl, appId, appSecret, new JacksonHttpMessageConverter());
+        this(baseUrl, appId, appSecret, new JacksonHttpMessageConverter(), null);
+    }
+
+    /**
+     * @param baseUrl
+     * @param appId
+     * @param appSecret
+     * @param openSignType 可手动指定加签规则，前提是客户公司不满足默认sha1,需要提升签名算法至sha256的情况
+     */
+    public OpenClient(String baseUrl, String appId, String appSecret, OpenSignType openSignType) {
+        this(baseUrl, appId, appSecret, new JacksonHttpMessageConverter(), openSignType);
     }
 
     /**
@@ -67,12 +78,17 @@ public class OpenClient {
      * @param appId
      * @param appSecret
      */
-    public OpenClient(String baseUrl, String appId, String appSecret, HttpMessageConverter httpMessageConverter) {
+    public OpenClient(String baseUrl, String appId, String appSecret, HttpMessageConverter httpMessageConverter, OpenSignType openSignType) {
         this.baseUrl = Objects.requireNonNull(baseUrl);
         this.appId = Objects.requireNonNull(appId);
         this.appSecret = Objects.requireNonNull(appSecret);
         this.httpClient = new HttpClient();
         this.httpMessageConverter = httpMessageConverter;
+        if (openSignType == null) {
+            this.openSignType = OpenSignType.SHA1;
+        } else {
+            this.openSignType = openSignType;
+        }
     }
 
     /**
@@ -205,7 +221,7 @@ public class OpenClient {
             }
         }
 
-        String sign = sign(commonParams, params);
+        String sign = sign(commonParams, params, openSignType);
         commonParams.put("sign", sign);
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
@@ -235,7 +251,7 @@ public class OpenClient {
         throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
     }
 
-    private String sign(Map<String, String> commonParams, Map<String, String> params) {
+    private String sign(Map<String, String> commonParams, Map<String, String> params, OpenSignType signType) {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
         toSignMaps.put("appsecret", this.appSecret);
         toSignMaps.putAll(commonParams);
@@ -250,7 +266,16 @@ public class OpenClient {
             stringBuilder.append("&");
         }
         stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-        return DigestUtils.sha1Hex(stringBuilder.toString());
+
+        if (signType == null || OpenSignType.SHA1 == signType) {
+            return DigestUtils.sha1Hex(stringBuilder.toString());
+        } else if (OpenSignType.SHA256 == signType) {
+            return DigestUtils.sha256Hex(stringBuilder.toString());
+        } else if (OpenSignType.SHA512 == signType) {
+            return DigestUtils.sha512Hex(stringBuilder.toString());
+        } else {
+            throw new OpenSdkException("not support sign type");
+        }
     }
 
     public String buildUrl(String path, Map<String, String> params) {
