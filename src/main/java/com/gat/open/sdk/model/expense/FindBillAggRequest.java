@@ -17,6 +17,7 @@ public class FindBillAggRequest extends FormRequest<Pagination<FindBillAggRespon
     private String enterpriseCode;
     private String timeStart;
     private String timeEnd;
+    private String outerTradeNo;
     private Integer pageNo = 1;
     private Integer pageSize = 20;
 
@@ -42,6 +43,14 @@ public class FindBillAggRequest extends FormRequest<Pagination<FindBillAggRespon
 
     public void setTimeEnd(String timeEnd) {
         this.timeEnd = timeEnd;
+    }
+
+    public String getOuterTradeNo() {
+        return outerTradeNo;
+    }
+
+    public void setOuterTradeNo(String outerTradeNo) {
+        this.outerTradeNo = outerTradeNo;
     }
 
     public Integer getPageNo() {
