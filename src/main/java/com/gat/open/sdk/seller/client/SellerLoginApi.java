@@ -6,7 +6,9 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
+import com.gat.open.sdk.seller.model.request.PersonAvailableBalanceRequest;
 import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
+import com.gat.open.sdk.seller.model.response.PersonAvailableBalanceResp;
 import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
 import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
@@ -54,5 +56,14 @@ public class SellerLoginApi {
         }
 
         return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personAssetsRequest);
+    }
+
+    public PersonAvailableBalanceResp getAvailableBalance(PersonAvailableBalanceRequest personAvailableBalanceRequest) {
+        String path = "/seller/v3/person/getAvailableBalance";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postFormWithAuth(path, personAvailableBalanceRequest);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personAvailableBalanceRequest);
     }
 }

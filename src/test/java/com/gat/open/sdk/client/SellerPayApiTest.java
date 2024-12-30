@@ -71,7 +71,7 @@ public class SellerPayApiTest {
     @Test
     public void excashierV3() {
         ExcashierV3Request excashierV3Request = new ExcashierV3Request();
-        excashierV3Request.setBuyerOpenId("7f1086eda88d6791c01e014dc7b8bb0b");
+        excashierV3Request.setBuyerOpenId("0ad2265ad6bb3fcb2883beaae6b766e8");
         excashierV3Request.setOuterTradeNo("25001763100001");
         excashierV3Request.setAttach("x123345");
         excashierV3Request.setTradeType(2);
@@ -133,15 +133,16 @@ public class SellerPayApiTest {
     @Test
     public void testGetCashierUrlV3() {
         GetCashierUrlV3Request getCashierUrlV3Request = new GetCashierUrlV3Request();
-        getCashierUrlV3Request.setOrderNo("2024011100000001");
-        getCashierUrlV3Request.setPaySeqNo("2024011100000001");
-        getCashierUrlV3Request.setBuyerOpenId("52f838b668524ffb06cd6fce95b91632");
-        getCashierUrlV3Request.setTimeOrdered("2024-01-11 11:00:00");
-        getCashierUrlV3Request.setTotalAmount(new BigDecimal("23.11"));
+        getCashierUrlV3Request.setOrderNo("20001743435");
+        getCashierUrlV3Request.setPaySeqNo("1871493447865651253");
+        getCashierUrlV3Request.setBuyerOpenId("0ad2265ad6bb3fcb2883beaae6b766e8");
+        getCashierUrlV3Request.setTimeOrdered("2024-12-24 11:08:41");
+        getCashierUrlV3Request.setTotalAmount(new BigDecimal("2.91"));
 //        getCashierUrlV3Request.setCostAmount(new BigDecimal("11.11"));
-        getCashierUrlV3Request.setReturnUrl("https://openapi.guanaitong.tech/seller");
-        getCashierUrlV3Request.setReason("就测试");
-        getCashierUrlV3Request.setNotifyUrl("https://openapi.guanaitong.tech/seller");
+        getCashierUrlV3Request.setReturnUrl("https://paygateway.movie.test.maoyan.com/api/guanaitongPay/payCallback");
+//        getCashierUrlV3Request.setReason("就测试");
+        getCashierUrlV3Request.setNotifyUrl("https://canary.movie.test.maoyan.com/order/20001743435?_v_=yes&from=zhongzhi_guanaitong");
+        getCashierUrlV3Request.setExpireTime("2024-12-24 17:53:58");
         GetCashierUrlV3Response cashierUrlV3 = sellerTestOpenClient.sellerPayApi().getCashierUrlV3(getCashierUrlV3Request);
         System.out.println(JSON.toJSONString(cashierUrlV3));
     }

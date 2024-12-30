@@ -7,20 +7,21 @@ package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.FormField;
 import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
+import com.gat.open.sdk.seller.model.response.PersonAvailableBalanceResp;
 
-public class PersonAssetsRequest extends FormRequest<PersonAssetsResponse> {
-    private String openId;
+public class PersonAvailableBalanceRequest extends FormRequest<PersonAvailableBalanceResp> {
+    private String openUserId;
     private String sellerCode;
 
-    @FormField("openId")
-    public String getOpenId() {
-        return openId;
+    @FormField("openUserId")
+    public String getOpenUserId() {
+        return openUserId;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public void setOpenUserId(String openUserId) {
+        this.openUserId = openUserId;
     }
+
     @FormField("sellerCode")
     public String getSellerCode() {
         return sellerCode;
