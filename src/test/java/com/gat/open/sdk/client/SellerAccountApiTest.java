@@ -5,20 +5,13 @@
 
 package com.gat.open.sdk.client;
 
-import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.Pagination2;
 import com.gat.open.sdk.seller.client.SellerAccountApi;
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.request.ExpenseTransactionRequest;
 import com.gat.open.sdk.seller.model.request.IncomeTransactionRequest;
-import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
-import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
-import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;
 import com.gat.open.sdk.seller.model.response.ExpenseTransactionResponse;
 import com.gat.open.sdk.seller.model.response.IncomeTransactionResponse;
-import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
-import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
-import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
 

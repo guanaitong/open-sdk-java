@@ -6,7 +6,6 @@
 package com.gat.open.sdk.seller.model.request;
 
 import com.gat.open.sdk.model.JsonRequest;
-import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.Pagination2;
 import com.gat.open.sdk.seller.model.response.IncomeTransactionResponse;
 
