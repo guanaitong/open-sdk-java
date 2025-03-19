@@ -6,7 +6,6 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.model.Pagination;
 import com.gat.open.sdk.model.Pagination2;
 import com.gat.open.sdk.seller.model.request.ExpenseTransactionRequest;
 import com.gat.open.sdk.seller.model.request.IncomeTransactionRequest;
