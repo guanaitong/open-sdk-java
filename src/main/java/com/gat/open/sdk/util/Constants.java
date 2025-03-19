@@ -14,7 +14,7 @@ public class Constants {
     public static String BASE_URL_PRODUCT = "https://openapi.guanaitong.com";
 
     public static String JSON_BODY_KEY = "_body";
-    public static String VERSION = "1.0.61";
+    public static String VERSION = "1.0.62";
 
     public static String USER_AGENT = "GatOpenSdk/" + VERSION + " " + System.getProperty("java.version");
 }
