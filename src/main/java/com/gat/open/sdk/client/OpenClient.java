@@ -204,7 +204,7 @@ public class OpenClient {
         Map<String, String> commonParams = new HashMap<>();
         commonParams.put("appid", this.appId);
         commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        commonParams.put("version", Constants.VERSION);
+        commonParams.put("version", "1.0.0");
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
