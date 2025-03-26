@@ -24,7 +24,6 @@ import com.gat.open.sdk.model.token.TokenCreateResp;
 import com.gat.open.sdk.seller.client.SellerLoginApi;
 import com.gat.open.sdk.seller.client.SellerPayApi;
 import com.gat.open.sdk.seller.client.SellerTradeOrderApi;
-import com.gat.open.sdk.util.Constants;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.UnsupportedEncodingException;
