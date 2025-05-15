@@ -6,16 +6,14 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.HttpRequest;
-import com.gat.open.sdk.http.JacksonHttpMessageConverter;
 import com.gat.open.sdk.model.enums.OpenSignType;
 import com.gat.open.sdk.seller.client.SellerTestOpenClient;
-import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
-import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
-import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
 import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
 import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;
+import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
+import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
+import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
 import com.gat.open.sdk.util.AESCrypt;
 import com.gat.open.sdk.util.JSON;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -63,13 +61,13 @@ public class SellerLoginApiTest {
     }
 
     @Test
-    public void testAuth(){
+    public void testAuth() {
         String mobile = "13564307640";
         Long thirdUserId = 1L;
 
-        String eMobile = AESCrypt.encode("426170ddce68669ffe39dbce16e1e363", mobile);
-        String eThirdUserId = AESCrypt.encode("426170ddce68669ffe39dbce16e1e363", thirdUserId+"");
-        String loadingUrl="https://www.test.com?1=1";
+        String eMobile = AESCrypt.encode("", mobile);
+        String eThirdUserId = AESCrypt.encode("", thirdUserId + "");
+        String loadingUrl = "https://www.test.com?1=1";
 
         Map<String, String> params = new HashMap<>();
         params.put("mobile", eMobile);
@@ -92,7 +90,7 @@ public class SellerLoginApiTest {
 
     public String sign(Map<String, String> commonParams, Map<String, String> params, OpenSignType signType) {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
-        toSignMaps.put("appsecret", "426170ddce68669ffe39dbce16e1e363");
+        toSignMaps.put("appsecret", "");
         toSignMaps.putAll(commonParams);
         toSignMaps.remove("sign");
         StringBuilder stringBuilder = new StringBuilder();
