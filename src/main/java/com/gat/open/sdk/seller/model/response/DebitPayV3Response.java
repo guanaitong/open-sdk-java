@@ -17,6 +17,8 @@ public class DebitPayV3Response {
     private String orderNo;
     @JsonProperty("paySeqNo")
     private String paySeqNo;
+    @JsonProperty("payStatus")
+    private String payStatus;
 
     public String getOuterTradeNo() {
         return outerTradeNo;
@@ -48,5 +50,13 @@ public class DebitPayV3Response {
 
     public void setPaySeqNo(String paySeqNo) {
         this.paySeqNo = paySeqNo;
+    }
+
+    public String getPayStatus() {
+        return payStatus;
+    }
+
+    public void setPayStatus(String payStatus) {
+        this.payStatus = payStatus;
     }
 }
