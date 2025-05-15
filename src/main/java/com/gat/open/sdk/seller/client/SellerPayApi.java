@@ -10,6 +10,7 @@ import com.gat.open.sdk.seller.model.request.CancelOrderV3Request;
 import com.gat.open.sdk.seller.model.request.CompleteOrderV3Request;
 import com.gat.open.sdk.seller.model.request.CompleteSubOrderV3Request;
 import com.gat.open.sdk.seller.model.request.DebitPayV3BindAssetsReq;
+import com.gat.open.sdk.seller.model.request.DebitPayV3ByAssetsReq;
 import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
 import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
 import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
@@ -160,5 +161,14 @@ public class SellerPayApi {
         }
 
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, request);
+    }
+
+    public DebitPayV3Response debitPayByAsset(DebitPayV3ByAssetsReq debitPayV3ByAssetsReq) {
+        String path = "/seller/v3/pay/debitPayByAsset";
+        if (Objects.nonNull(sellerTestOpenClient)) {
+            return sellerTestOpenClient.postJsonWithAuth(path, debitPayV3ByAssetsReq);
+        }
+
+        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, debitPayV3ByAssetsReq);
     }
 }
