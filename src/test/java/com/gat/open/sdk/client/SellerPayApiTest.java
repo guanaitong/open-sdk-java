@@ -170,6 +170,7 @@ public class SellerPayApiTest {
         refundV3Request.setTotalRefundAmount(new BigDecimal("13.11"));
         refundV3Request.setNotifyUrl("https://openapi.guanaitong.tech/seller");
         refundV3Request.setRemark("测试退款");
+        refundV3Request.setVersion("1.0.1");
         RefundV3Response refundV3Response = sellerTestOpenClient.sellerPayApi().refundV3(refundV3Request);
         System.out.println(JSON.toJSONString(refundV3Response));
     }
@@ -182,6 +183,7 @@ public class SellerPayApiTest {
         quickPayRequest.setReason("");
         quickPayRequest.setTotalAmount(new BigDecimal("82.15"));
         quickPayRequest.setNotifyUrl("");
+        quickPayRequest.setVersion("1.0.2");
         String quickPayResponse = openClient.sellerPayApi().quickPay(quickPayRequest);
         System.out.println(quickPayResponse);
     }
