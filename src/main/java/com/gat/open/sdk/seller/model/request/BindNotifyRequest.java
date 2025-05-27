@@ -13,4 +13,36 @@ public class BindNotifyRequest extends JsonRequest<BindNotifyRes> {
     private String bindTime;
 
     private String unBindTime;
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getThirdUserId() {
+        return thirdUserId;
+    }
+
+    public void setThirdUserId(String thirdUserId) {
+        this.thirdUserId = thirdUserId;
+    }
+
+    public String getBindTime() {
+        return bindTime;
+    }
+
+    public void setBindTime(String bindTime) {
+        this.bindTime = bindTime;
+    }
+
+    public String getUnBindTime() {
+        return unBindTime;
+    }
+
+    public void setUnBindTime(String unBindTime) {
+        this.unBindTime = unBindTime;
+    }
 }
