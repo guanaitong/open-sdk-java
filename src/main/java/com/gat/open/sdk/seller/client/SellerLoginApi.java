@@ -6,8 +6,17 @@
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
-import com.gat.open.sdk.seller.model.request.*;
-import com.gat.open.sdk.seller.model.response.*;
+import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
+import com.gat.open.sdk.seller.model.request.PersonAvailableBalanceRequest;
+import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
+import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;
+import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
+import com.gat.open.sdk.seller.model.response.PersonAvailableBalanceResp;
+import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
+import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
+import com.gat.open.sdk.seller.model.request.BindNotifyRequest;
+import com.gat.open.sdk.seller.model.response.BindNotifyRes;
+
 
 import java.util.Objects;
 
@@ -64,7 +73,7 @@ public class SellerLoginApi {
     public BindNotifyRes bindNotify(BindNotifyRequest bindNotifyRequest) {
         String path = "/seller/v3/person/bindNotify";
         if (Objects.nonNull(sellerTestOpenClient)) {
-            return  sellerTestOpenClient.postJsonWithAuth(path,bindNotifyRequest);
+            return  sellerTestOpenClient.postJsonWithAuth(path, bindNotifyRequest);
         }
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, bindNotifyRequest);
     }
@@ -72,7 +81,7 @@ public class SellerLoginApi {
     public BindNotifyRes unBindNotify(BindNotifyRequest bindNotifyRequest) {
         String path = "/seller/v3/person/unBindNotify";
         if (Objects.nonNull(sellerTestOpenClient)) {
-            return  sellerTestOpenClient.postJsonWithAuth(path,bindNotifyRequest);
+            return  sellerTestOpenClient.postJsonWithAuth(path, bindNotifyRequest);
         }
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, bindNotifyRequest);
     }
