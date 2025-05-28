@@ -61,7 +61,7 @@ public class SellerLoginApi {
         return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personAvailableBalanceRequest);
     }
 
-    public BindNotifyRes bindNotify(BindNotifyRequest bindNotifyRequest){
+    public BindNotifyRes bindNotify(BindNotifyRequest bindNotifyRequest) {
         String path = "/seller/v3/person/bindNotify";
         if (Objects.nonNull(sellerTestOpenClient)) {
             return  sellerTestOpenClient.postJsonWithAuth(path,bindNotifyRequest);
@@ -69,7 +69,7 @@ public class SellerLoginApi {
         return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, bindNotifyRequest);
     }
 
-    public BindNotifyRes unBindNotify(BindNotifyRequest bindNotifyRequest){
+    public BindNotifyRes unBindNotify(BindNotifyRequest bindNotifyRequest) {
         String path = "/seller/v3/person/unBindNotify";
         if (Objects.nonNull(sellerTestOpenClient)) {
             return  sellerTestOpenClient.postJsonWithAuth(path,bindNotifyRequest);
