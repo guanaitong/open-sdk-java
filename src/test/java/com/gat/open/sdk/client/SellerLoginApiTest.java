@@ -30,7 +30,8 @@ import java.util.TreeMap;
 import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 
 public class SellerLoginApiTest {
-    //        private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
+
+//        private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
     private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
 //    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "", "");
 
