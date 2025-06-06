@@ -10,7 +10,9 @@ import java.util.Map;
 
 import com.gat.open.sdk.http.HttpMessageConverter;
 
-import static com.gat.open.sdk.util.Constants.*;
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import static com.gat.open.sdk.util.Constants.VERSION_KEY;
+import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:25
