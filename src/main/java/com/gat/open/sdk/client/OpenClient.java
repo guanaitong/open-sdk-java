@@ -35,7 +35,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import static com.gat.open.sdk.util.Constants.*;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
@@ -203,7 +203,6 @@ public class OpenClient {
         Map<String, String> commonParams = new HashMap<>();
         commonParams.put("appid", this.appId);
         commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        commonParams.put("version", apiRequest.getVersion());
         if (auth) {
             commonParams.put("access_token", this.getToken().getAccessToken());
         }
@@ -221,13 +220,16 @@ public class OpenClient {
         }
 
         String sign = sign(commonParams, params, openSignType);
-        commonParams.put("sign", sign);
+        commonParams.put(SIGN_KEY, sign);
+        commonParams.put(VERSION_KEY, params.get(VERSION_KEY));
+        commonParams.put(GRANT_TYPE_KEY, params.get(GRANT_TYPE_KEY));
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
         httpRequest.setUrl(buildUrl(path, commonParams));
         if (apiRequest instanceof FormRequest) {
             httpRequest.setContentType("application/x-www-form-urlencoded");
-            httpRequest.setBody(buildQuery(params));
+            //form请求无需设置body
+            //httpRequest.setBody(buildQuery(params));
         } else {
             httpRequest.setContentType("application/json");
             String body = params.get(JSON_BODY_KEY);
