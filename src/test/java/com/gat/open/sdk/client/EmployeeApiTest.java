@@ -229,6 +229,7 @@ public class EmployeeApiTest {
         departmentBatchSynchronizeBody.setParentCode("TOM071201");
         departmentBatchSynchronizeBodyList.add(departmentBatchSynchronizeBody);
         DepartmentBatchSetParentRequest departmentBatchSynchronizeRequest = new DepartmentBatchSetParentRequest(departmentBatchSynchronizeBodyList);
+//        departmentBatchSynchronizeRequest.setVersion("1.0.2");
         String batchSynchronize = openClient.departmentApi().batchSetParent(departmentBatchSynchronizeRequest);
         System.out.println(batchSynchronize);
     }

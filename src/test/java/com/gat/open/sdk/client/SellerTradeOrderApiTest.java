@@ -153,6 +153,7 @@ public class SellerTradeOrderApiTest {
     @Test
     public void testPhysicalGoodsCancelOrder() {
         PhysicalGoodsCancelOrderV3Request physicalGoodsCancelOrderV3Request = new PhysicalGoodsCancelOrderV3Request();
+//        physicalGoodsCancelOrderV3Request.setVersion("1.0.3");
         physicalGoodsCancelOrderV3Request.setOrderNo("2023122100000010");
 
 

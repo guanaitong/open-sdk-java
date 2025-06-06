@@ -13,7 +13,9 @@ import java.util.Map;
  * Created by August.Zhou on 2022/6/27 12:25
  */
 public abstract class ApiRequest<T> {
+
     protected String version = "1.0.0";
+    protected String grantType = "client_credential";
 
     public abstract Map<String, String> toRequestParams(HttpMessageConverter httpMessageConverter);
 
@@ -23,5 +25,13 @@ public abstract class ApiRequest<T> {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getGrantType() {
+        return grantType;
+    }
+
+    public void setGrantType(String grantType) {
+        this.grantType = grantType;
     }
 }
