@@ -28,6 +28,12 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import static com.gat.open.sdk.util.Constants.VERSION_KEY;
+import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
+import static com.gat.open.sdk.util.Constants.SIGN_KEY;
+import static com.gat.open.sdk.util.Constants.APPID_KEY;
+import static com.gat.open.sdk.util.Constants.TIMESTAMP_KEY;
+import static com.gat.open.sdk.util.Constants.ACCESS_KEY;
 
 public class SellerLoginApiTest {
 //        private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
@@ -148,7 +154,13 @@ public class SellerLoginApiTest {
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
-                if (JSON_BODY_KEY.equals(key)) {
+                if (JSON_BODY_KEY.equals(key)
+                        || SIGN_KEY.equals(key)
+                        || TIMESTAMP_KEY.equals(key)
+                        || ACCESS_KEY.equals(key)
+                        || VERSION_KEY.equals(key)
+                        || GRANT_TYPE_KEY.equals(key)
+                ) {
                     continue;
                 }
                 stringBuilder.append(entry.getKey());

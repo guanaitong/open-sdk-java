@@ -6,17 +6,8 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.HttpClient;
-import com.gat.open.sdk.http.HttpMessageConverter;
-import com.gat.open.sdk.http.HttpRequest;
-import com.gat.open.sdk.http.HttpResponse;
-import com.gat.open.sdk.http.JacksonHttpMessageConverter;
-import com.gat.open.sdk.model.ApiRequest;
-import com.gat.open.sdk.model.ApiResponse;
-import com.gat.open.sdk.model.EnterpriseCodeRequest;
-import com.gat.open.sdk.model.FormRequest;
-import com.gat.open.sdk.model.JsonArrayRequest;
-import com.gat.open.sdk.model.JsonRequest;
+import com.gat.open.sdk.http.*;
+import com.gat.open.sdk.model.*;
 import com.gat.open.sdk.model.enums.OpenSignType;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
@@ -39,6 +30,9 @@ import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 import static com.gat.open.sdk.util.Constants.VERSION_KEY;
 import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
 import static com.gat.open.sdk.util.Constants.SIGN_KEY;
+import static com.gat.open.sdk.util.Constants.APPID_KEY;
+import static com.gat.open.sdk.util.Constants.TIMESTAMP_KEY;
+import static com.gat.open.sdk.util.Constants.ACCESS_KEY;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
@@ -204,10 +198,10 @@ public class OpenClient {
 
     private <T> T request0(boolean auth, String path, ApiRequest<T> apiRequest) {
         Map<String, String> commonParams = new HashMap<>();
-        commonParams.put("appid", this.appId);
-        commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        commonParams.put(APPID_KEY, this.appId);
+        commonParams.put(TIMESTAMP_KEY, String.valueOf(System.currentTimeMillis() / 1000));
         if (auth) {
-            commonParams.put("access_token", this.getToken().getAccessToken());
+            commonParams.put(ACCESS_KEY, this.getToken().getAccessToken());
         }
 
         Map<String, String> params = apiRequest.toRequestParams(httpMessageConverter);
@@ -222,17 +216,17 @@ public class OpenClient {
             }
         }
 
-        String sign = sign(commonParams, params, openSignType);
-        commonParams.put(SIGN_KEY, sign);
         commonParams.put(VERSION_KEY, params.get(VERSION_KEY));
         commonParams.put(GRANT_TYPE_KEY, params.get(GRANT_TYPE_KEY));
+        String sign = sign(commonParams, params, openSignType);
+        commonParams.put(SIGN_KEY, sign);
+
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
-        httpRequest.setUrl(buildUrl(path, commonParams));
+        httpRequest.setUrl(buildUrlAndPubParameters(path, commonParams));
         if (apiRequest instanceof FormRequest) {
             httpRequest.setContentType("application/x-www-form-urlencoded");
-            //form请求无需设置body
-            //httpRequest.setBody(buildQuery(params));
+            httpRequest.setBody(buildQuery(params));
         } else {
             httpRequest.setContentType("application/json");
             String body = params.get(JSON_BODY_KEY);
@@ -259,7 +253,7 @@ public class OpenClient {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
         toSignMaps.put("appsecret", this.appSecret);
         toSignMaps.putAll(commonParams);
-        toSignMaps.remove("sign");
+        toSignMaps.remove(SIGN_KEY);
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, String> entry : toSignMaps.entrySet()) {
             String textKey = entry.getKey();
@@ -282,6 +276,49 @@ public class OpenClient {
         }
     }
 
+    public String buildUrlAndPubParameters(String path, Map<String, String> params) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(this.baseUrl);
+        stringBuilder.append(path);
+        if (!params.isEmpty()) {
+            stringBuilder.append("?");
+            stringBuilder.append(buildQuery4PubParameters(params));
+        }
+        return stringBuilder.toString();
+    }
+
+    private String buildQuery4PubParameters(Map<String, String> params) {
+        if (params.isEmpty()) {
+            return "";
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                if (ACCESS_KEY.equals(key)
+                        || SIGN_KEY.equals(key)
+                        || VERSION_KEY.equals(key)
+                        || GRANT_TYPE_KEY.equals(key)
+                        || TIMESTAMP_KEY.equals(key)
+                        || APPID_KEY.equals(key)
+                ) {
+                    stringBuilder.append(entry.getKey());
+                    stringBuilder.append("=");
+                    stringBuilder.append(URLEncoder.encode(value, "UTF-8"));
+                    stringBuilder.append("&");
+                }
+
+            }
+        } catch (UnsupportedEncodingException e) {
+            throw new OpenSdkException(e);
+        }
+        if (stringBuilder.length() > 0) {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        }
+        return stringBuilder.toString();
+    }
+
     public String buildUrl(String path, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.baseUrl);
@@ -302,7 +339,13 @@ public class OpenClient {
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
-                if (JSON_BODY_KEY.equals(key)) {
+                if (JSON_BODY_KEY.equals(key)
+                        || SIGN_KEY.equals(key)
+                        || TIMESTAMP_KEY.equals(key)
+                        || ACCESS_KEY.equals(key)
+                        || VERSION_KEY.equals(key)
+                        || GRANT_TYPE_KEY.equals(key)
+                ) {
                     continue;
                 }
                 stringBuilder.append(entry.getKey());
@@ -313,7 +356,9 @@ public class OpenClient {
         } catch (UnsupportedEncodingException e) {
             throw new OpenSdkException(e);
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        if (stringBuilder.length() > 0) {
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        }
         return stringBuilder.toString();
     }
 
