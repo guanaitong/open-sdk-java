@@ -28,7 +28,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import static com.gat.open.sdk.util.Constants.*;
+
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import static com.gat.open.sdk.util.Constants.VERSION_KEY;
+import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
+import static com.gat.open.sdk.util.Constants.SIGN_KEY;
+import static com.gat.open.sdk.util.Constants.APPID_KEY;
+import static com.gat.open.sdk.util.Constants.TIMESTAMP_KEY;
+import static com.gat.open.sdk.util.Constants.ACCESS_KEY;
 
 
 /**
@@ -126,10 +133,10 @@ public final class SellerTestOpenClient {
 
     private <T> T request0(boolean auth, boolean useBase, String path, ApiRequest<T> apiRequest) {
         Map<String, String> commonParams = new HashMap<>();
-        commonParams.put("appid", this.appId);
+        commonParams.put(APPID_KEY, this.appId);
         commonParams.put(TIMESTAMP_KEY, String.valueOf(System.currentTimeMillis() / 1000));
         if (auth) {
-            commonParams.put("access_token", this.getToken().getAccessToken());
+            commonParams.put(ACCESS_KEY, this.getToken().getAccessToken());
         }
         Map<String, String> params = apiRequest.toRequestParams(new JacksonHttpMessageConverter());
         commonParams.put(VERSION_KEY, params.get(VERSION_KEY));
@@ -172,7 +179,7 @@ public final class SellerTestOpenClient {
         TreeMap<String, String> toSignMaps = new TreeMap<>(params);
         toSignMaps.put("appsecret", this.appSecret);
         toSignMaps.putAll(commonParams);
-        toSignMaps.remove("sign");
+        toSignMaps.remove(SIGN_KEY);
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<String, String> entry : toSignMaps.entrySet()) {
             String textKey = entry.getKey();
