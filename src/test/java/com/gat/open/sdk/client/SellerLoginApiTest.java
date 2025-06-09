@@ -93,12 +93,12 @@ public class SellerLoginApiTest {
         params.put("loadingUrl", loadingUrl);
 
         Map<String, String> commonParams = new HashMap<>();
-        commonParams.put("appid", "15004367");
-        commonParams.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        commonParams.put("version", "1.0.0");
-        commonParams.put("access_token", "");
+        commonParams.put(APPID_KEY, "15004367");
+        commonParams.put(TIMESTAMP_KEY, String.valueOf(System.currentTimeMillis() / 1000));
+        commonParams.put(VERSION_KEY, "1.0.0");
+        commonParams.put(ACCESS_KEY, "");
         String sign = sign(commonParams, params, OpenSignType.SHA256);
-        commonParams.put("sign", sign);
+        commonParams.put(SIGN_KEY, sign);
 
         commonParams.putAll(params);
 

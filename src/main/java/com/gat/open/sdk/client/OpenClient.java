@@ -6,8 +6,18 @@
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.*;
-import com.gat.open.sdk.model.*;
+
+import com.gat.open.sdk.http.HttpClient;
+import com.gat.open.sdk.http.HttpMessageConverter;
+import com.gat.open.sdk.http.HttpRequest;
+import com.gat.open.sdk.http.HttpResponse;
+import com.gat.open.sdk.http.JacksonHttpMessageConverter;
+import com.gat.open.sdk.model.ApiRequest;
+import com.gat.open.sdk.model.ApiResponse;
+import com.gat.open.sdk.model.EnterpriseCodeRequest;
+import com.gat.open.sdk.model.FormRequest;
+import com.gat.open.sdk.model.JsonArrayRequest;
+import com.gat.open.sdk.model.JsonRequest;
 import com.gat.open.sdk.model.enums.OpenSignType;
 import com.gat.open.sdk.model.token.Token;
 import com.gat.open.sdk.model.token.TokenCreateRequest;
