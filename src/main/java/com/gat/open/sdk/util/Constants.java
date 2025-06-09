@@ -15,9 +15,15 @@ public class Constants {
 
     public static String JSON_BODY_KEY = "_body";
     public static String VERSION_KEY = "version";
+    public static String TIMESTAMP_KEY = "timestamp";
     public static String SIGN_KEY = "sign";
     public static String GRANT_TYPE_KEY = "grant_type";
-    public static String VERSION = "1.0.66";
+    public static String APPID_KEY = "appid";
+
+    //token.create 接口不存在此参数
+    public static String ACCESS_KEY = "access_token";
+
+    public static String VERSION = "2025.06.09";
 
     public static String USER_AGENT = "GatOpenSdk/" + VERSION + " " + System.getProperty("java.version");
 }
