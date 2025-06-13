@@ -1,18 +1,18 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.model;
 
+import com.gat.open.sdk.http.HttpMessageConverter;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import com.gat.open.sdk.http.HttpMessageConverter;
-
+import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
 import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
 import static com.gat.open.sdk.util.Constants.VERSION_KEY;
-import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:25

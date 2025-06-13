@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -14,10 +14,13 @@ public class HttpResponse {
 
     private final String text;
 
-    public HttpResponse(int code, byte[] body) {
+    private final String traceId;
+
+    public HttpResponse(int code, byte[] body, String traceId) {
         this.code = code;
         this.body = body;
         this.text = new String(body);
+        this.traceId = traceId;
     }
 
     public int getCode() {
@@ -28,5 +31,11 @@ public class HttpResponse {
         return body;
     }
 
+    public String getText() {
+        return text;
+    }
 
+    public String getTraceId() {
+        return traceId;
+    }
 }

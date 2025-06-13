@@ -1,9 +1,12 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.model;
+
+import com.gat.open.sdk.exception.OpenSdkException;
+import com.gat.open.sdk.http.HttpMessageConverter;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -14,9 +17,6 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import com.gat.open.sdk.exception.OpenSdkException;
-import com.gat.open.sdk.http.HttpMessageConverter;
 
 
 /**

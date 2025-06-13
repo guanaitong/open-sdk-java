@@ -1,11 +1,10 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.client;
 
-import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.request.DebitPayV3Request;
 import com.gat.open.sdk.seller.model.request.ExcashierV3Request;
 import com.gat.open.sdk.seller.model.request.GetCashierUrlV3Request;
@@ -27,8 +26,7 @@ import java.util.ArrayList;
 
 public class SellerPayApiTest {
     //    private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
-    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
-    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.com", "", "");
+    private OpenClient sellerTestOpenClient = new OpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
 
     @Test
     public void syncRefund() {
@@ -184,7 +182,7 @@ public class SellerPayApiTest {
         quickPayRequest.setTotalAmount(new BigDecimal("82.15"));
         quickPayRequest.setNotifyUrl("");
         quickPayRequest.setVersion("1.0.2");
-        String quickPayResponse = openClient.sellerPayApi().quickPay(quickPayRequest);
+        String quickPayResponse = sellerTestOpenClient.sellerPayApi().quickPay(quickPayRequest);
         System.out.println(quickPayResponse);
     }
 }

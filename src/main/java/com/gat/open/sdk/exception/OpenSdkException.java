@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -14,12 +14,14 @@ public class OpenSdkException extends RuntimeException {
 
     private int code = 0;
     private String msg = "client error";
+    private String traceId = "";
 
 
-    public OpenSdkException(int code, String msg) {
-        this(String.format("business error, code-> %d , msg-> %s", code, msg));
+    public OpenSdkException(int code, String msg, String traceId) {
+        this(String.format("business error, code-> %d , msg-> %s , traceId-> %s", code, msg, traceId));
         this.code = code;
         this.msg = msg;
+        this.traceId = traceId;
     }
 
     public OpenSdkException(String message) {
@@ -40,5 +42,9 @@ public class OpenSdkException extends RuntimeException {
 
     public String getMsg() {
         return this.msg;
+    }
+
+    public String getTraceId() {
+        return traceId;
     }
 }

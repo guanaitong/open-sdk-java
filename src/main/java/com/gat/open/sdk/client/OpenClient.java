@@ -1,17 +1,17 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.exception.OpenSdkException;
-
 import com.gat.open.sdk.http.HttpClient;
 import com.gat.open.sdk.http.HttpMessageConverter;
 import com.gat.open.sdk.http.HttpRequest;
 import com.gat.open.sdk.http.HttpResponse;
 import com.gat.open.sdk.http.JacksonHttpMessageConverter;
+import com.gat.open.sdk.http.JdkConnectionHttpClient;
 import com.gat.open.sdk.model.ApiRequest;
 import com.gat.open.sdk.model.ApiResponse;
 import com.gat.open.sdk.model.EnterpriseCodeRequest;
@@ -36,29 +36,30 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
-import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
-import static com.gat.open.sdk.util.Constants.VERSION_KEY;
-import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
-import static com.gat.open.sdk.util.Constants.SIGN_KEY;
-import static com.gat.open.sdk.util.Constants.APPID_KEY;
-import static com.gat.open.sdk.util.Constants.TIMESTAMP_KEY;
 import static com.gat.open.sdk.util.Constants.ACCESS_KEY;
+import static com.gat.open.sdk.util.Constants.APPID_KEY;
+import static com.gat.open.sdk.util.Constants.GRANT_TYPE_KEY;
+import static com.gat.open.sdk.util.Constants.JSON_BODY_KEY;
+import static com.gat.open.sdk.util.Constants.SIGN_KEY;
+import static com.gat.open.sdk.util.Constants.TIMESTAMP_KEY;
+import static com.gat.open.sdk.util.Constants.VERSION_KEY;
 
 /**
  * Created by August.Zhou on 2022/6/27 12:27
  */
 public class OpenClient {
-
-    private final String baseUrl;
+    //authUrl用于请求token，apiUrl用于请求其他业务接口。一般情况下，两个是一致的。
+    private final String authUrl;
+    private final String apiUrl;
     private final String appId;
     private final String appSecret;
 
     private final HttpClient httpClient;
 
     private final HttpMessageConverter httpMessageConverter;
-
+    private final OpenSignType openSignType;
     private volatile Token token;
-    private OpenSignType openSignType;
+
 
     /**
      * @param baseUrl
@@ -67,6 +68,16 @@ public class OpenClient {
      */
     public OpenClient(String baseUrl, String appId, String appSecret) {
         this(baseUrl, appId, appSecret, new JacksonHttpMessageConverter(), null);
+    }
+
+    /**
+     * @param authUrl
+     * @param apiUrl
+     * @param appId
+     * @param appSecret
+     */
+    public OpenClient(String authUrl, String apiUrl, String appId, String appSecret) {
+        this(authUrl, apiUrl, appId, appSecret, new JdkConnectionHttpClient(), new JacksonHttpMessageConverter(), null);
     }
 
     /**
@@ -85,10 +96,21 @@ public class OpenClient {
      * @param appSecret
      */
     public OpenClient(String baseUrl, String appId, String appSecret, HttpMessageConverter httpMessageConverter, OpenSignType openSignType) {
-        this.baseUrl = Objects.requireNonNull(baseUrl);
+        this(baseUrl, baseUrl, appId, appSecret, new JdkConnectionHttpClient(), httpMessageConverter, openSignType);
+    }
+
+    /**
+     * @param authUrl
+     * @param apiUrl
+     * @param appId
+     * @param appSecret
+     */
+    public OpenClient(String authUrl, String apiUrl, String appId, String appSecret, HttpClient httpClient, HttpMessageConverter httpMessageConverter, OpenSignType openSignType) {
+        this.authUrl = Objects.requireNonNull(authUrl);
+        this.apiUrl = Objects.requireNonNull(apiUrl);
         this.appId = Objects.requireNonNull(appId);
         this.appSecret = Objects.requireNonNull(appSecret);
-        this.httpClient = new HttpClient();
+        this.httpClient = httpClient;
         this.httpMessageConverter = httpMessageConverter;
         if (openSignType == null) {
             this.openSignType = OpenSignType.SHA1;
@@ -233,7 +255,7 @@ public class OpenClient {
 
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
-        httpRequest.setUrl(buildUrlAndPubParameters(path, commonParams));
+        httpRequest.setUrl(buildUrlAndPubParameters(auth, path, commonParams));
         if (apiRequest instanceof FormRequest) {
             httpRequest.setContentType("application/x-www-form-urlencoded");
             httpRequest.setBody(buildQuery(params));
@@ -256,7 +278,7 @@ public class OpenClient {
             return request0(auth, path, apiRequest);
         }
 
-        throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg());
+        throw new OpenSdkException(apiResponse.getCode(), apiResponse.getMsg(), httpResponse.getTraceId());
     }
 
     private String sign(Map<String, String> commonParams, Map<String, String> params, OpenSignType signType) {
@@ -286,9 +308,9 @@ public class OpenClient {
         }
     }
 
-    public String buildUrlAndPubParameters(String path, Map<String, String> params) {
+    public String buildUrlAndPubParameters(boolean auth, String path, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.baseUrl);
+        stringBuilder.append(auth ? this.authUrl : apiUrl);
         stringBuilder.append(path);
         if (!params.isEmpty()) {
             stringBuilder.append("?");
@@ -331,7 +353,7 @@ public class OpenClient {
 
     public String buildUrl(String path, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(this.baseUrl);
+        stringBuilder.append(this.apiUrl);
         stringBuilder.append(path);
         if (!params.isEmpty()) {
             stringBuilder.append("?");

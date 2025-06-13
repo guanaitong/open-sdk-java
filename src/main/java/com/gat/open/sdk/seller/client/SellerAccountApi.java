@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -18,35 +18,19 @@ import java.util.Objects;
  * @author shuai.zhao@guaniatong.com
  */
 public class SellerAccountApi {
-    private final SellerTestOpenClient sellerTestOpenClient;
     private final OpenClient openClient;
 
-    public SellerAccountApi(SellerTestOpenClient sellerTestOpenClient) {
-        this.sellerTestOpenClient = sellerTestOpenClient;
-        openClient = null;
-    }
 
     public SellerAccountApi(OpenClient openClient) {
-        this.openClient = openClient;
-        sellerTestOpenClient = null;
+        this.openClient = Objects.requireNonNull(openClient);
     }
 
     public Pagination2<IncomeTransactionResponse> incomeTransactions(IncomeTransactionRequest incomeTransactionRequest) {
-        String path = "/seller/v3/account/incomeTransactions";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, incomeTransactionRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, incomeTransactionRequest);
+        return openClient.postJsonWithAuth("/seller/v3/account/incomeTransactions", incomeTransactionRequest);
     }
 
     public Pagination2<ExpenseTransactionResponse> expenseTransactions(ExpenseTransactionRequest expenseTransactionRequest) {
-        String path = "/seller/v3/account/expenseTransactions";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, expenseTransactionRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, expenseTransactionRequest);
+        return openClient.postJsonWithAuth("/seller/v3/account/expenseTransactions", expenseTransactionRequest);
     }
 
 }
