@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -7,7 +7,6 @@ package com.gat.open.sdk.client;
 
 import com.gat.open.sdk.exception.OpenSdkException;
 import com.gat.open.sdk.model.enums.OpenSignType;
-import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.request.BindNotifyRequest;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
 import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
@@ -37,7 +36,7 @@ import static com.gat.open.sdk.util.Constants.ACCESS_KEY;
 
 public class SellerLoginApiTest {
 //        private SellerOpenClient openClient = new SellerOpenClient("http://127.0.0.1:19090", "http://127.0.0.1:18888", "", "");
-    private SellerTestOpenClient sellerTestOpenClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
+    private OpenClient sellerTestOpenClient = new OpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
 //    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "", "");
 
 

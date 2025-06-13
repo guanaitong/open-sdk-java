@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -33,142 +33,68 @@ import com.gat.open.sdk.seller.model.response.RefundV3Response;
 import java.util.Objects;
 
 public class SellerPayApi {
-    private final SellerTestOpenClient sellerTestOpenClient;
     private final OpenClient openClient;
 
-    public SellerPayApi(SellerTestOpenClient sellerTestOpenClient) {
-        this.sellerTestOpenClient = sellerTestOpenClient;
-        openClient = null;
-    }
 
     public SellerPayApi(OpenClient openClient) {
-        this.openClient = openClient;
-        sellerTestOpenClient = null;
+        this.openClient = Objects.requireNonNull(openClient);
     }
 
     @Deprecated
     public String syncRefundV3(SellerRefundV3Request sellerRefundV3Request) {
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth("/seller/v3/pay/syncRefund", sellerRefundV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth("/seller/v3/pay/syncRefund", sellerRefundV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/syncRefund", sellerRefundV3Request);
     }
 
     @Deprecated
     public ExcashierV3Response excashierV3(ExcashierV3Request excashierV3Request) {
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth("/seller/v3/pay/excashier", excashierV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth("/seller/v3/pay/excashier", excashierV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/excashier", excashierV3Request);
     }
 
     public GetCashierUrlV3Response getCashierUrlV3(GetCashierUrlV3Request getCashierUrlV3Request) {
-        String path = "/seller/v3/pay/getCashierUrl";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, getCashierUrlV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getCashierUrlV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/getCashierUrl", getCashierUrlV3Request);
     }
 
     public RefundV3Response refundV3(RefundV3Request refundV3Request) {
-        String path = "/seller/v3/pay/refund";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, refundV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, refundV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/refund", refundV3Request);
     }
 
     public DebitPayV3Response debitPayV3(DebitPayV3Request debitPayV3Request) {
-        String path = "/seller/v3/pay/debitPay";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, debitPayV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, debitPayV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/debitPay", debitPayV3Request);
     }
 
     public CompleteOrderV3Response completeOrderV3(CompleteOrderV3Request completeOrderV3Request) {
-        String path = "/seller/v3/pay/complete";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, completeOrderV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, completeOrderV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/complete", completeOrderV3Request);
     }
 
     public CompleteSubOrderV3Response subComplete(CompleteSubOrderV3Request completeSubOrderV3Request) {
-        String path = "/seller/v3/pay/subComplete";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, completeSubOrderV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, completeSubOrderV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/subComplete", completeSubOrderV3Request);
     }
 
     public GetPayResultV3Response getPayResultV3(GetPayResultV3Request getPayResultV3Request) {
-        String path = "/seller/v3/pay/getResult";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, getPayResultV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getPayResultV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/getResult", getPayResultV3Request);
     }
 
     public GetRefundResultV3Response getRefundResultV3(GetRefundResultV3Request getRefundResultV3Request) {
-        String path = "/seller/v3/pay/getRefundResult";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, getRefundResultV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, getRefundResultV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/getRefundResult", getRefundResultV3Request);
     }
 
     public String quickPay(QuickPayRequest quickPayRequest) {
-        String path = "/seller/quickPay";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postFormWithAuth(path, quickPayRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, quickPayRequest);
+        return openClient.postFormWithAuth("/seller/quickPay", quickPayRequest);
     }
 
     public DebitPayV3Response debitPayBindAssets(DebitPayV3BindAssetsReq debitPayV3Request) {
-        String path = "/seller/v3/pay/debitPayBindAssets";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, debitPayV3Request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, debitPayV3Request);
+        return openClient.postJsonWithAuth("/seller/v3/pay/debitPayBindAssets", debitPayV3Request);
     }
 
     public DebitPayV3Response policyDebitPayAvailableAssetsReq(PolicyDebitPayAvailableAssetsReq policyDebitPayAvailableAssetsReq) {
-        String path = "/seller/v3/pay/policy/debitPayAvailableAssets";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, policyDebitPayAvailableAssetsReq);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, policyDebitPayAvailableAssetsReq);
+        return openClient.postJsonWithAuth("/seller/v3/pay/policy/debitPayAvailableAssets", policyDebitPayAvailableAssetsReq);
     }
 
     public CancelOrderV3Res cancel(CancelOrderV3Request request) {
-        String path = "/seller/v3/order/cancel";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, request);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, request);
+        return openClient.postJsonWithAuth("/seller/v3/order/cancel", request);
     }
 
     public DebitPayV3Response debitPayByAsset(DebitPayV3ByAssetsReq debitPayV3ByAssetsReq) {
-        String path = "/seller/v3/pay/debitPayByAsset";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postJsonWithAuth(path, debitPayV3ByAssetsReq);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, debitPayV3ByAssetsReq);
+        return openClient.postJsonWithAuth("/seller/v3/pay/debitPayByAsset", debitPayV3ByAssetsReq);
     }
 }

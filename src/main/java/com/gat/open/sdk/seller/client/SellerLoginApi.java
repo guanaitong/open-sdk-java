@@ -1,88 +1,53 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.seller.client;
 
 import com.gat.open.sdk.client.OpenClient;
+import com.gat.open.sdk.seller.model.request.BindNotifyRequest;
 import com.gat.open.sdk.seller.model.request.PersonAssetsRequest;
 import com.gat.open.sdk.seller.model.request.PersonAvailableBalanceRequest;
 import com.gat.open.sdk.seller.model.request.PersonDetailRequest;
 import com.gat.open.sdk.seller.model.request.SellerLoginAuthRequest;
+import com.gat.open.sdk.seller.model.response.BindNotifyRes;
 import com.gat.open.sdk.seller.model.response.PersonAssetsResponse;
 import com.gat.open.sdk.seller.model.response.PersonAvailableBalanceResp;
 import com.gat.open.sdk.seller.model.response.PersonDetailResponse;
 import com.gat.open.sdk.seller.model.response.SellerLoginAuthResponse;
-import com.gat.open.sdk.seller.model.request.BindNotifyRequest;
-import com.gat.open.sdk.seller.model.response.BindNotifyRes;
-
 
 import java.util.Objects;
 
 public class SellerLoginApi {
-    private final SellerTestOpenClient sellerTestOpenClient;
     private final OpenClient openClient;
 
-    public SellerLoginApi(SellerTestOpenClient sellerTestOpenClient) {
-        this.sellerTestOpenClient = sellerTestOpenClient;
-        openClient = null;
-    }
 
     public SellerLoginApi(OpenClient openClient) {
-        this.openClient = openClient;
-        sellerTestOpenClient = null;
+        this.openClient = Objects.requireNonNull(openClient);
     }
 
     public SellerLoginAuthResponse getByAuthCode(SellerLoginAuthRequest sellerLoginAuthRequest) {
-        String path = "/seller/v3/person/getByAuthCode";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postFormWithAuth(path, sellerLoginAuthRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, sellerLoginAuthRequest);
+        return openClient.postFormWithAuth("/seller/v3/person/getByAuthCode", sellerLoginAuthRequest);
     }
 
     public PersonDetailResponse getDetailByOpenId(PersonDetailRequest personDetailRequest) {
-        String path = "/seller/v3/person/getDetailByOpenId";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postFormWithAuth(path, personDetailRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personDetailRequest);
+        return openClient.postFormWithAuth("/seller/v3/person/getDetailByOpenId", personDetailRequest);
     }
 
     public PersonAssetsResponse getPersonAssets(PersonAssetsRequest personAssetsRequest) {
-        String path = "/seller/v3/person/assets";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postFormWithAuth(path, personAssetsRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personAssetsRequest);
+        return openClient.postFormWithAuth("/seller/v3/person/assets", personAssetsRequest);
     }
 
     public PersonAvailableBalanceResp getAvailableBalance(PersonAvailableBalanceRequest personAvailableBalanceRequest) {
-        String path = "/seller/v3/person/getAvailableBalance";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return sellerTestOpenClient.postFormWithAuth(path, personAvailableBalanceRequest);
-        }
-
-        return Objects.isNull(openClient) ? null : openClient.postFormWithAuth(path, personAvailableBalanceRequest);
+        return openClient.postFormWithAuth("/seller/v3/person/getAvailableBalance", personAvailableBalanceRequest);
     }
 
     public BindNotifyRes bindNotify(BindNotifyRequest bindNotifyRequest) {
-        String path = "/seller/v3/person/bindNotify";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return  sellerTestOpenClient.postJsonWithAuth(path, bindNotifyRequest);
-        }
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, bindNotifyRequest);
+        return openClient.postJsonWithAuth("/seller/v3/person/bindNotify", bindNotifyRequest);
     }
 
     public BindNotifyRes unBindNotify(BindNotifyRequest bindNotifyRequest) {
-        String path = "/seller/v3/person/unBindNotify";
-        if (Objects.nonNull(sellerTestOpenClient)) {
-            return  sellerTestOpenClient.postJsonWithAuth(path, bindNotifyRequest);
-        }
-        return Objects.isNull(openClient) ? null : openClient.postJsonWithAuth(path, bindNotifyRequest);
+        return openClient.postJsonWithAuth("/seller/v3/person/unBindNotify", bindNotifyRequest);
     }
 }

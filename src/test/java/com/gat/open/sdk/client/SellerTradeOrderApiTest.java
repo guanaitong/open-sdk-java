@@ -1,11 +1,10 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
 package com.gat.open.sdk.client;
 
-import com.gat.open.sdk.seller.client.SellerTestOpenClient;
 import com.gat.open.sdk.seller.model.request.PhysicalGoodsPayOrdersV3Request;
 import com.gat.open.sdk.seller.model.response.CancelPhysicalGoodsOrderRes;
 import com.gat.open.sdk.seller.model.response.MovieTicketOrderV3Response;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerTradeOrderApiTest {
-    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
+    private OpenClient openClient = new OpenClient("https://openapi.guanaitong.tech", "http://127.0.0.1:18888", "", "");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "", "");
 //    private SellerTestOpenClient openClient = new SellerTestOpenClient("https://openapi.guanaitong.tech", "https://openapi.guanaitong.tech", "", "");
 

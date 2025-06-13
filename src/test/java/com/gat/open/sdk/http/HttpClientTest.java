@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2023, CIIC Guanaitong, Co., Ltd.
+ * Copyright 2007-2025, CIIC Guanaitong, Co., Ltd.
  * All rights reserved.
  */
 
@@ -20,7 +20,7 @@ public class HttpClientTest {
 
     @Test
     public void doGet() throws IOException {
-        HttpClient httpClient = new HttpClient();
+        JdkConnectionHttpClient httpClient = new JdkConnectionHttpClient();
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("GET");
         httpRequest.setUrl("https://httpbin.org/get?h1=1&h2=2");
@@ -35,7 +35,7 @@ public class HttpClientTest {
 
     @Test
     public void doPostForm() throws IOException {
-        HttpClient httpClient = new HttpClient();
+        JdkConnectionHttpClient httpClient = new JdkConnectionHttpClient();
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
         httpRequest.setUrl("https://httpbin.org/post?h1=1&h2=2");
@@ -54,7 +54,7 @@ public class HttpClientTest {
 
     @Test
     public void doPostJson() throws IOException {
-        HttpClient httpClient = new HttpClient();
+        JdkConnectionHttpClient httpClient = new JdkConnectionHttpClient();
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setMethod("POST");
         httpRequest.setUrl("https://httpbin.org/post?h1=1&h2=2");
