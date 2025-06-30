@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 
 public class NotifyEmployeeBalance extends NotifyBase {
 
+    @JsonProperty("account_openid")
+    String accountOpenid;
     @JsonProperty("product_category")
     Integer productCategory;
     @JsonProperty("product_name")
@@ -19,7 +21,7 @@ public class NotifyEmployeeBalance extends NotifyBase {
     @JsonProperty("userid")
     String userid;
     @JsonProperty("type")
-    //1消费，2退款
+    //1.消费,2.退款,6.发放,7.回收
     Integer type;
     @JsonProperty("enterprise_code")
     String enterpriseCode;
@@ -31,6 +33,14 @@ public class NotifyEmployeeBalance extends NotifyBase {
     BigDecimal amount;
     @JsonProperty("balance")
     BigDecimal balance;
+
+    public String getAccountOpenid() {
+        return accountOpenid;
+    }
+
+    public void setAccountOpenid(String accountOpenid) {
+        this.accountOpenid = accountOpenid;
+    }
 
     public Integer getProductCategory() {
         return productCategory;

@@ -310,7 +310,7 @@ public class OpenClient {
 
     public String buildUrlAndPubParameters(boolean auth, String path, Map<String, String> params) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(auth ? this.authUrl : apiUrl);
+        stringBuilder.append(auth ? apiUrl : this.authUrl);
         stringBuilder.append(path);
         if (!params.isEmpty()) {
             stringBuilder.append("?");
