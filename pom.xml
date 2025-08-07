@@ -182,6 +182,11 @@
                         </configuration>
                     </plugin>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>3.1.1</version>
+                    </plugin>
+                    <!--<plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>1.6.7</version>
@@ -191,10 +196,10 @@
                             <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
-                    </plugin>
+                    </plugin>-->
                 </plugins>
             </build>
-            <distributionManagement>
+            <!--<distributionManagement>
                 <snapshotRepository>
                     <id>ossrh</id>
                     <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
@@ -203,6 +208,13 @@
                     <id>github</id>
                     <name>GitHub OWNER Apache Maven Packages</name>
                     <url>https://maven.pkg.github.com/guanaitong/REPOSITORY</url>
+                </repository>
+            </distributionManagement>-->
+
+            <distributionManagement>
+                <repository>
+                    <id>central</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
             </distributionManagement>
 

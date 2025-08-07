@@ -19,10 +19,12 @@ jobs:
         with:
           java-version: 8
           distribution: 'temurin'
-          server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
+          #server-id: ossrh # Value of the distributionManagement/repository/id field of the pom.xml
+          server-id: central
           #        settings-path: ${{ github.workspace }} # location for the settings.xml file
           # Nexus用户名环境变量
-          server-username: MAVEN_USERNAME
+#          server-username: MAVEN_USERNAME
+          server-username: MAVEN_CENTRAL_TOKEN
           # Nexus密码环境变量
           server-password: MAVEN_CENTRAL_TOKEN
           # gpg短密码环境变量
@@ -31,11 +33,14 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           cache: 'maven'
       - name: Build And Publish to Maven central
+        #run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
+#        run: mvn deploy -DskipTests -DrepositoryToken=${{ env.MAVEN_CENTRAL_TOKEN }}
         run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
         env:
-          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
+#          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+#          MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
 #    - name: Publish to GitHub Packages Apache Maven
 #      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
 #      env:
