@@ -12,6 +12,6 @@ import com.gat.open.sdk.model.enums.OpenSignType;
  */
 public class Clients {
     //    public static OpenClient openClient = new OpenClient(Constants.BASE_URL_TEST, "", "");
-//    public static OpenClient openClient = new OpenClient("http://localhost", "25004479", "***", OpenSignType.SHA256);
+    public static OpenClient openClient = new OpenClient("http://localhost", "25004479", "***", OpenSignType.SHA256);
 
 }
