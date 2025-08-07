@@ -20,6 +20,8 @@ import com.gat.open.sdk.model.employee.EmployeeAddRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
+import com.gat.open.sdk.model.employee.EmployeeGet2Resp;
+import com.gat.open.sdk.model.employee.EmployeeGetListRequest;
 import com.gat.open.sdk.model.employee.EmployeeInfo;
 import com.gat.open.sdk.util.JSON;
 import org.junit.Test;
@@ -100,6 +102,17 @@ public class EmployeeApiTest {
         employeeList.add(employeeInfo4);
         String synchronize = openClient.employeeApi().batchSynchronize(employeeBatchSyncRequest);
         System.out.println(synchronize);
+    }
+
+    @Test
+    public void getListByFieldTest() {
+        EmployeeGetListRequest employeeGetListRequest = new EmployeeGetListRequest();
+//        employeeGetListRequest.setFieldContent("13888888888");
+//        employeeGetListRequest.setFieldType(1);
+        employeeGetListRequest.setFieldContent("LINER");
+        employeeGetListRequest.setFieldType(2);
+        List<EmployeeGet2Resp> employeeGet2RespList = openClient.employeeApi().getListByField(employeeGetListRequest);
+        System.out.println(JSON.toJSONString(employeeGet2RespList));
     }
 
     @Test

@@ -14,24 +14,24 @@ import java.util.List;
  */
 public class EmployeeGetResp {
     @JsonProperty("userid")
-    private String userId;
-    private String corpCode;
-    private String name;
-    private int gender;
-    private int cardType;
-    private String cardNo;
-    private String email;
-    private String mobile;
-    private String deptCode;
-    private String deptName;
-    private String level;
-    private List<String> category;
-    private String remark;
-    private Integer sendInvite;
-    private String birthDay;
-    private String entryDay;
-    private String timeCreated;
-    private String timeActive;
+    String userId;
+    String corpCode;
+    String name;
+    int gender;
+    int cardType;
+    String cardNo;
+    String email;
+    String mobile;
+    String deptCode;
+    String deptName;
+    String level;
+    List<String> category;
+    String remark;
+    Integer sendInvite;
+    String birthDay;
+    String entryDay;
+    String timeCreated;
+    String timeActive;
 
     public String getUserId() {
         return userId;
