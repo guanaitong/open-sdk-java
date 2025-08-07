@@ -23,7 +23,7 @@ public class Constants {
     //token.create 接口不存在此参数
     public static String ACCESS_KEY = "access_token";
 
-    public static String VERSION = "2025.06.30";
+    public static String VERSION = "2025.08.07";
 
     public static String USER_AGENT = "GatOpenSdk/" + VERSION + " " + System.getProperty("java.version");
 }
