@@ -12,8 +12,10 @@ import com.gat.open.sdk.model.employee.EmployeeAttributeGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeBatchGetResp;
 import com.gat.open.sdk.model.employee.EmployeeBatchSyncRequest;
+import com.gat.open.sdk.model.employee.EmployeeGet2Resp;
 import com.gat.open.sdk.model.employee.EmployeeGetByDepartmentCodeRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetCountByDepartmentCodeRequest;
+import com.gat.open.sdk.model.employee.EmployeeGetListRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetRequest;
 import com.gat.open.sdk.model.employee.EmployeeGetResp;
 import com.gat.open.sdk.model.employee.EmployeeResignRequest;
@@ -49,6 +51,10 @@ public class EmployeeApi {
 
     public EmployeeGetResp get(EmployeeGetRequest employeeGetRequest) {
         return this.openClient.postFormWithAuth("/employee/get", employeeGetRequest);
+    }
+
+    public List<EmployeeGet2Resp> getListByField(EmployeeGetListRequest employeeGetListRequest) {
+        return this.openClient.postFormWithAuth("/employee/getListByField", employeeGetListRequest);
     }
 
     public String batchSynchronize(EmployeeBatchSyncRequest employeeBatchSyncRequest) {
