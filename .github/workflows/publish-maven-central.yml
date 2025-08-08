@@ -23,8 +23,8 @@ jobs:
           server-id: central
           # settings-path: ${{ github.workspace }} # location for the settings.xml file
           # Nexus用户名环境变量
-#          server-username: MAVEN_USERNAME
-          server-username: ${{ secrets.NEXUS_USERNAME }}
+          server-username: MAVEN_USERNAME
+#          server-username: ${{ secrets.NEXUS_USERNAME }}
           # Nexus密码环境变量
           server-password: ${{ secrets.NEXUS_PASSWORD }}
           # gpg短密码环境变量
@@ -37,10 +37,10 @@ jobs:
         run: mvn -X -e deploy -DskipTests -PsonatypeDeploy
 #        run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
         env:
-#          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-#          MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-#          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+#          MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
 #    - name: Publish to GitHub Packages Apache Maven
 #      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
 #      env:
