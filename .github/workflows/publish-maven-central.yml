@@ -28,9 +28,9 @@ jobs:
           # Nexus密码环境变量
           server-password: MAVEN_CENTRAL_TOKEN
           # gpg短密码环境变量
-          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+#          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
           # gpg私钥
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+#          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           cache: 'maven'
       - name: Build And Publish to Maven central
         #run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
