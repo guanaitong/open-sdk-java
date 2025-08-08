@@ -24,9 +24,9 @@ jobs:
           # settings-path: ${{ github.workspace }} # location for the settings.xml file
           # Nexus用户名环境变量
 #          server-username: MAVEN_USERNAME
-          server-username: MAVEN_CENTRAL_TOKEN
+          server-username: ${{ secrets.NEXUS_USERNAME }}
           # Nexus密码环境变量
-          server-password: MAVEN_CENTRAL_TOKEN
+          server-password: ${{ secrets.NEXUS_PASSWORD }}
           # gpg短密码环境变量
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           # gpg私钥
@@ -40,7 +40,7 @@ jobs:
 #          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
 #          MAVEN_CENTRAL_TOKEN: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+#          MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
 #    - name: Publish to GitHub Packages Apache Maven
 #      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
 #      env:
