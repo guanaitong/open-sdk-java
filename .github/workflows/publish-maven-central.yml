@@ -26,7 +26,7 @@ jobs:
           server-username: MAVEN_USERNAME
 #          server-username: ${{ secrets.NEXUS_USERNAME }}
           # Nexus密码环境变量
-          server-password: ${{ secrets.NEXUS_PASSWORD }}
+          server-password: MAVEN_CENTRAL_TOKEN
           # gpg短密码环境变量
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           # gpg私钥
@@ -34,7 +34,7 @@ jobs:
           cache: 'maven'
       - name: Build And Publish to Maven central
         #run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
-        run: mvn -X -e deploy -DskipTests -PsonatypeDeploy
+        run: mvn -X deploy -DskipTests -PsonatypeDeploy
 #        run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
