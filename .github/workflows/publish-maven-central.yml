@@ -34,7 +34,7 @@ jobs:
           cache: 'maven'
       - name: Build And Publish to Maven central
         #run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
-        run: mvn -X deploy -DskipTests -PsonatypeDeploy
+        run: mvn -X deploy -DskipTests -Dgpg.skip -PsonatypeDeploy
 #        run: mvn deploy -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Ds -DstagingProgressTimeoutMinutes=20 -Pgithub --no-transfer-progress
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
