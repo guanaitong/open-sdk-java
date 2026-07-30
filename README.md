@@ -11,7 +11,7 @@
 <dependency>
     <groupId>com.ciicgat.open</groupId>
     <artifactId>open-sdk-java</artifactId>
-    <version>2025.10.20</version>
+    <version>2026.07.30</version>
 </dependency>
 ```
 
