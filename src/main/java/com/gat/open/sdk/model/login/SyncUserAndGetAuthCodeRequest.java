@@ -47,6 +47,12 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
      */
     private String remark;
 
+    /**
+     * 扩展属性数组（需管理员提前开通扩展字段）
+     * 示例：[{"attributeCode":"customInformationOne","attributeValue":"工龄值"},{"attributeCode":"customInformationTwo","attributeValue":"基准岗位值"},{"attributeCode":"customInformationThree","attributeValue":"部门值"},{"attributeCode":"customInformationFour","attributeValue":"司龄值"}]
+     */
+    private String employeeAttribute;
+
     @Override
     public String getEnterpriseCode() {
         return enterpriseCode;
@@ -112,5 +118,13 @@ public class SyncUserAndGetAuthCodeRequest extends FormRequest<String> implement
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getEmployeeAttribute() {
+        return employeeAttribute;
+    }
+
+    public void setEmployeeAttribute(String employeeAttribute) {
+        this.employeeAttribute = employeeAttribute;
     }
 }
